@@ -75,7 +75,7 @@
 </head>
 <body>
 <div class="page-group" style="background:#d70c18;">
-    <div class="page page-current" style="background:#d70c18;">
+    <div class="page page-current" style="background:<?=$color_index["color_content"]?>;">
         <header class="bar bar-nav">
             <img class="ticket-logo" src="../<?=$company_row["company_logo"]?>">
             <h1 class="title"><?=$company_row["company_name"]?></h1>
@@ -87,7 +87,7 @@
             <div class="main-wap" <?=$image_banner_row?"":"style='margin-top:0px;'"?>>
                 <!-- 活动亮点开始 -->
                 <div class="activity">
-                    <div class="tit">活动亮点</div>
+                    <div class="tit" style="color:<?=$color_font["color_content"]?>;">活动亮点</div>
                     <ul class="activity-list clearfix">
                         <?php
                         $light_rows=$db->query_lists("select light_title,light_image,light_content from light order by light_sort asc,light_id asc");
@@ -117,7 +117,7 @@
 
                 <!-- 合作品牌 -->
                 <div class="cooperate" style="margin-top:1.17rem;">
-                    <div class="tit">
+                    <div class="tit"  style="color:<?=$color_font["color_content"]?>;">
                         产品展示
                     </div>
                     <div class="nav">
@@ -147,14 +147,15 @@
                             <ul class="nav-con-in clearfix" <?=$k==0?"style='display:block;'":""?>>
                                 <?php
                                 $product_level=$menu_row["menu_id"];
-                                $product_rows=$db->query_lists("select * from product where product_level=$product_level and product_show=1 order by product_sort desc,product_id asc limit 0,6");
+                                $product_rows=$db->query_lists("select * from product where product_level=$product_level and product_show=1 order by product_sort desc,product_id desc limit 0,6");
                                 foreach ($product_rows as $k=>$product_row)
                                 {
                                     ?>
                                     <li <?=$k%2==0?"":"style='float:right;'"?>>
                                         <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".rule">
                                             <div class="repair-product-logo">
-                                                <img src="../<?=$product_row["product_logo"]?>" class="repair-product-logo-d">
+                                                <div style="width:100%;font-size: 0.2rem;font-weight: bold;text-align: center;hegiht:20px;line-height: 20px;vertical-align; margin-top:30%;color:#000;"><?=$product_row["product_logo_title"]?></div>
+<!--                                                <img src="../--><?//=$product_row["product_logo"]?><!--" class="repair-product-logo-d">-->
                                             </div>
                                             <div class="repair-product-image">
                                                 <img src="../<?=$product_row["product_image"]?>" class="repair-product-image-d">
@@ -232,11 +233,7 @@
                                     <?php
                                 }
                                 ?>
-                                <a href="product-<?=$product_level?>.html" style="background: none;color:#fff;">
-                                    <li class="more more-2" style="width:100%;height:30px;background: none;line-height: 30px;background: #B22222;">
-                                        查看更多&gt;&gt;
-                                    </li>
-                                </a>
+
                             </ul>
                             <?php
                         }
@@ -251,7 +248,7 @@
 
                 <!-- 分会场 -->
                 <div class="hot-pic repair-hot-pic">
-                    <div class="tit">
+                    <div class="tit" style="color:<?=$color_font["color_content"]?>;">
                         分会场
                     </div>
                     <div class="hot-pic-in">
@@ -264,7 +261,7 @@
                                     $branch_id=$branch_row["menu_id"]
                                     ?>
                                     <li <?=$k%2==0?"style='margin-left:0;'":""?>>
-                                        <a href="product-<?=$branch_id?>.html">
+                                        <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".rule">
                                             <img src="../<?=$branch_row["menu_wap_image"]?>">
                                         </a>
                                     </li>
@@ -290,7 +287,7 @@
 
                 <!-- 现场热图 -->
                 <div class="hot-pic repair-hot-pic">
-                    <div class="tit">
+                    <div class="tit" style="color:<?=$color_font["color_content"]?>;">
                         现场热图
                     </div>
                     <div class="hot-pic-in">
@@ -314,7 +311,7 @@
                 <!-- 现场热图 -->
                 <!-- 交通路线 -->
                 <div class="route repair-route" >
-                    <div class="tit">
+                    <div class="tit" style="color:<?=$color_font["color_content"]?>;">
                         交通路线
                     </div>
                     <div class="content-padded">

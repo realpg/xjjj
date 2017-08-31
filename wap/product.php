@@ -29,8 +29,8 @@
 <!--    <script type="text/javascript" src="./js/base.js"></script>-->
 </head>
 <body scroll="no">
-<div class="page-group" style="background:#d70c18;">
-    <div class="page page-current repair-page">
+<div class="page-group" style="background:#d70c18">
+    <div class="page page-current repair-page" style="background: <?=$color_product["color_content"]?>">
         <header class="bar bar-nav">
             <script>
                 function backindex(){
@@ -48,7 +48,7 @@
             <!-- Banner -->
             <?php require_once 'include/banner.php'; ?>
             <div class="main-wap" <?=$image_banner_row?"'":"style='margin-top:10px;'"?>>
-                <div class="tit">
+                <div class="tit" style="color:<?=$color_font["color_content"]?>;">
                     产品展示
                 </div>
                 <!-- 产品展示 -->
@@ -153,7 +153,7 @@
             <?php require_once 'include/service.php'; ?>
             <!-- 分会场 -->
             <div class="hot-pic repair-hot-pic">
-                <div class="tit">
+                <div class="tit" style="color:<?=$color_font["color_content"]?>;">
                     分会场
                 </div>
                 <div class="more-act" style="margin-top：1.17rem">

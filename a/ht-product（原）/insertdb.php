@@ -6,7 +6,6 @@ require_once ("include-image.php");
     if(!empty($_REQUEST['btnAdd']))
     {
         $product_title=$_REQUEST['product_title'];
-        $product_logo_title=$_REQUEST['product_logo_title'];
         $product_price=$_REQUEST['product_price'];
         $product_sell=$_REQUEST['product_sell'];
         $product_content=$_REQUEST['product_content'];
@@ -27,7 +26,33 @@ require_once ("include-image.php");
         }
         else
         {
-
+            $img_product_logo=$files->upload_image("product_logo", $upload, "", $logo_width, $logo_height);
+            if($img_product_logo=="Out of size")
+            {
+                echo IMAGE_SIZE;
+                return ;
+            }
+            else if($img_product_logo=="error in type")
+            {
+                echo IMAGE_FORMAT;
+                return ;
+            }
+            else
+            {
+                $product_logo=$img_product_logo;
+            }
+            if(empty($product_logo))
+            {
+                ///////////
+                $Log_name=$_COOKIE['login'];
+                $Log_event=WORD_ADD.WORD_PRODUCT.IMPLEMENT_FAIL;
+                $db->edit_list("insert into log (Log_name,Log_event)"
+                    . "values('$Log_name','$Log_event')");
+                ////////////
+                echo ADD_FAIL_IMAGE;
+            }
+            else
+            {
                 $img_product=$files->upload_image("product_image", $upload, "", $image_width, $image_height);
                 if($img_product=="Out of size")
                 {
@@ -56,9 +81,9 @@ require_once ("include-image.php");
                 else
                 {
                     $sql="insert into product"
-                        . "(product_title,product_image,product_logo_title,product_price,product_content,product_sort,product_show,"
+                        . "(product_title,product_image,product_logo,product_price,product_content,product_sort,product_show,"
                         . "product_end,product_sell,product_level) "
-                        . "value ('$product_title','$product_image','$product_logo_title','$product_price','$product_content','$product_sort',"
+                        . "value ('$product_title','$product_image','$product_logo','$product_price','$product_content','$product_sort',"
                         . "'$product_show','$product_end','$product_sell','$product_level')" ;
                     $rows=$db->edit_list($sql);
                     // 返回影响行数  如果影响行数>=1,则判断添加成功,否则失败
@@ -84,5 +109,6 @@ require_once ("include-image.php");
                             . "location.href=\"select.php?level=$product_level\";</script>";
                     }
                 }
+            }
         }
     }

@@ -28,13 +28,14 @@
 </head>
 
 <body>
+<?php $color_index=$db->query_list_id("select color_content from color where color_id=1"); ?>
 <div class="container" style="background: <?=$color_index["color_content"]?>">
     <?php require_once 'include/banner.php'; ?>
     <div class="t_main">
         <div class="t_con">
             <!-- 活动亮点开始 -->
             <div class="activity" id="J_Eact1">
-                <div class="t_hd" style="color:<?=$color_font["color_content"]?>">活动亮点</div>
+                <div class="t_hd"  style="color:<?=$color_font["color_content"]?>">活动亮点</div>
             </div>
             <ul class="act_li clearfix">
                 <?php
@@ -65,7 +66,7 @@
                 $product_menu_id=$product_menu_row["menu_id"];
                 ?>
                 <div class="work_hx" id="J_Eact2">
-                    <div class="t_hd" style="color:<?=$color_font["color_content"]?>"><?=$product_menu_row["menu_title"]?></div>
+                    <div class="t_hd"  style="color:<?=$color_font["color_content"]?>"><?=$product_menu_row["menu_title"]?></div>
                     <ul class="repair-product-pic-li clearfix">
                         <?php
                         $product_rows=$db->query_lists("select * from product where product_level=$product_menu_id and product_show=1 order by product_sort desc,product_id desc limit 0,6");
@@ -76,8 +77,7 @@
                                 <a href="javascript:void(0);"  id="ClickMe" onclick="showpopup()">
                                     <div class="repair-product-div">
                                         <div class="repair-product-logo">
-                                            <div style="width:100%;font-size: 18px;font-weight: bold;text-align: center;hegiht:20px;line-height: 20px;vertical-align; margin-top:30%;"><?=$product_row["product_logo_title"]?></div>
-<!--                                            <img src="--><?//=$product_row["product_logo"]?><!--" class="repair-product-logo-d">-->
+                                            <img src="<?=$product_row["product_logo"]?>" class="repair-product-logo-d">
                                         </div>
                                         <div class="repair-product-image">
                                             <img src="<?=$product_row["product_image"]?>" class="repair-product-image-d">
@@ -160,11 +160,11 @@
                         }
                         ?>
                     </ul>
-<!--                    <a href="product---><?//=$product_menu_row["menu_id"]?><!--.html">-->
-<!--                        <div style="width:100%;height:40px; line-height: 40px; text-align: center;color: #fff;margin-top: 20px;background:	#B22222;">-->
-<!--                            查看更多-->
-<!--                        </div>-->
-<!--                    </a>-->
+                    <a href="product-<?=$product_menu_row["menu_id"]?>.html">
+                        <div style="width:100%;height:40px; line-height: 40px; text-align: center;color:<?=$color_font["color_content"]?>;margin-top: 20px;background:<?=$color_more["color_content"]?>;">
+                            查看更多
+                        </div>
+                    </a>
                 </div>
                 <?php
             }
@@ -182,7 +182,7 @@
             <!--地图-->
 
             <div >
-                <div class="t_hd" style="color:<?=$color_font["color_content"]?>">交通路线</div>
+                <div class="t_hd"  style="color:<?=$color_font["color_content"]?>">交通路线</div>
                 <div>
                     <div style="margin-top:20px;">
                         <iframe border="0" frameborder="0" framespacing="0" height="415" hspace="0" id="mapbarframe" marginheight="0" marginwidth="0" scrolling="no" src="http://searchbox.mapbar.com/publish/template/template1010/index.jsp?CID=shizengying_0126&amp;tid=tid1010&amp;showSearchDiv=1&amp;cityName=%E6%B2%88%E9%98%B3%E5%B8%82&amp;nid=MAPBQNQBZPCBXITAXWHWX&amp;width=1200&amp;height=415&amp;infopoi=2&amp;zoom=10&amp;control=1" vspace="0" width="1200"></iframe>

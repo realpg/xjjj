@@ -4,7 +4,7 @@ if($image_service_row)
 {
     ?>
     <div class="service repair-service">
-        <div class="tit">
+        <div class="tit" style="color:<?=$color_font["color_content"]?>;">
             服务保障
         </div>
         <div class="service-in">

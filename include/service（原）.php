@@ -5,7 +5,7 @@ if($process_row)
 {
     ?>
     <div class="directory" id="J_Eact3">
-        <div class="t_hd" style="color:<?=$color_font["color_content"]?>">现场攻略</div>
+        <div class="t_hd"  style="color:<?=$color_font["color_content"]?>">现场攻略</div>
         <div class="dir_img clearfix">
             <img src="<?=$process_row["image_image"]?>" />
         </div>
@@ -40,7 +40,7 @@ if($service_row)
         {
             ?>
             <li>
-                <a href="javascript:void(0);"  id="ClickMe" onclick="showpopup()">
+                <a href="product-<?=$branch_row["menu_id"]?>.html">
                     <img data-original="<?=$branch_row["menu_image"]?>" src="<?=$branch_row["menu_image"]?>" title="<?=$branch_row["menu_title"]?>">
                 </a>
             </li>

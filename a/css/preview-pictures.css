@@ -50,14 +50,14 @@ li img
 #preview_image_1,#preview_image_1 img
 {
     width:384px;
-    height:180px;
+    height:117px;
 }
 #preview_image_1
 {
     border:1px solid #000;
     float: left;
     text-align: center;
-    line-height: 180px;
+    line-height: 117px;
     margin-bottom: 10px;
 }
 #preview_image_2,#preview_image_2 img
@@ -101,15 +101,15 @@ li img
 }
 #preview_image_5,#preview_image_5 img
 {
-    width:160px;
-    height:138px;
+    width:128px;
+    height:110px;
 }
 #preview_image_5
 {
     border:1px solid #000;
     float: left;
     text-align: center;
-    line-height: 138px;
+    line-height: 110px;
     margin-bottom: 10px;
 }
 #preview_image_6,#preview_image_6 img

@@ -48,12 +48,8 @@ editor.render("product_content");
                 <i>*必须填写</i>
             </li>
             <li>
-                <label>品牌LOGO：</label>
-                <input type="file" name="product_logo" id="product_logo" onchange="preview(this,'preview_product_logo')"  />
-                <i>*<?=$logo_width ?>*<?=$logo_height ?></i><br />
-                <img src="../../<?=$row['product_logo']?>" id="product_logo_show" width="<?=$logo_width ?>px" height="<?=$logo_height ?>px"  />
-                <input type="hidden" name="product_logos" id="product_logos" value="<?=$row['product_logo']?>" />
-                <div id="preview_product_logo">预览区</div>
+                <label>品牌LOGO名称：</label>
+                <input type="text" name="product_logo_title" id="product_logo_title" class="dfinput" value="<?=$row['product_logo_title']?>"  />
             </li>
             <li>
                 <label>产品图片：</label>

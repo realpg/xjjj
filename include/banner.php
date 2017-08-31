@@ -9,7 +9,7 @@ if($banner_row)
                     <img src="<?=$banner_row["image_image"]?>">
                 </div>
             </a>
-            <div style="width:298px;margin:0px auto;margin-top:-230px;">
+            <div style="width:298px;margin:0px auto;">
                 <div class="tic_input bg-white">
                     <label class="ipt-label">姓名：</label>
                     <div class="ipt-box">
