@@ -28,6 +28,10 @@
     <link href="./css/ticket2017-06.css" rel="stylesheet" type="text/css" media="screen">
     <script type="text/javascript">var _vds = _vds || [];window._vds = _vds;(function(){_vds.push(['setAccountId', '97f5cbef69849241']);(function() {var vds = document.createElement('script');vds.type='text/javascript';vds.async = true;vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(vds, s);})();})();</script>
     <script type="text/javascript">
+        $(function(){
+            alert();
+            location.reload();
+        })
         (function(root) {
             root._tt_config = true;
             var ta = document.createElement('script'); ta.type = 'text/javascript'; ta.async = true;

@@ -16,6 +16,11 @@
         <div class="get_in_r fr" id="expo_botbar"  style="background: url(<?=$image_ad_center_row["image_image"]?>) no-repeat;">
             <div class="ipt_line">
                 <div class="ipt-box">
+                    <input type="text" placeholder="请输入您的姓名" class="ipnt_txt" name="leaveword_name" id="leaveword_name">
+                </div>
+            </div>
+            <div class="ipt_line">
+                <div class="ipt-box">
                     <input type="text" placeholder="请输入您的手机" class="ipnt_txt" name="leaveword_tel" id="leaveword_tel">
                 </div>
             </div>
@@ -23,7 +28,7 @@
                 <div class="ipt-box">
                     <input type="text" class="ipnt_txt2" placeholder="请输入图形验证码" id="leaveword_code">
                 </div>
-                <div class="test2"><img class="verify-image"  id="checkpic" src="./checkcode.php" height="37" width="90" onclick="changing();"></div>
+                <div class="test2"><img class="verify-image"  id="checkpic" src="./checkcode.php" height="27" width="90" onclick="changing();"></div>
             </div>
             <div class="mid_line"></div>
             <div class="ipt_btn">

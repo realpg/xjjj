@@ -67,6 +67,11 @@ else if($id==10)
     $image_width=$image_width_10*5;
     $image_height=$image_height_10*5;
 }
+else if($id==12)
+{
+    $image_width=$image_width_12;
+    $image_height=$image_height_12;
+}
 $sql = "select * from image where image_id='$id'";
 $row =$db->query_list_id($sql);
 ?>

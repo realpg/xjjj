@@ -382,7 +382,7 @@
 
 .test2 {
     width: 89px;
-    height: 36px;
+    height: 30px;
     float: right;
     margin-top: 2px;
     margin-right: 2px;
@@ -1328,16 +1328,15 @@
 
 .ipt_line {
     width: 250px;
-    /*height: 40px;*/
     background: #fff;
     display: inline-block;
-    line-height: 40px;
-    font-size: 18px;
+    line-height: 30px;
+    font-size: 16px;
     color: #333;
     padding-left: 5px;
     box-sizing: border-box;
-    margin-bottom: 10px;
-}
+    margin-bottom: 5px;
+}s
 
 .ipt_line .ipt_label {
     float: left;
@@ -1370,8 +1369,8 @@
 
 .ipnt_txt {
     color: #333;
-    height: 40px;
-    line-height: 40px;
+    height: 30px;
+    line-height: 30px;
     outline: none;
     float: left;
     width: 240px;
@@ -1380,8 +1379,8 @@
 
 .ipnt_txt2 {
     color: #333;
-    height: 40px;
-    line-height: 40px;
+    height: 30px;
+    line-height: 30px;
     outline: none;
     width: 143px;
     float: left;

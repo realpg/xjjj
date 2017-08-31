@@ -14,7 +14,7 @@ foreach ($water_powers as $water_power)
 }
 $upload="upload/image/";
 $image_width_1=1920;
-$image_height_1=890;
+$image_height_1=900;
 $image_width_2=1200;
 $image_height_2=200;
 $image_width_3=1200;
@@ -33,6 +33,8 @@ $image_width_9=450;
 $image_height_9=134;
 $image_width_10=332;
 $image_height_10=134;
+$image_width_12=1920;
+$image_height_12=235;
 if($water_id_count==1)
 {
     $watermark=$company_row['company_water_image'];

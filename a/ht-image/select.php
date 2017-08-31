@@ -51,7 +51,7 @@ require_once ("include-image.php");
     </thead>
     <tbody>
     <?php 	
-    $sql="select * from image where image_id not in (11) order by image_id asc";
+    $sql="select * from image where image_id not in (11) order by image_sort asc,image_id asc";
     $rows=$db->query_lists($sql);
     foreach ($rows as $k=>$row){
     ?>

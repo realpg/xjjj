@@ -50,14 +50,14 @@ li img
 #preview_image_1,#preview_image_1 img
 {
     width:384px;
-    height:178px;
+    height:180px;
 }
 #preview_image_1
 {
     border:1px solid #000;
     float: left;
     text-align: center;
-    line-height: 178px;
+    line-height: 180px;
     margin-bottom: 10px;
 }
 #preview_image_2,#preview_image_2 img
@@ -175,6 +175,19 @@ li img
     float: left;
     text-align: center;
     line-height: 134px;
+    margin-bottom: 10px;
+}
+#preview_image_12,#preview_image_12 img
+{
+    width:384px;
+    height:47px;
+}
+#preview_image_12
+{
+    border:1px solid #000;
+    float: left;
+    text-align: center;
+    line-height: 47px;
     margin-bottom: 10px;
 }
 

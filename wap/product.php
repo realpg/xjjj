@@ -34,8 +34,8 @@
         <header class="bar bar-nav">
             <script>
                 function backindex(){
-//                    history.go(-1);
-                    location.href="index.html";
+                    history.go(-1);
+//                    location.href="index.html";
                 }
             </script>
             <button class="button button-link button-nav pull-left" onclick="backindex()">
