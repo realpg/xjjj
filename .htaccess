@@ -1,0 +1,14 @@
+<IFMODULE mod_rewrite.c>
+RewriteEngine On
+RewriteBase /xjjj/
+RewriteRule ^index.html$ index.php
+RewriteRule ^leaveword.html$ leaveword.php
+RewriteRule ^success.html$ success.php
+RewriteRule ^product-(.*).html$ product.php?dhid=3&tdhid=$1
+
+RewriteRule ^wap/index.html$ wap/index.php
+RewriteRule ^wap/leaveword.html$ wap/leaveword.php
+RewriteRule ^wap/success.html$ wap/success.php
+RewriteRule ^wap/product-(.*).html$ wap/product.php?dhid=3&tdhid=$1
+</IFMODULE>
+ErrorDocument 404 /xjjj/404/404.html
