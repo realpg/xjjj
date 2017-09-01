@@ -85,7 +85,7 @@ editor.render("product_content");
             <li>
                 <label>活动时间：</label>
                 <input type="text" name="product_end" id="product_end" class="dfinput"
-                       style="width:120px" value="<?=date("Y-m-d H:m",strtotime($row['product_end']))?>"
+                       style="width:120px" value="<?=date("Y-m-d H",strtotime($row['product_end']))?>"
                        class="Wdate"  onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd HH'})"/>
                 <i>*如果为空默认为当前时间</i>
             </li>
