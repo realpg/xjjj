@@ -76,7 +76,7 @@
                                 <div class="clear"></div>
                                 <div class="repair-product-box">
                                     <div class="repair-product-seat"></div>
-                                    <div class="repair-hidden color-black"><?=$product_row["product_content"]?></div>
+                                    <div class="repair-hidden color-black"><?=$product_row["product_title"]?></div>
                                     <div class="repair-hidden repair-product-price color-black">工厂批发价：<?=$product_row["product_price"]?></div>
                                     <div class="repair-hidden color-red">限时价：<b><?=$product_row["product_sell"]?></b>&nbsp;</div>
                                     <div class="repair-hidden color-red" id="product_time_<?=$product_row["product_id"]?>">

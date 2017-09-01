@@ -6,6 +6,7 @@ require_once ("include-image.php");
     if(!empty($_REQUEST['btnEdit']))
     {
         $product_title=$_REQUEST['product_title'];
+        $product_logo_title=$_REQUEST['product_logo_title'];
         $product_price=$_REQUEST['product_price'];
         $product_sell=$_REQUEST['product_sell'];
         $product_content=$_REQUEST['product_content'];
@@ -26,22 +27,6 @@ require_once ("include-image.php");
         }
         else 
         {
-            $product_logos=$_REQUEST['product_logos'];
-            $img_product_logo=$files->upload_image("product_logo", $upload, $product_logos, $logo_width, $logo_height);
-            if($img_product_logo=="Out of size")
-            {
-                echo IMAGE_SIZE;
-                return ;
-            }
-            else if($img_product_logo=="error in type")
-            {
-                echo IMAGE_FORMAT;
-                return ;
-            }
-            else
-            {
-                $product_logo=$img_product_logo;
-            }
             $product_images=$_REQUEST['product_images'];
             $img_product=$files->upload_image("product_image", $upload, $product_images, $image_width, $image_height);
             if($img_product=="Out of size")
@@ -60,7 +45,7 @@ require_once ("include-image.php");
             }
 	        $sql="update product set "
 	        . "product_title='$product_title',product_price='$product_price',product_sell='$product_sell',"
-            . "product_image='$product_image',product_logo='$product_logo',"
+            . "product_image='$product_image',product_logo_title='$product_logo_title',"
 	        . "product_content='$product_content',product_sort='$product_sort',product_show='$product_show',"
 	        . "product_end='$product_end' where product_id='$product_id'";
 	        $rows=$db->edit_list($sql);

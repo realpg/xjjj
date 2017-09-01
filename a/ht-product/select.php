@@ -130,7 +130,7 @@ if($level!=-1)
                         <?= $row['product_sort'] == 1 ? "<font color='red'><b>【置顶】</b></font>" : "" ?>
                         <?= $row['product_show'] == 1 ? "<font color='blue'><b>【推荐】</b></font>" : "" ?>
                     </td>
-                    <td><?= $row['product_logo_title'] ?></td>
+                    <td><img src="../../<?= $row['product_logo'] ?>" width="100px"/></td>
                     <td><img src="../../<?= $row['product_image'] ?>" width="100px"/></td>
                     <td>
                         <a href="update.php?id=<?=$row['product_id']?>&level=<?=$level?>">

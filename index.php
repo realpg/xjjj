@@ -76,8 +76,8 @@
                                 <a href="javascript:void(0);"  id="ClickMe" onclick="showpopup()">
                                     <div class="repair-product-div">
                                         <div class="repair-product-logo">
-                                            <div style="width:100%;font-size: 18px;font-weight: bold;text-align: center;hegiht:20px;line-height: 20px;vertical-align; margin-top:30%;"><?=$product_row["product_logo_title"]?></div>
-<!--                                            <img src="--><?//=$product_row["product_logo"]?><!--" class="repair-product-logo-d">-->
+<!--                                            <div style="width:100%;font-size: 18px;font-weight: bold;text-align: center;hegiht:20px;line-height: 20px;vertical-align; margin-top:30%;">--><?//=$product_row["product_logo_title"]?><!--</div>-->
+                                            <img src="<?=$product_row["product_logo"]?>" class="repair-product-logo-d">
                                         </div>
                                         <div class="repair-product-image">
                                             <img src="<?=$product_row["product_image"]?>" class="repair-product-image-d">
@@ -85,7 +85,7 @@
                                         <div class="clear"></div>
                                         <div class="repair-product-box">
 <!--                                            <div class="repair-product-seat"></div>-->
-                                            <div class="repair-hidden color-black" style="font-size: 16px;"><?=$product_row["product_content"]?></div>
+                                            <div class="repair-hidden color-black" style="font-size: 16px;"><?=$product_row["product_title"]?></div>
                                             <div class="repair-hidden repair-product-price color-black">工厂批发价：<?=$product_row["product_price"]?></div>
                                             <div style="font-size: 16px;">
                                                 <div class="repair-hidden color-red" style="float:left;">限时价：<b><?=$product_row["product_sell"]?></b>&nbsp;</div>

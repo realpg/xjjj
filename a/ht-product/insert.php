@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 header("Content-Type: text/html;charset=utf-8");
 require ("../config/conn.php");//引入链接数据库
 require_once ("include-power.php");//引入权限判断
@@ -44,8 +44,13 @@ editor.render("product_content");
                 <i>*必须填写</i>
             </li>
             <li>
-                <label>品牌LOGO名称：</label>
-                <input type="text" name="product_logo_title" id="product_logo_title" class="dfinput" />
+                <label>品牌LOGO：</label>
+                <input type="file" name="product_logo" id="product_logo" onchange="preview(this,'preview_product_logo')"  />
+                <i>*<?=$logo_width ?>*<?=$logo_height ?></i>
+            </li>
+            <li>
+                <label>&nbsp;</label>
+                <div id="preview_product_logo">预览区</div>
             </li>
             <li>
                 <label>产品图片：</label>
@@ -64,10 +69,10 @@ editor.render("product_content");
                 <label>限时价：</label>
                 <input type="text" name="product_sell" id="product_sell" class="dfinput" />
             </li>
-            <li>
-            	<label>商品描述：</label>
-                <input type="text" name="product_content" id="product_content" class="dfinput" />
-            </li>
+<!--            <li>-->
+<!--            	<label>商品描述：</label>-->
+<!--                <input type="text" name="product_content" id="product_content" class="dfinput" />-->
+<!--            </li>-->
 <!--            <li>-->
 <!--                <label>开始时间：</label>-->
 <!--                <input type="text" name="product_time" id="product_time" class="dfinput"-->
@@ -76,10 +81,10 @@ editor.render("product_content");
 <!--                <i>*如果为空默认为当前时间</i>-->
 <!--            </li>-->
             <li>
-                <label>结束时间：</label>
+                <label>活动时间：</label>
                 <input type="text" name="product_end" id="product_end" class="dfinput"
                        style="width:120px"
-                       class="Wdate" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd HH:mm'})"/>
+                       class="Wdate" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd HH'})"/>
                 <i>*如果为空默认为当前时间</i>
             </li>
             <li>
