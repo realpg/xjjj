@@ -85,7 +85,7 @@
         <div class="content ticket-content native-scroll">
             <!-- Banner -->
             <?php require_once 'include/banner.php'; ?>
-            <div class="main-wap" <?=$image_banner_row?"":"style='margin-top:0px;'"?>>
+            <div class="main-wap" style='margin-top:0px;'>
                 <!-- 活动亮点开始 -->
                 <div class="activity">
                     <div class="tit" style="color:<?=$color_font["color_content"]?>;">活动亮点</div>

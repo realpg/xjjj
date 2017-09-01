@@ -47,7 +47,7 @@
         <div class="content ticket-content native-scroll">
             <!-- Banner -->
             <?php require_once 'include/banner.php'; ?>
-            <div class="main-wap" <?=$image_banner_row?"'":"style='margin-top:10px;'"?>>
+            <div class="main-wap" style='margin-top:10px;'>
                 <div class="tit" style="color:<?=$color_font["color_content"]?>;">
                     产品展示
                 </div>

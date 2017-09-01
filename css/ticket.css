@@ -298,7 +298,7 @@
     line-height: 42px;
     padding-left: 10px;
     box-sizing: border-box;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     position: relative;
 }
 
@@ -477,7 +477,7 @@
 }
 
 .t_hd {
-    font-size: 24px;
+    font-size: 28px;
     color: #333;
     text-align: center;
 }
@@ -1699,7 +1699,7 @@
 .t_hd {
     width:252px;
     margin:0 auto;
-    font-size: 24px;
+    font-size: 28px;
     /*color: #333;*/
     color: #fff;
     text-align: center;

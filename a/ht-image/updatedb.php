@@ -19,8 +19,8 @@ require_once ("include-image.php");
         {
             if($image_id==1)
             {
-                $image_width=$image_width_1;
-                $image_height=$image_height_1;
+                $image_width="";
+                $image_height="";
             }
             else if($image_id==2)
             {

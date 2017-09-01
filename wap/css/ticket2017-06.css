@@ -23,7 +23,7 @@ ul li{
 	height: 29.15rem;
 } */
 .list-block{
-	margin:-4.75rem auto;
+	margin:0 auto;
 	width: 100%;
 }
 .list-block ul{
@@ -31,7 +31,7 @@ ul li{
 }
 .list-block ul li{
 	background: #fff;
-	border:#bb142c solid 2px;
+	border:#ccc solid 2px;
 	border-radius: .25rem;
 	margin-top: .58rem;
 }
@@ -71,7 +71,7 @@ ul li{
 	height: .99rem;
 	margin:.58rem auto;
 	text-align: center;
-	font-size: 16px;
+	font-size: 0.8rem;
 	color:#fff;
 	background: url("../images/tit-bg.png");
 	background-size: 100%;

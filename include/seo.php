@@ -34,4 +34,9 @@ foreach($script_rows as $script_row)
 <?php
 }
 ?>
+<script type="text/JavaScript">
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        window.location.href = "/xjjj/wap/"; //可以换成http地址
+    }
+</script>
 	

@@ -3,13 +3,13 @@ $banner_row=$db->query_list_id("select image_image from image where image_id=1 a
 if($banner_row)
 {
     ?>
-        <div class="t_banner">
+        <div class="t_banner" style="position: relative;">
             <a href="javascript:void(0);"  id="ClickMe" onclick="showpopup()">
                 <div class="t_banner_bg">
                     <img src="<?=$banner_row["image_image"]?>">
                 </div>
             </a>
-            <div style="width:298px;margin:0px auto;">
+            <div style="width:298px; position:absolute;right:15%; top:20%;">
                 <div class="tic_input bg-white">
                     <label class="ipt-label">姓名：</label>
                     <div class="ipt-box">
