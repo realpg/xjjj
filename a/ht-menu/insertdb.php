@@ -5,6 +5,7 @@ require_once ("include-power.php");//引入权限判断
     if(!empty($_REQUEST['btnAdd']))
     {
         $menu_title=$_REQUEST['menu_title'];
+        $menu_show=1;
         $menu_level=$_REQUEST['menu_level'];
         $menu_sort=$_REQUEST['menu_sort'];
         $title=$_REQUEST['menu_title'];
@@ -23,9 +24,9 @@ require_once ("include-power.php");//引入权限判断
         else 
         {
             $sql="insert into menu"
-            . "(menu_title,menu_level,menu_sort,"
+            . "(menu_title,menu_show,menu_level,menu_sort,"
             . "title,keywords,description) "
-            . "value ('$menu_title','$menu_level','$menu_sort',"
+            . "value ('$menu_title','$menu_show','$menu_level','$menu_sort',"
             . "'$title','$keywords','$description')" ;
 	        $rows=$db->edit_list($sql);
 	        // 返回影响行数  如果影响行数>=1,则判断添加成功,否则失败

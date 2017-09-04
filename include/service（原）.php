@@ -31,7 +31,7 @@ if($service_row)
 ?>
 <!-- 服务保障 -->
 <!-- 分会场 -->
-<div >
+<div style="margin-top:20px;">
     <div class="t_hd"  style="color:<?=$color_font["color_content"]?>">分会场</div>
     <ul class="hx-branch-li clearfix">
         <?php

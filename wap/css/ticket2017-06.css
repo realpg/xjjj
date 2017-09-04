@@ -440,9 +440,9 @@ ul li{
 /*头部*/
 .ticket-logo {
     float: left;
-    height: 1.2rem;
+    /*height: 1.2rem;*/
     margin-top: 0.7rem;
-    width: 3.89rem;
+    /*width: 3.89rem;*/
 }
 .ticket-city {
     color: #d80c18;

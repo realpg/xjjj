@@ -66,7 +66,7 @@ require_once ("include-power.php");//引入权限判断
                 <td>--</td>
                 <td>
                     <?php
-                    if($row['menu_id']==3)
+                    if($row['menu_id']==3||$row['menu_id']==2)
                     {
                     ?>
                         <a href="insert.php?id=<?=$row['menu_id']?>">

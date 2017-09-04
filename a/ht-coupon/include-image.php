@@ -7,12 +7,12 @@ $water_powers= explode(",", $waterpower);
 $water_id_count=0;
 foreach ($water_powers as $water_power)
 {
-    if($water_power==100)
+    if($water_power==130)
     {
         $water_id_count=1;
     }
 }
-$upload="upload/product/";
+$upload="upload/coupon/";
 $logo_width=192;
 $logo_height=102;
 $image_width=384;

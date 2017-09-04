@@ -15,7 +15,7 @@ else
 	$roidcount=0;
 	foreach ($roids as $roid)
 	{
-	    if($roid==100)
+	    if($roid==130)
 	    {
 	        $roidcount=1;
 	    }

@@ -141,6 +141,9 @@ define("WORD_BRANCH","分会场");//分会场
 //产品管理
 define("WORD_PRODUCT","产品");//产品
 
+//产品管理
+define("WORD_COUPON","优惠券");//优惠券
+
 //活动亮点
 //添加-请上传图片
 define("ADD_LIGHT_IMAGE","<script>alert('添加失败,请上传图片');"

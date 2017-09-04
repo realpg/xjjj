@@ -348,6 +348,14 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="hot-pic repair-hot-pic">
+                    <a href="about.html">
+                        <div class="tit" style="color:<?=$color_font["color_content"]?>;">
+                            关于我们
+                        </div>
+                    </a>
+                </div>
                 <div class="hot-line">
                     <a href="tel:<?=$company_row["company_tel"]?>">
                         <h3 style="color:#fff;">联系电话：<?=$company_row["company_tel"]?></h3>

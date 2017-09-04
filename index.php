@@ -1,6 +1,8 @@
 <?php require_once 'config/conn.php'; ?>
 <!DOCTYPE html>
-<html lang="en" class=" en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en" class=" en"><!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <?php require_once 'include/seo.php'; ?>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -192,7 +194,16 @@
                     <?=$company_row["company_traffic"]?>
                 </div>
             </div>
+
             <!--地图-->
+            <!--关于我们-->
+                <div >
+                    <a href="about.html">
+                        <div class="t_hd" style="color:<?=$color_font["color_content"]?>;margin-top: 10px;">关于我们</div>
+                    </a>
+                </div>
+
+            <!--关于我们-->
             <!--底部辐条-->
             <?php require_once 'include/ad.php'; ?>
             <!--底部辐条-->

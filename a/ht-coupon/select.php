@@ -8,7 +8,7 @@ require_once ("include-image.php");
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>产品管理</title>
+<title>优惠券管理</title>
 <link type="text/css" rel="stylesheet" href="../css/pager.css" />
 <link type="text/css" rel="stylesheet" href="../css/style.css" />
 <script type="text/javascript" src="../js/jquery-1.9.1.js" ></script>
@@ -37,7 +37,7 @@ require_once ("include-image.php");
 <body>
 <p style="margin-top: 10px;">
     <?php
-    $menus=$db->query_lists("select * from menu where menu_level=3 order by menu_sort asc,menu_id asc");
+    $menus=$db->query_lists("select * from menu where menu_level=2 order by menu_sort asc,menu_id asc");
     $menus[0]['menu_id']=empty($menus[0]['menu_id'])?-1:$menus[0]['menu_id'];
     $level=empty($_REQUEST['level'])?$menus[0]['menu_id']:$_REQUEST['level'];
     if($level!=-1)
@@ -96,8 +96,8 @@ if($level!=-1)
         <?php
         $p=empty($_REQUEST["p"])?1:$_REQUEST["p"];
         $Searchname=empty($_REQUEST['Searchname'])?'':$_REQUEST['Searchname'];
-        $sql="select * from product where product_title like '%$Searchname%' and product_level=$level order by product_sort desc,product_id desc";
-        $count=$db->page_count("select count(*) from product where product_title like '%$Searchname%' and product_level=$level order by product_sort desc,product_id desc", 10);
+        $sql="select * from coupon where coupon_title like '%$Searchname%' and coupon_level=$level order by coupon_sort desc,coupon_id desc";
+        $count=$db->page_count("select count(*) from coupon where coupon_title like '%$Searchname%' and coupon_level=$level order by coupon_sort desc,coupon_id desc", 10);
         $rows=$db->paging($sql, $p, 10);
         ?>
         <table class="tablelist" >
@@ -107,9 +107,8 @@ if($level!=-1)
                        <input type="checkbox"  name="mmAll" onclick="All(this, 'mm[]')">
                     </th>
                     <th width="100px">序号</th>
-                    <th>产品</th>
+                    <th>优惠券</th>
                     <th>品牌LOGO</th>
-                    <th>图片</th>
                     <th width="100px">修改</th>
                     <th width="100px">删除</th>
             </tr>
@@ -122,23 +121,22 @@ if($level!=-1)
                 <tr>
                     <td>
                         <input type="checkbox" name="mm[]"
-                               value="<?= $row['product_id'] ?>" onclick="Item(this, 'mmAll')">
+                               value="<?= $row['coupon_id'] ?>" onclick="Item(this, 'mmAll')">
                     </td>
                     <td><?= $k + 1 ?></td>
                     <td style="text-align:left; padding-left:1%;">
-                        <?= $row['product_title'] ?>
-                        <?= $row['product_sort'] == 1 ? "<font color='red'><b>【置顶】</b></font>" : "" ?>
-                        <?= $row['product_show'] == 1 ? "<font color='blue'><b>【推荐】</b></font>" : "" ?>
+                        <?= $row['coupon_title'] ?>
+                        <?= $row['coupon_sort'] == 1 ? "<font color='red'><b>【置顶】</b></font>" : "" ?>
+                        <?= $row['coupon_show'] == 1 ? "<font color='blue'><b>【推荐】</b></font>" : "" ?>
                     </td>
-                    <td><?= $row['product_logo_title'] ?></td>
-                    <td><img src="../../<?= $row['product_image'] ?>" width="100px"/></td>
+                    <td><img src="../../<?= $row['coupon_logo'] ?>" width="100px"/></td>
                     <td>
-                        <a href="update.php?id=<?=$row['product_id']?>&level=<?=$level?>">
+                        <a href="update.php?id=<?=$row['coupon_id']?>&level=<?=$level?>">
                             <img src="../images/t02.png" >
                         </a>
                     </td>
                     <td>
-                        <a href="delete.php?id=<?=$row['product_id']?>&level=<?=$level?>">
+                        <a href="delete.php?id=<?=$row['coupon_id']?>&level=<?=$level?>">
                             <img src="../images/t03.png" >
                         </a>
                     </td>

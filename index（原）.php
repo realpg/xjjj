@@ -193,6 +193,13 @@
                 </div>
             </div>
             <!--地图-->
+            <!--关于我们-->
+            <div >
+                <a href="about.html">
+                    <div class="t_hd" style="color:<?=$color_font["color_content"]?>;margin-top: 10px;">关于我们</div>
+                </a>
+            </div>
+            <!--关于我们-->
             <!--底部辐条-->
             <?php require_once 'include/ad.php'; ?>
             <!--底部辐条-->
@@ -207,7 +214,8 @@
 
     <!-- 底部开始 -->
     <?php require_once 'include/copyright.php'; ?>
-    <!-- 底部结束--></div>
+    <!-- 底部结束-->
+</div>
 
 <script type="text/javascript">
     $(document).ready(function() {

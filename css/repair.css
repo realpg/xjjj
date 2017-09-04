@@ -64,3 +64,11 @@
 .bg-white{
     background: #fff;
 }
+.repair-about{
+    margin-top:20px;
+    padding-bottom:20px;
+    background: #fff;
+}
+.repair-about img{
+    max-width: 100%;
+}

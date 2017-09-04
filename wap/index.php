@@ -76,9 +76,9 @@
 <body>
 <div class="page-group" style="background:#d70c18;">
     <div class="page page-current" style="background:<?=$color_index["color_content"]?>;">
-        <header class="bar bar-nav">
+        <header class="bar bar-nav" style="text-align: center;">
             <img class="ticket-logo" src="../<?=$company_row["company_logo"]?>">
-            <h1 class="title"><?=$company_row["company_name"]?></h1>
+<!--            <h1 class="title">--><?//=$company_row["company_name"]?><!--</h1>-->
 
         </header>
         <div class="content ticket-content native-scroll">
@@ -342,6 +342,13 @@
                             <?=$company_row["company_traffic"]?>
                         </div>
                     </div>
+                </div>
+                <div class="hot-pic repair-hot-pic">
+                    <a href="about.html">
+                        <div class="tit" style="color:<?=$color_font["color_content"]?>;">
+                            关于我们
+                        </div>
+                    </a>
                 </div>
                 <div class="hot-line">
                     <a href="tel:<?=$company_row["company_tel"]?>">

@@ -13,6 +13,7 @@ require_once ("include-power.php");//引入权限判断
 //		$company_x =$arry[0];
 //		$company_y =$arry[1];
 		$company_traffic=$_REQUEST['company_traffic'];
+        $company_about=$_REQUEST['company_about'];
 		$company_copyright =$_REQUEST['company_copyright'];
 		$company_record =$_REQUEST['company_record'];
 		if(empty($company_name))
@@ -26,22 +27,22 @@ require_once ("include-power.php");//引入权限判断
         }
         else 
         {
-//            $company_logos=$_REQUEST['company_logos'];
-//            $img=$files->upload_image("company_logo", "upload/company/",$company_logos);
-//            if($img=="Out of size")
-//            {
-//                echo IMAGE_SIZE;
-//                return ;
-//            }
-//            else if($img=="error in type")
-//            {
-//                echo IMAGE_FORMAT;
-//                return ;
-//            }
-//            else
-//            {
-//                $company_logo=$img;
-//            }
+            $company_logos=$_REQUEST['company_logos'];
+            $img=$files->upload_image("company_logo", "upload/company/",$company_logos);
+            if($img=="Out of size")
+            {
+                echo IMAGE_SIZE;
+                return ;
+            }
+            else if($img=="error in type")
+            {
+                echo IMAGE_FORMAT;
+                return ;
+            }
+            else
+            {
+                $company_logo=$img;
+            }
 //			$sql = "update company set "
 //			. "company_name='$company_name',company_qq='$company_qq',company_tel='$company_tel',"
 //			. "company_address='$company_address',company_map='$company_map',"
@@ -51,9 +52,9 @@ require_once ("include-power.php");//引入权限判断
 //			. "where company_id=1";
             $sql = "update company set "
                 . "company_name='$company_name',company_tel='$company_tel',"
-                . "company_address='$company_address',"
+                . "company_address='$company_address',company_about='$company_about',"
                 . "company_copyright='$company_copyright',company_traffic='$company_traffic',"
-                . "company_record='$company_record'"
+                . "company_record='$company_record',company_logo='$company_logo'"
                 . "where company_id=1";
 			// 获取影响的行数
 			$rows = $db->edit_list($sql);

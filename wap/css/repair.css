@@ -131,3 +131,9 @@
     float: left;
     border: 0;
 }
+.repair-about{
+    width:90%;
+    margin:0 auto;
+    background: #fff;
+    padding-bottom: 0.1rem;
+}

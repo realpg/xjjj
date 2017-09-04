@@ -6,7 +6,7 @@ li img
 /* 网站基本设置LOGO */
 #preview_logo,#preview_logo img
 {
-    width:134px;
+    width:273px;
     height:43px;
 }
 #preview_logo
@@ -211,6 +211,21 @@ li img
     height:102px;
 }
 #preview_product_logo
+{
+    border:1px solid #000;
+    float: left;
+    text-align: center;
+    line-height: 102px;
+    margin-bottom: 10px;
+}
+
+/* Coupon */
+#preview_coupon_logo,#preview_coupon_logo img
+{
+    width:192px;
+    height:102px;
+}
+#preview_coupon_logo
 {
     border:1px solid #000;
     float: left;

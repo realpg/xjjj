@@ -3,10 +3,9 @@ $banner_row=$db->query_list_id("select image_image from image where image_id=1 a
 if($banner_row)
 {
     ?>
-        <div class="t_banner" style="">
+        <div class="t_banner">
             <a href="javascript:void(0);"  id="ClickMe" onclick="showpopup()">
                 <div class="t_banner_bg" style="width:100%; height:585px; background:url('<?=$banner_row["image_image"]?>'); background-position:top center;background-repeat: no-repeat;" />
-<!--                    <img src="--><?//=$banner_row["image_image"]?><!--" >-->
                     <div style="width:1200px;height:100%;margin: 0px auto; position: relative;">
                         <div style="width:410px; height:350px; position:absolute;right:0; top:15%;">
                             <div style="width:100%;color:red;font-size:32px;text-align: center;line-height: 70px;">

@@ -21,6 +21,8 @@ require_once ("include-power.php");//引入权限判断
     <script type="text/javascript">
         var editor = new UE.ui.Editor();
         editor.render("company_traffic");
+        var editor_about = new UE.ui.Editor();
+        editor_about.render("company_about");
     </script>
 </head>
 <body>
@@ -34,14 +36,14 @@ $row =$db->query_list_id($sql);
         <span>基本信息</span>
     </div>
     <ul class="forminfo">
-<!--        <li>-->
-<!--            <label>LOGO：</label>-->
-<!--            <input type="file" name="company_logo" id="company_logo" onchange="preview(this,'preview_logo')" />-->
-<!--            <i>*134*43</i><br />-->
-<!--            <img src="../../--><?//=$row['company_logo']?><!--" width="134px" height="43px"  />-->
-<!--            <input type="hidden" name="company_logos" id="company_logo" value="--><?//=$row['company_logo']?><!--" />-->
-<!--            <div id="preview_logo">预览区</div>-->
-<!--        </li>-->
+        <li>
+            <label>LOGO：</label>
+            <input type="file" name="company_logo" id="company_logo" onchange="preview(this,'preview_logo')" />
+            <i>*273*43</i><br />
+            <img src="../../<?=$row['company_logo']?>" width="273px" height="43px"  />
+            <input type="hidden" name="company_logos" id="company_logo" value="<?=$row['company_logo']?>" />
+            <div id="preview_logo">预览区</div>
+        </li>
         <li>
             <label>公司名称：</label>
             <input type="text" name="company_name" id="company_name" class="dfinput" value="<?=$row['company_name']?>" />
@@ -155,6 +157,10 @@ $row =$db->query_list_id($sql);
         <li>
             <label>交通配套：</label>
             <textarea name="company_traffic" id="company_traffic" style="width:80%;float:left;"><?=$row['company_traffic']?></textarea>
+        </li>
+        <li>
+            <label>关于我们：</label>
+            <textarea name="company_about" id="company_about" style="width:80%;float:left;"><?=$row['company_about']?></textarea>
         </li>
         <li>
             <label>版权：</label>
