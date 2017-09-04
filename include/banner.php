@@ -17,22 +17,22 @@ if($banner_row)
                             <div class="tic_input bg-white" style="margin:10px auto;">
                                 <label class="ipt-label">姓名：</label>
                                 <div class="ipt-box">
-                                    <input type="text" class="ipt_txt" placeholder="请输入收件人姓名" id="reserve_name">
+                                    <input type="text" class="ipt_txt" placeholder="请输入收件人姓名" id="reserve_name1">
                                 </div>
                             </div>
                             <div class="tic_input bg-white" style="margin:10px auto;">
                                 <label class="ipt-label">手机：</label>
                                 <div class="ipt-box">
-                                    <input type="text" class="ipt_txt" placeholder="请输入手机号码" id="reserve_tel" maxlength="11">
+                                    <input type="text" class="ipt_txt" placeholder="请输入手机号码" id="reserve_tel1" maxlength="11">
                                 </div>
                             </div>
                             <div class="tic_input bg-white" style="margin:10px auto;">
                                 <label class="ipt-label">验证码：</label>
                                 <div class="ipt-box">
-                                    <input type="text" class="ipt_txt short" placeholder="请输入图形验证码" id="reserve_code">
+                                    <input type="text" class="ipt_txt short" placeholder="请输入图形验证码" id="reserve_code1">
                                 </div>
                                 <div class="test" style="width:90px;">
-                                    <img class="verify-image"  id="checkpic" src="./checkcode.php" height="37" width="90" onclick="changing();">
+                                    <img class="verify-image"  id="checkpic_1" src="./checkcode.php" height="37" width="90" onclick="changing();">
                                 </div>
                             </div>
                             <div class="tic_btn" style="margin:10px auto;">

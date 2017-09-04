@@ -1,7 +1,7 @@
 <div class="right-slide">
     <ul class="right-slide-in">
         <li class="border-ridus">
-            <a href="http://wpa.qq.com/msgrd?v=3&uin=<?=$company_row["company_qq"]?>&site=oicqzone.com&menu=yes">
+            <a href="http://p.qiao.baidu.com/cps/chat?siteId=11146976&userId=23090162">
                 <img src="./images/right-3.png">
             </a>
         </li>

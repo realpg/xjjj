@@ -21,7 +21,7 @@
                 <?php
             }
             ?>
-            <a href="http://wpa.qq.com/msgrd?v=3&uin=<?=$company_row["company_qq"]?>&site=oicqzone.com&menu=yes" target="_blank"><div class="ticket">在线咨询</div></a>
+            <a href="http://p.qiao.baidu.com/cps/chat?siteId=11146976&userId=23090162" target="_blank"><div class="ticket">在线咨询</div></a>
 
             <!--返回顶部-->
 <!--            <div class="go-top"></div>-->

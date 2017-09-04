@@ -369,7 +369,7 @@ ul li{
 	content: "";
 	width: .52rem;
 	height: .36rem;
-	background:url(../../img/expo/ticket/triangle.png) no-repeat;
+	/*background:url(../../img/expo/ticket/triangle.png) no-repeat;*/
 	background-size: 100%; 
 	position: absolute;
 	bottom: -16%;

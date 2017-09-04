@@ -1,6 +1,9 @@
 <script>
     function changing(){
-        document.getElementById('checkpic').src="./checkcode.php?"+Math.random();
+        var checkpic="./checkcode.php?"+Math.random();
+        document.getElementById('checkpic_1').src=checkpic;
+        document.getElementById('checkpic_2').src=checkpic;
+        document.getElementById('checkpic_3').src=checkpic;
     }
 </script>
 <div class="gain" id="J_BotSmBar" style="display: none;"></div>
@@ -28,7 +31,7 @@
                 <div class="ipt-box">
                     <input type="text" class="ipnt_txt2" placeholder="请输入图形验证码" id="leaveword_code">
                 </div>
-                <div class="test2"><img class="verify-image"  id="checkpic" src="./checkcode.php" height="27" width="90" onclick="changing();"></div>
+                <div class="test2"><img class="verify-image"  id="checkpic_2" src="./checkcode.php" height="27" width="90" onclick="changing();"></div>
             </div>
             <div class="mid_line"></div>
             <div class="ipt_btn">

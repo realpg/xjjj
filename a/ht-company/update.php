@@ -34,23 +34,23 @@ $row =$db->query_list_id($sql);
         <span>基本信息</span>
     </div>
     <ul class="forminfo">
-        <li>
-            <label>LOGO：</label>
-            <input type="file" name="company_logo" id="company_logo" onchange="preview(this,'preview_logo')" />
-            <i>*134*43</i><br />
-            <img src="../../<?=$row['company_logo']?>" width="134px" height="43px"  />
-            <input type="hidden" name="company_logos" id="company_logo" value="<?=$row['company_logo']?>" />
-            <div id="preview_logo">预览区</div>
-        </li>
+<!--        <li>-->
+<!--            <label>LOGO：</label>-->
+<!--            <input type="file" name="company_logo" id="company_logo" onchange="preview(this,'preview_logo')" />-->
+<!--            <i>*134*43</i><br />-->
+<!--            <img src="../../--><?//=$row['company_logo']?><!--" width="134px" height="43px"  />-->
+<!--            <input type="hidden" name="company_logos" id="company_logo" value="--><?//=$row['company_logo']?><!--" />-->
+<!--            <div id="preview_logo">预览区</div>-->
+<!--        </li>-->
         <li>
             <label>公司名称：</label>
             <input type="text" name="company_name" id="company_name" class="dfinput" value="<?=$row['company_name']?>" />
             <i>*必须填写</i>
         </li>
-        <li>
-            <label>客服QQ：</label>
-            <input type="text" name="company_qq" id="company_qq" class="dfinput" value="<?=$row['company_qq']?>" />
-        </li>
+<!--        <li>-->
+<!--            <label>客服QQ：</label>-->
+<!--            <input type="text" name="company_qq" id="company_qq" class="dfinput" value="--><?//=$row['company_qq']?><!--" />-->
+<!--        </li>-->
         <li>
             <label>服务热线：</label>
             <input type="text" name="company_tel" id="company_tel" class="dfinput" value="<?=$row['company_tel']?>" />

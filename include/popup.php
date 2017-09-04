@@ -24,7 +24,7 @@
                     <input type="text" class="ipt_txt short" placeholder="请输入图形验证码" id="reserve_code">
                 </div>
                 <div class="test">
-                    <img class="verify-image"  id="checkpic" src="./checkcode.php" height="37" width="90" onclick="changing();">
+                    <img class="verify-image"  id="checkpic_3" src="./checkcode.php" height="37" width="90" onclick="changing();">
                 </div>
             </div>
             <div class="msg-box" style="margin-top:-10px;">
