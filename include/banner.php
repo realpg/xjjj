@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $banner_row=$db->query_list_id("select image_image from image where image_id=1 and image_show=1");
 if($banner_row)
 {

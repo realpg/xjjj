@@ -234,6 +234,34 @@ li img
     margin-bottom: 10px;
 }
 
+/* Brand */
+#preview_brand_logo,#preview_brand_logo img
+{
+    width:192px;
+    height:102px;
+}
+#preview_brand_logo
+{
+    border:1px solid #000;
+    float: left;
+    text-align: center;
+    line-height: 102px;
+    margin-bottom: 10px;
+}
+#preview_brand,#preview_brand img
+{
+    width:130px;
+    height:160px;
+}
+#preview_brand
+{
+    border:1px solid #000;
+    float: left;
+    text-align: center;
+    line-height: 160px;
+    margin-bottom: 10px;
+}
+
 /* Menu */
 #preview_menu,#preview_menu img
 {

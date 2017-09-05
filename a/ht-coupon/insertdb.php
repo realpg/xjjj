@@ -12,6 +12,8 @@ require_once ("include-image.php");
         $coupon_show=$_REQUEST['coupon_show'];
         $coupon_level=$_REQUEST['coupon_level'];
         $coupon_time=empty($_REQUEST['coupon_time'])?date('y-m-d H:m',time()):$_REQUEST['coupon_time'];
+//        $coupon_start=empty($_REQUEST['coupon_start'])?date('y-m-d H:m',time()):$_REQUEST['coupon_start'];
+        $coupon_end=empty($_REQUEST['coupon_end'])?date('Y-m-d H:m',time()):explode(" ",$coupon_time)[0]." ".$_REQUEST['coupon_end'];
     	if(empty($coupon_title))
         {
             ///////////
@@ -53,9 +55,9 @@ require_once ("include-image.php");
             {
                 $sql="insert into coupon"
                     . "(coupon_title,coupon_logo,coupon_content,coupon_price,coupon_sort,coupon_show,"
-                    . "coupon_time,coupon_level) "
+                    . "coupon_time,coupon_end,coupon_level) "
                     . "value ('$coupon_title','$coupon_logo','$coupon_content','$coupon_price','$coupon_sort',"
-                    . "'$coupon_show','$coupon_time','$coupon_level')" ;
+                    . "'$coupon_show','$coupon_time','$coupon_end','$coupon_level')" ;
                 $rows=$db->edit_list($sql);
                 // 返回影响行数  如果影响行数>=1,则判断添加成功,否则失败
                 if($rows >= 1)

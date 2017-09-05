@@ -58,6 +58,129 @@
             <!-- 活动亮点结束 -->
 
             <!-- 优惠券开始 -->
+            <?php
+            $coupon_menu_row=$db->query_list_id("select menu_title,menu_id from menu where menu_id=2 and menu_show=1");
+            if ($coupon_menu_row)
+            {
+                ?>
+                <div class="work_hx" id="J_Eact2">
+                    <div class="t_hd"  style="color:<?=$color_font["color_content"]?>"><?=$coupon_menu_row["menu_title"]?></div>
+                    <div class="t_nav_out " style="margin-top:20px;">
+                        <div id="tab_down">
+                            <ul class="work_con clearfix" style="background: none;display: block;padding:0px;">
+                                <?php
+                                $coupon_rows=$db->query_lists("select * from coupon where coupon_show=1 order by coupon_sort desc,coupon_id desc limit 0,8");
+                                foreach ($coupon_rows as $coupon_row)
+                                {
+                                    ?>
+                                    <li style="width:282px;height:140px;background: #fff;border:none;">
+                                        <a href="javascript:void(0);"  id="ClickMe" onclick="showpopup()">
+                                            <div class="repair-coupon-logo" style="width:84px;">
+                                                <div style="margin-top:10px;">
+                                                    <img class="lazy" data-original="<?=$coupon_row["coupon_logo"]?>" width="100%" alt="<?=$coupon_row["coupon_title"]?>" src="<?=$coupon_row["coupon_logo"]?>" style="display: inline;">
+                                                </div>
+                                                <div style="margin-top:-5px;font-size: 14px;">
+                                                    <?=$coupon_row["coupon_title"]?>
+                                                </div>
+                                            </div>
+                                            <div class="repair-coupon-content" style="width:135px;">
+                                                <div class="repair-coupon-price">
+                                                    ￥<?=$coupon_row["coupon_price"]?>
+                                                </div>
+                                                <div class="line-height-20">
+                                                    <?=$coupon_row["coupon_content"]?>
+                                                </div>
+                                                <div class="line-height-20">
+                                                    <?=date("Y-m-d",strtotime($coupon_row["coupon_time"]))?><br/>
+                                                    <?=date("H:i",strtotime($coupon_row["coupon_time"]))?>-<?=date("H:i",strtotime($coupon_row["coupon_end"]))?>
+                                                </div>
+                                                <div class="repair-coupon-time" id="coupon_time_<?=$coupon_row["coupon_id"]?>" style="line-height: 20px;">
+                                                    <div style="width:110px;margin:0 auto;">
+                                                        <!--                                                    <span class="repair-product-span" style="font-size:xx-small;">倒计时：</span>-->
+                                                        <span class="repair-product-span font-weight" id="day_show_<?=$coupon_row["coupon_id"]?>"></span>
+                                                        <span class="repair-product-span font-weight" id="hour_show_<?=$coupon_row["coupon_id"]?>"></span>
+                                                        <span class="repair-product-span font-weight" id="minute_show_<?=$coupon_row["coupon_id"]?>"></span>
+                                                        <span class="repair-product-span font-weight" type="text" id="second_show_<?=$coupon_row["coupon_id"]?>"></span>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    $(function(){
+                                                        show_time_<?=$coupon_row["coupon_id"]?>();
+                                                    });
+
+                                                    function show_time_<?=$coupon_row["coupon_id"]?>(){
+                                                        var time_start = new Date().getTime(); //设定当前时间
+
+                                                        var time_end =  new Date('<?=$coupon_row["coupon_time"]?>').getTime(); //设定目标时间
+                                                        // 计算时间差
+                                                        var time_distance = time_end - time_start;
+                                                        /*判断活动是否结束*/
+                                                        if(time_distance<0){
+
+                                                            int_day=0;
+                                                            int_hour=0;
+                                                            int_minute=0;
+                                                            int_second=0;
+                                                            $("#coupon_time_<?=$coupon_row["coupon_id"]?>").html("<b>活动已结束</b>");
+                                                        }else{
+                                                            // 天
+                                                            var int_day = Math.floor(time_distance/86400000)
+                                                            time_distance -= int_day * 86400000;
+                                                            // 时
+                                                            var int_hour = Math.floor(time_distance/3600000)
+                                                            time_distance -= int_hour * 3600000;
+                                                            // 分
+                                                            var int_minute = Math.floor(time_distance/60000)
+                                                            time_distance -= int_minute * 60000;
+                                                            // 秒
+                                                            var int_second = Math.floor(time_distance/1000)
+                                                            // 时分秒为单数时、前面加零
+                                                            if(int_day < 10){
+                                                                int_day = "0" + int_day;
+                                                            }
+                                                            if(int_hour < 10){
+                                                                int_hour = "0" + int_hour;
+                                                            }
+                                                            if(int_minute < 10){
+                                                                int_minute = "0" + int_minute;
+                                                            }
+                                                            if(int_second < 10){
+                                                                int_second = "0" + int_second;
+                                                            }
+                                                        }
+                                                        // 显示时间
+                                                        $("#day_show_<?=$coupon_row["coupon_id"]?>").html(int_day+"天");
+                                                        $("#hour_show_<?=$coupon_row["coupon_id"]?>").html(int_hour+"时");
+                                                        $("#minute_show_<?=$coupon_row["coupon_id"]?>").html(int_minute+"分");
+                                                        $("#second_show_<?=$coupon_row["coupon_id"]?>").html(int_second+"秒");
+                                                        // 设置定时器
+                                                        setTimeout("show_time_<?=$coupon_row["coupon_id"]?>()",1000);
+                                                    }
+                                                </script>
+                                            </div>
+                                            <div style="width:46px;height:140px;float:left;background:#f15b6c;color:#fff;line-height: 46px;letter-spacing:8px;">
+                                                <div style="writing-mode:tb-rl;width:100%;height:100%;">
+                                                    立即领取
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <?php
+                                }
+                                ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <a href="coupon.html">
+                    <div style="width:100%;height:40px; line-height: 40px; text-align: center;color:#fff;margin-top: 20px;background:<?=$color_more["color_content"]?>;">
+                        查看更多
+                    </div>
+                </a>
+                <?php
+            }
+            ?>
             <!-- 优惠券结束 -->
             <!-- 产品展示 -->
             <?php
@@ -71,12 +194,12 @@
                     <ul class="repair-product-pic-li clearfix">
                         <?php
                         $product_rows=$db->query_lists("select * from product where product_level=$product_menu_id and product_show=1 order by product_sort desc,product_id desc limit 0,6");
-                        foreach ($product_rows as $product_row)
+                        foreach ($product_rows as $k=>$product_row)
                         {
                             ?>
                             <li>
                                 <a href="javascript:void(0);"  id="ClickMe" onclick="showpopup()">
-                                    <div class="repair-product-div">
+                                    <div class="repair-product-div" >
                                         <div class="repair-product-logo">
 <!--                                            <div style="width:100%;font-size: 18px;font-weight: bold;text-align: center;hegiht:20px;line-height: 20px;vertical-align; margin-top:30%;">--><?//=$product_row["product_logo_title"]?><!--</div>-->
                                             <img src="<?=$product_row["product_logo"]?>" class="repair-product-logo-d">
@@ -172,7 +295,55 @@
             }
             ?>
             <!-- 产品展示 -->
-            <!-- 产品展示 -->
+            <!-- 品牌活动 -->
+            <?php
+            $brand_menu_row=$db->query_list_id("select menu_title,menu_id from menu where menu_id=4 and menu_show=1");
+            if($brand_menu_row)
+            {
+                ?>
+                <div style="margin-top:20px;">
+                    <div class="t_hd"  style="color:<?=$color_font["color_content"]?>"><?=$brand_menu_row["menu_title"]?></div>
+                    <ul class="hx-branch-li clearfix">
+                        <?php
+                        $brand_rows=$db->query_lists("select * from brand where  brand_show=1 order by brand_sort asc,brand_id asc limit 0,9");
+                        foreach ($brand_rows as $brand_row)
+                        {
+                            ?>
+                            <li style="margin-bottom:25px;">
+                                <a href="javascript:void(0);"  id="ClickMe" onclick="showpopup()">
+                                    <div style="width:395px;height:220px;margin:0 auto;">
+                                        <div  style="border-radius: 20px 20px 0 0;background: <?=$brand_row["brand_color"]?>;height:40%;padding: 20px;">
+                                            <div style="float:left;width:50%;">
+                                                <img src="<?=$brand_row["brand_logo"]?>"  style="width:100%;height:100%;" />
+                                            </div>
+                                            <div style="float:left;margin-left:10px;color:#000;line-height: 20px;">
+                                                <span style="font-size:18px;">位置</span><br />
+                                                <?=$brand_row["brand_position"]?>
+                                            </div>
+                                        </div>
+                                        <div style="height:60%;background: #fff;">
+                                            <div style="width:60%;float:left;">
+                                                <div style="width:90%;margin:5px auto;">
+                                                    <h3><?=$brand_row["brand_title"]?></h3><br />
+                                                    <div class="text-line-3"><?=$brand_row["brand_content"]?></div>
+                                                </div>
+                                            </div>
+                                            <div style="width:40%;float:left;">
+                                                <img data-original="<?=$brand_row["brand_image"]?>" src="<?=$brand_row["brand_image"]?>" style="width:158px;height:132px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <?php
+                        }
+                        ?>
+                    </ul>
+                </div>
+                <?php
+            }
+            ?>
+            <!-- 品牌活动 -->
             <!-- 逛展指南 -->
             <!-- 服务保障 -->
             <!-- 分会场 -->
@@ -183,7 +354,7 @@
             <!--底部辐条-->
             <!--地图-->
 
-            <div >
+            <div style="margin-top:10px;">
                 <div class="t_hd" style="color:<?=$color_font["color_content"]?>">交通路线</div>
                 <div>
                     <div style="margin-top:20px;">

@@ -400,7 +400,7 @@
     line-height: 45px;
     text-align: center;
     background: #d80c18;
-    margin-top: -5px;
+    margin-top: -21px;
     border-radius: 4px;
     border: 0;
 }
@@ -1045,10 +1045,10 @@
     margin-bottom: 15px;
 }
 
-.work_con li:nth-child(7),.work_con li:nth-child(14),.work_con li:nth-child(21),.work_con li:nth-child(28),.work_con li:nth-child(35),.work_con li:nth-child(42),.work_con li:nth-child(49),.work_con li:nth-child(56),.work_con li:nth-child(63),.work_con li:nth-child(70),.work_con li:nth-child(77),.work_con li:nth-child(84),.work_con li:nth-child(91),.work_con li:nth-child(98),.work_con li:nth-child(105),.work_con li:nth-child(112),.work_con li:nth-child(119),.work_con li:nth-child(126),.work_con li:nth-child(133),.work_con li:nth-child(140),.work_con li:nth-child(147),.work_con li:nth-child(154),.work_con li:nth-child(161),.work_con li:nth-child(168),.work_con li:nth-child(175),.work_con li:nth-child(182),.work_con li:nth-child(189),.work_con li:nth-child(196),.work_con li:nth-child(203),.work_con li:nth-child(210)
-{
-    margin-right: 0px;
-}
+/*.work_con li:nth-child(7),.work_con li:nth-child(14),.work_con li:nth-child(21),.work_con li:nth-child(28),.work_con li:nth-child(35),.work_con li:nth-child(42),.work_con li:nth-child(49),.work_con li:nth-child(56),.work_con li:nth-child(63),.work_con li:nth-child(70),.work_con li:nth-child(77),.work_con li:nth-child(84),.work_con li:nth-child(91),.work_con li:nth-child(98),.work_con li:nth-child(105),.work_con li:nth-child(112),.work_con li:nth-child(119),.work_con li:nth-child(126),.work_con li:nth-child(133),.work_con li:nth-child(140),.work_con li:nth-child(147),.work_con li:nth-child(154),.work_con li:nth-child(161),.work_con li:nth-child(168),.work_con li:nth-child(175),.work_con li:nth-child(182),.work_con li:nth-child(189),.work_con li:nth-child(196),.work_con li:nth-child(203),.work_con li:nth-child(210)*/
+/*{*/
+    /*margin-right: 0px;*/
+/*}*/
 
 .work_con li a {
     display: block;
@@ -1058,8 +1058,8 @@
 }
 
 .work_con li a img {
-    width: 150px;
-    height: 58px;
+    /*width: 150px;*/
+    /*height: 58px;*/
 }
 
 .work_none {
@@ -1664,9 +1664,10 @@
     border-right:none;
 }
 .hx-branch-li li img{
-    width: 380px;
-    height:220px;
+    width: 395px;
+    height:235px;
     display: block;
+    margin:0 auto;
 }
 .more-act-list-top img{
     width: 1200px;

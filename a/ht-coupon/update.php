@@ -57,17 +57,18 @@ editor.render("coupon_content");
             </li>
             <li>
                 <label>金额：</label>
-                <input type="text" name="coupon_price" id="coupon_price" class="dfinput" value="<?=$row['coupon_price']?>" style="width:100px;" />
+                ￥<input type="text" name="coupon_price" id="coupon_price" class="dfinput" value="<?=$row['coupon_price']?>" style="width:100px;" />
+                <i>*数字</i>
             </li>
             <li>
                 <label>条件：</label>
                 <input type="text" name="coupon_content" id="coupon_content" class="dfinput" value="<?=$row['coupon_content']?>" />
             </li>
             <li>
-                <label>活动时间：</label>
-                <input type="text" name="coupon_time" id="coupon_time" class="dfinput"
-                       style="width:120px" value="<?=date("Y-m-d H",strtotime($row['coupon_time']))?>"
-                       class="Wdate"  onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd HH'})"/>
+                <label>时间：</label>
+                <input type="text" name="coupon_time" id="coupon_time" value="<?=date("Y-m-d H",strtotime($row['coupon_time']))?>" class="dfinput" style="width:120px" class="Wdate" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd HH'})"/>
+<!--                <input type="text" name="coupon_start" id="coupon_start" value="--><?//=date("H",strtotime($row['coupon_start']))?><!--" class="dfinput" style="width:30px" class="Wdate" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'HH'})"/>-->
+                -<input type="text" name="coupon_end" id="coupon_end" value="<?=date("H",strtotime($row['coupon_end']))?>" class="dfinput"style="width:40px" class="Wdate" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'HH'})"/>
                 <i>*如果为空默认为当前时间</i>
             </li>
             <li>

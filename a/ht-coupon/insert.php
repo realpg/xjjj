@@ -62,10 +62,10 @@ editor.render("coupon_content");
                 <input type="text" name="coupon_content" id="coupon_content" class="dfinput"  />
             </li>
             <li>
-                <label>活动时间：</label>
-                <input type="text" name="coupon_time" id="coupon_time" class="dfinput"
-                       style="width:120px"
-                       class="Wdate" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd HH'})"/>
+                <label>时间：</label>
+                <input type="text" name="coupon_time" id="coupon_time" class="dfinput" style="width:120px" class="Wdate" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd HH'})"/>
+<!--                <input type="text" name="coupon_start" id="coupon_start" class="dfinput" style="width:30px" class="Wdate" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'HH'})"/>-->
+                -<input type="text" name="coupon_end" id="coupon_end" class="dfinput"style="width:40px" class="Wdate" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'HH'})"/>
                 <i>*如果为空默认为当前时间</i>
             </li>
             <li>
