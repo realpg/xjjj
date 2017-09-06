@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="./css/sm-extend.min.css">
     <link rel="stylesheet" type="text/css" href="./css/iSlider.min.css">
     <link rel="stylesheet" type="text/css" href="./css/base.css">
-    <!--        <link rel="shortcut icon" href="--><!--" />-->
 
     <link href="./css/ticket2017-06.css" rel="stylesheet" type="text/css" media="screen">
     <script type="text/javascript">var _vds = _vds || [];window._vds = _vds;(function(){_vds.push(['setAccountId', '97f5cbef69849241']);(function() {var vds = document.createElement('script');vds.type='text/javascript';vds.async = true;vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(vds, s);})();})();</script>
@@ -166,7 +165,6 @@
                                                 <div class="repair-hidden repair-product-price color-black">工厂批发价：<?=$product_row["product_price"]?></div>
                                                 <div class="repair-hidden color-red">限时价：<b><?=$product_row["product_sell"]?></b>&nbsp;</div>
                                                 <div class="repair-hidden color-red" id="product_time_<?=$product_row["product_id"]?>">
-<!--                                                    <span class="repair-product-span" style="color:red;">倒计时：</span>-->
                                                     <span class="repair-product-span font-weight" style="color:red;" id="day_show_<?=$product_row["product_id"]?>"></span>
                                                     <span class="repair-product-span font-weight" style="color:red;" id="hour_show_<?=$product_row["product_id"]?>"></span>
                                                     <span class="repair-product-span font-weight" style="color:red;" id="minute_show_<?=$product_row["product_id"]?>"></span>

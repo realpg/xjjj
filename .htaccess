@@ -14,5 +14,6 @@ RewriteRule ^wap/success.html$ wap/success.php
 RewriteRule ^wap/product-(.*).html$ wap/product.php?dhid=3&tdhid=$1
 RewriteRule ^wap/about.html$ wap/about.php
 RewriteRule ^wap/coupon.html$ wap/coupon.php?dhid=2
+RewriteRule ^wap/coupon-(.*).html$ wap/coupon.php?dhid=2&tdhid=$1
 </IFMODULE>
 ErrorDocument 404 /xjjj/404/404.html

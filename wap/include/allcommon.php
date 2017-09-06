@@ -8,6 +8,7 @@ $menu_one_list=$db->query_list_id("select * from menu where menu_id=$dhid");
 //色值搭配
 $color_index=$db->query_list_id("select color_content from color where color_id=3");
 $color_product=$db->query_list_id("select color_content from color where color_id=4");
+$color_coupon=$db->query_list_id("select color_content from color where color_id=12");
 $color_font=$db->query_list_id("select color_content from color where color_id=6");
 $color_more=$db->query_list_id("select color_content from color where color_id=10");
 ?>
