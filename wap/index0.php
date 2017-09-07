@@ -204,8 +204,7 @@
                                 }
                                 ?>
                                 <a href="coupon.html" style="background: none;color:#fff;">
-                                    <li class="more more-2"
-                                        style="width:100%;height:30px;background: none;line-height: 30px;background: <?= $color_more["color_content"] ?>;">
+                                    <li class="more more-2" style="width:100%;height:30px;background: none;line-height: 30px;background: <?= $color_more["color_content"] ?>;">
                                         查看更多&gt;&gt;
                                     </li>
                                 </a>
@@ -216,6 +215,7 @@
                 }
                 ?>
                 <!-- 优惠券 -->
+
                 <!-- 产品展示 -->
                 <?php
                 $product_menu_row=$db->query_list_id("select menu_title from menu where menu_id=3 and menu_show=1");
@@ -226,22 +226,17 @@
                         <div class="tit"  style="color:<?=$color_font["color_content"]?>;">
                             <?=$product_menu_row["menu_title"]?>
                         </div>
-                        <div class="nav" style="top:2.63rem;">
-                            <div class="nav-fo" id="my-nav" style="display: block;"  >
+                        <div class="nav">
+                            <div class="nav-fo" id="my-nav">
                                 <div class="content-padded grid-demo">
-                                    <div class="nav-li content-inner">
-                                        <div class="row" style="width:auto;height:2.34rem;background: #d3d7d4;">
+                                    <div class="nav-li content-inner native-scroll" id="navScroller" scroll="no" data-toggle="scroller">
+                                        <div class="row clearfix" style="width: 100%;">
                                             <?php
-                                            $menu_rows=$db->query_lists("select menu_title,menu_id from menu where menu_level=3 and menu_show=1 order by menu_sort asc,menu_id asc limit 0,5");
-                                            $tdhid=empty($tdhid)?$menu_rows[0]["menu_id"]:$tdhid;
+                                            $menu_rows=$db->query_lists("select menu_title,menu_id from menu where menu_level=3 and menu_show=1 order by menu_sort asc,menu_id asc");
                                             foreach ($menu_rows as $k=>$menu_row)
                                             {
                                                 ?>
-                                                <div class="col-25 <?=$tdhid==$menu_row["menu_id"]?"active":""?>" style="height:2.34rem;line-height: 2.34rem;<?=$tdhid==$menu_row["menu_id"]?"border-bottom: #ce012e solid .08rem;":""?>">
-                                                    <a href="index-<?=$menu_row["menu_id"]?>.html#<?=$menu_row["menu_id"]?>" style="color:#666;">
-                                                        <?=$menu_row["menu_title"]?>
-                                                    </a>
-                                                </div>
+                                                <div data-id="<?=$k+1?>" class="col-25  <?=$k==0?"active":""?>"><?=$menu_row["menu_title"]?></div>
                                                 <?php
                                             }
                                             ?>
@@ -255,8 +250,7 @@
                             foreach ($menu_rows as $k=>$menu_row)
                             {
                                 ?>
-                                <a name="<?=$menu_row["menu_id"]?>"></a>
-                                <ul class="nav-con-in clearfix" <?=$menu_row["menu_id"]==$tdhid?"style='display:block;'":""?>>
+                                <ul class="nav-con-in clearfix" <?=$k==0?"style='display:block;'":""?>>
                                     <?php
                                     $product_level=$menu_row["menu_id"];
                                     $product_rows=$db->query_lists("select * from product where product_level=$product_level and product_show=1 order by product_sort desc,product_id desc limit 0,6");

@@ -41,7 +41,7 @@
                 <div class="nav-fo" id="my-nav" style="display: block;"  >
                     <div class="content-padded grid-demo">
                         <div class="nav-li content-inner">
-                            <div class="row" style="width:auto;height:2.34rem;">
+                            <div class="row" style="width:auto;height:2.34rem;background: #d3d7d4;">
                                 <?php
                                 $coupon_menu_rows=$db->query_lists("select menu_title,menu_id from menu where menu_level=2 and menu_show=1 order by menu_sort asc,menu_id asc limit 0,5");
                                 $tdhid=empty($tdhid)?$coupon_menu_rows[0]["menu_id"]:$tdhid;

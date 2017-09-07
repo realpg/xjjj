@@ -9,6 +9,7 @@ RewriteRule ^about.html$ about.php
 RewriteRule ^coupon.html$ coupon.php?dhid=2
 
 RewriteRule ^wap/index.html$ wap/index.php
+RewriteRule ^wap/index-(.*).html$ wap/index.php?dhid=1&tdhid=$1
 RewriteRule ^wap/leaveword.html$ wap/leaveword.php
 RewriteRule ^wap/success.html$ wap/success.php
 RewriteRule ^wap/product-(.*).html$ wap/product.php?dhid=3&tdhid=$1
