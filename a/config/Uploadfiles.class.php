@@ -11,7 +11,7 @@ class Uploadfiles
      * 
      * 上传图片
      * @param  $name:获取请求上传图片的文件域的名称
-     * @param  $uplosd:上传地址
+     * @param  $upload:上传地址
      * @param  $names:获取请求上传图片的文件域的内容为空时，默认的图片
      * @param  $width：要修改的图片宽度
      * @param  $height：要修改的图片高度
@@ -19,12 +19,12 @@ class Uploadfiles
      * @param  $positon：水印的位置
      * @param  $alpha：水印的透明度
      */
-    public  function upload_image($name,$uplosd,$names="",$width="",$height="",$water="",$positon=3,$alpha=50)
+    public  function upload_image($name,$upload,$names="",$width="",$height="",$water="",$positon=3,$alpha=50)
     {
         if (!empty($_FILES[$name]["name"])) 
         {
             //提取文件域内容名称，并判断
-            $path = "../../$uplosd/"; //上传路径
+            $path = "../../$upload/"; //上传路径
 //            //判断上传的图片大小
 //            $filesize=$_FILES[$name]["size"];
 //            if($filesize>2097152)
@@ -58,7 +58,7 @@ class Uploadfiles
             $today = date("YmdHis").$num; //获取时间并赋值给变量
             $filename = $path . $today . $type; //图片的完整路径
             $imgongsi2 = $today . $type; //图片名称
-            $editimg= "$uplosd".$imgongsi2;
+            $editimg= "$upload".$imgongsi2;
             move_uploaded_file($_FILES[$name]["tmp_name"], $filename);
             if(!empty($names)&&file_exists("../../".$names))
             {
@@ -467,17 +467,17 @@ class Uploadfiles
     }
     /**
      *
-     * 普通上传图片
+     * 上传水印
      * @param  $name:获取请求上传图片的文件域的名称
-     * @param  $uplosd:上传地址
+     * @param  $upload:上传地址
      * @param  $names:获取请求上传图片的文件域的内容为空时，默认的图片
      */
-    public  function upload_waterimage($name,$names="",$uplosd="upload/company/")
+    public  function upload_waterimage($name,$names="",$upload="upload/company/")
     {
         if (!empty($_FILES[$name]["name"]))
         {
             //提取文件域内容名称，并判断
-            $path = "../../$uplosd/"; //上传路径
+            $path = "../../$upload/"; //上传路径
             //判断上传的图片大小
             $filesize=$_FILES[$name]["size"];
             if($filesize>2097152)
@@ -510,7 +510,7 @@ class Uploadfiles
             $today = "watermark";
             $filename = $path . $today . $type; //图片的完整路径
             $imgongsi2 = $today . $type; //图片名称
-            $editimg= "$uplosd".$imgongsi2;
+            $editimg= "$upload".$imgongsi2;
             $result = move_uploaded_file($_FILES[$name]["tmp_name"], $filename);
             if(!empty($names)&&file_exists("../../".$names))
             {
@@ -526,17 +526,71 @@ class Uploadfiles
     }
 
     /**
+     *
+     * 普通上传图片
+     * @param  $name:获取请求上传视频的文件域的名称
+     * @param  $upload:上传地址
+     * @param  $names:获取请求上传视频的文件域的内容为空时，默认的视频
+     */
+    public  function upload_picture($name,$upload,$names="")
+    {
+        if (!empty($_FILES[$name]["name"]))
+        { //提取文件域内容名称，并判断
+            $path = "../../$upload/"; //上传路径
+            $filetype = $_FILES[$name]['type'];
+            if ($filetype == "image/jpeg")
+            {
+                $type = '.jpg';
+            }
+            else if ($filetype == "image/jpg")
+            {
+                $type = '.jpg';
+            }
+            else if ($filetype == "image/png")
+            {
+                $type = '.png';
+            }
+            else if ($filetype == "image/gif")
+            {
+                $type = '.gif';
+            }
+            else
+            {
+                return "error in type";
+                exit;
+            }
+            $num=rand(1, 10000);
+            $today = date("YmdHis").$num; //获取时间并赋值给变量
+            $filename = $path . $today . $type; //图片的完整路径
+            $imgongsi2 = $today . $type; //图片名称
+            $editimg= "$upload/".$imgongsi2;
+            $result = move_uploaded_file($_FILES[$name]["tmp_name"], $filename);
+            if(!empty($names)&&file_exists("../../".$names))
+            {
+                unlink("../../".$names);
+            }
+            return $editimg;
+
+        }
+        else
+        {
+            $editimg=empty($names)?"":$names;
+            return $editimg;
+        }//END IF
+    }
+
+    /**
      * 
      * 上传视频
      * @param  $name:获取请求上传视频的文件域的名称
-     * @param  $uplosd:上传地址
+     * @param  $upload:上传地址
      * @param  $names:获取请求上传视频的文件域的内容为空时，默认的视频
      */
-    public  function upload_video($name,$uplosd,$names="")
+    public  function upload_video($name,$upload,$names="")
     {
         if (!empty($_FILES[$name]["name"])) 
         { //提取文件域内容名称，并判断
-        $path = "../../$uplosd/"; //上传路径
+        $path = "../../$upload/"; //上传路径
         $filetype = $_FILES[$name]['type'];
         if ($filetype == "video/mp4") 
         {
@@ -551,7 +605,7 @@ class Uploadfiles
         $today = date("YmdHis").$num; //获取时间并赋值给变量
         $filename = $path . $today . $type; //图片的完整路径
         $imgongsi2 = $today . $type; //图片名称
-        $editvideo= "$uplosd/".$imgongsi2;
+        $editvideo= "$upload/".$imgongsi2;
         $result = move_uploaded_file($_FILES[$name]["tmp_name"], $filename);
         return $editvideo;
 
@@ -567,14 +621,14 @@ class Uploadfiles
      * 
      * 上传文件（通用方法，以word为例）
      * @param  $name:获取请求上传文件的文件域的名称
-     * @param  $uplosd:上传地址
+     * @param  $upload:上传地址
      * @param  $names:获取请求上传文件的文件域的内容为空时，默认的文件
      */
-    public  function upload_file($name,$uplosd,$names="")
+    public  function upload_file($name,$upload,$names="")
     {
         if (!empty($_FILES[$name]["name"])) 
         { //提取文件域内容名称，并判断
-        $path = "../../$uplosd/"; //上传路径
+        $path = "../../$upload/"; //上传路径
         //判断上传的文件大小
         $filesize=$_FILES[$name]["size"];
         if($filesize>2097152)
@@ -600,7 +654,7 @@ class Uploadfiles
         $today = date("YmdHis").$num; //获取时间并赋值给变量
         $filename = $path . $today . $type; //图片的完整路径
         $wordongsi2 = $today . $type; //图片名称
-        $editword= "$uplosd/".$wordongsi2;
+        $editword= "$upload/".$wordongsi2;
         $result = move_uploaded_file($_FILES[$name]["tmp_name"], $filename);
         $arry[0]=$editword;
         $arry[1]=$_FILES[$name]["name"];

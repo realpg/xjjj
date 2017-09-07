@@ -7,7 +7,8 @@ require_once ("include-image.php");
     {
         $menu_id=$_REQUEST['menu_id'];
         $menu_images=$_REQUEST['menu_images'];
-        $img=$files->upload_image("menu_image", $upload, $menu_images, $menu_width, $menu_height);
+//        $img=$files->upload_image("menu_image", $upload, $menu_images, $menu_width, $menu_height);
+        $img=$files->upload_picture("menu_image", $upload, $menu_images);
         if($img=="Out of size")
         {
             echo IMAGE_SIZE;
@@ -32,7 +33,8 @@ require_once ("include-image.php");
         else
         {
             $menu_wap_images=$_REQUEST['menu_wap_images'];
-            $img_wap=$files->upload_image("menu_wap_image", $upload, $menu_wap_images, $menu_wap_width, $menu_wap_height);
+//            $img_wap=$files->upload_image("menu_wap_image", $upload, $menu_wap_images, $menu_wap_width, $menu_wap_height);
+            $img_wap=$files->upload_picture("menu_wap_image", $upload, $menu_wap_images);
             if($img_wap=="Out of size")
             {
                 echo IMAGE_SIZE;

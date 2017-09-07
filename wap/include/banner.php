@@ -7,8 +7,8 @@ if($image_banner_row)
         <img src="../<?=$image_banner_row["image_image"]?>" width="100%">
 
         <!-- 索票input框开始 -->
-        <div class="list-block" id="J_TicketForm" style="width:90%;">
-            <ul>
+        <div class="list-block" id="J_TicketForm">
+            <ul style="margin:0 0.5rem;">
                 <li style="margin-top:0;">
                     <div class="item-content">
                         <div class="item-inner">
@@ -28,7 +28,7 @@ if($image_banner_row)
                     </div>
                 </li>
             </ul>
-            <div class="ticket-btn repair-ticket-btn">
+            <div class="ticket-btn repair-ticket-btn" style="margin:0.5rem;">
                 <button class="btn" onclick="leaveword()">
                     <img src="./images/btn-bg.png">
                 </button>

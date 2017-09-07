@@ -22,7 +22,7 @@ define("ENCODE","utf8");
 ////////通用///////////
 //图片大小提示框
 define("IMAGE_SIZE","<script>alert('为了保证您的网站正常运行，"
-        . "请选择上传小于2M的图片');history.go(-1);</script>");
+        . "请选择上传小于20M的图片');history.go(-1);</script>");
 //图片格式提示框
 define("IMAGE_FORMAT","<script>alert('请选择上传jpg，"
         . "png，gif格式的图片');history.go(-1);</script>");

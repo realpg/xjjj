@@ -41,7 +41,32 @@
             <?php require_once 'include/banner.php'; ?>
 <!--            <div class="nav" style="top:2.63rem;position:fixed;right:0;left:0;z-index: 10;">-->
             <a name="<?=$tdhid?>"></a>
-            <div class="nav">
+            <script>
+                $("body").on("touchstart", function(e) {
+                    e.preventDefault();
+                        startY = e.originalEvent.changedTouches[0].pageY;
+                });
+                $("body").on("touchmove", function(e) {
+                    e.preventDefault();
+                        moveEndY = e.originalEvent.changedTouches[0].pageY,
+                        Y = moveEndY - startY;
+
+                    if (  Y > -200) {
+                        $("#nav").css("position","");
+                        $("#nav").css("top","");
+                        $("#nav").css("right","");
+                        $("#nav").css("left","");
+                    }
+                    else if(Y<-200) {
+                        $("#nav").css("position","fixed");
+                        $("#nav").css("top","2.63rem");
+                        $("#nav").css("right","0");
+                        $("#nav").css("left","0");
+                        $("#nav").css("z-index","999");
+                    }
+                });
+            </script>
+            <div class="nav" id="nav">
                 <div class="nav-fo" id="my-nav" style="display: block;"  >
                     <div class="content-padded grid-demo">
                         <div class="nav-li content-inner">

@@ -52,7 +52,7 @@
                     产品展示
                 </div>
                 <!-- 产品展示 -->
-                <div class="activity">
+                <div class="activity" style="margin:0 0.5rem;">
                     <style>
                         .activity-list li{
                             background: #fff;
@@ -162,8 +162,8 @@
                             <ul class="more-act-top clearfix">
                                 <?php $main_branch_row=$db->query_list_id("select image_image from image where image_id=11"); ?>
                                 <li style="margin-left:0">
-                                    <a href="javascript:void(0)" onclick="backindex()">
-                                        <img src="../<?=$main_branch_row["image_image"]?>">
+                                    <a href="index.html">
+                                        <img src="../<?=$main_branch_row["image_image"]?>" style="height:12rem;">
                                     </a>
                                 </li>
                                 <li>

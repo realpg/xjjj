@@ -85,7 +85,7 @@
             <?php require_once 'include/banner.php'; ?>
             <div class="main-wap" style='margin-top:0px;'>
                 <!-- 活动亮点开始 -->
-                <div class="activity">
+                <div class="activity" style="margin:0 0.5rem;">
                     <div class="tit" style="color:<?=$color_font["color_content"]?>;">活动亮点</div>
                     <ul class="activity-list clearfix">
                         <?php
@@ -229,7 +229,7 @@
                         <div class="nav" style="top:2.63rem;">
                             <div class="nav-fo" id="my-nav" style="display: block;"  >
                                 <div class="content-padded grid-demo">
-                                    <div class="nav-li content-inner">
+                                    <div class="nav-li content-inner" style="overflow:hidden;">
                                         <div class="row" style="width:auto;height:2.34rem;background: #d3d7d4;">
                                             <?php
                                             $menu_rows=$db->query_lists("select menu_title,menu_id from menu where menu_level=3 and menu_show=1 order by menu_sort asc,menu_id asc limit 0,5");

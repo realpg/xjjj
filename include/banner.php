@@ -54,7 +54,7 @@ if($round_row)
     <div class="t_banner" style="margin-top:10px;">
         <a href="javascript:void(0);"  id="ClickMe" onclick="showpopup()">
             <div class="t_banner_bg">
-                <img src="<?=$round_row["image_image"]?>" />
+                <img src="<?=$round_row["image_image"]?>" style="height:235px;" />
             </div>
         </a>
     </div>

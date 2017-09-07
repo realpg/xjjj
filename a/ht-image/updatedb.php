@@ -68,7 +68,14 @@ require_once ("include-image.php");
                 $image_height=$image_height_10;
             }
             $image_images=$_REQUEST['image_images'];
-            $img=$files->upload_image("image_image", $upload, $image_images, $image_width, $image_height);
+            if($image_id==12)
+            {
+                $img=$files->upload_picture("image_image", $upload, $image_images);
+            }
+            else
+            {
+                $img=$files->upload_image("image_image", $upload, $image_images, $image_width, $image_height);
+            }
             if($img=="Out of size")
             {
                 echo IMAGE_SIZE;
