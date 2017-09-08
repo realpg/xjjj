@@ -132,9 +132,9 @@
                                             function show_time_<?=$coupon_row["coupon_id"]?>(){
                                                 var time_start = new Date().getTime(); //设定当前时间
 
-                                                var time_end =  new Date('<?=$coupon_row["coupon_time"]?>').getTime(); //设定目标时间
+                                                var time_end =  new Date("<?=date("Y/m/d H:i:s",strtotime($coupon_row["coupon_time"]))?>").getTime(); //设定目标时间
                                                 // 计算时间差
-                                                var time_distance = time_end - time_start;
+                                                var time_distance = Math.floor(time_end) - Math.floor(time_start);
                                                 /*判断活动是否结束*/
                                                 if(time_distance<0)
                                                 {

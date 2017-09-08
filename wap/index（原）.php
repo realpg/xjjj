@@ -148,20 +148,19 @@
                                                     立即领取
                                                 </div>
                                                 <div style="line-height: 2.5rem;font-size:0.6rem;margin-top:-1.5rem;" id="coupon_time_<?=$coupon_row["coupon_id"]?>">
-                                                    <span  id="day_show_<?=$coupon_row["coupon_id"]?>"></span>
-                                                    <span  id="hour_show_<?=$coupon_row["coupon_id"]?>"></span>
-                                                    <span  id="minute_show_<?=$coupon_row["coupon_id"]?>"></span>
-                                                    <span  type="text" id="second_show_<?=$coupon_row["coupon_id"]?>"></span>
+                                                    <span  id="coupon_hour_show_<?=$coupon_row["coupon_id"]?>"></span>
+                                                    <span  id="coupon_minute_show_<?=$coupon_row["coupon_id"]?>"></span>
+                                                    <span  id="coupon_second_show_<?=$coupon_row["coupon_id"]?>"></span>
                                                 </div>
                                                 <script type="text/javascript">
                                                     $(function(){
-                                                        show_time_<?=$coupon_row["coupon_id"]?>();
+                                                        show_time_coupon_<?=$coupon_row["coupon_id"]?>();
                                                     });
 
-                                                    function show_time_<?=$coupon_row["coupon_id"]?>(){
+                                                    function show_time_coupon_<?=$coupon_row["coupon_id"]?>(){
                                                         var time_start = new Date().getTime(); //设定当前时间
 
-                                                        var time_end =  new Date('<?=$coupon_row["coupon_time"]?>').getTime(); //设定目标时间
+                                                        var time_end =  new Date("<?=date("Y/m/d H:i:s",strtotime($coupon_row["coupon_time"]))?>").getTime(); //设定目标时间
                                                         // 计算时间差
                                                         var time_distance = time_end - time_start;
                                                         /*判断活动是否结束*/
@@ -191,11 +190,11 @@
                                                             }
                                                         }
                                                         // 显示时间
-                                                        $("#hour_show_<?=$coupon_row["coupon_id"]?>").html(int_hour+"时");
-                                                        $("#minute_show_<?=$coupon_row["coupon_id"]?>").html(int_minute+"分");
-                                                        $("#second_show_<?=$coupon_row["coupon_id"]?>").html(int_second+"秒");
+                                                        $("#coupon_hour_show_<?=$coupon_row["coupon_id"]?>").html(int_hour+"时");
+                                                        $("#coupon_minute_show_<?=$coupon_row["coupon_id"]?>").html(int_minute+"分");
+                                                        $("#coupon_second_show_<?=$coupon_row["coupon_id"]?>").html(int_second+"秒");
                                                         // 设置定时器
-                                                        setTimeout("show_time_<?=$coupon_row["coupon_id"]?>()",1000);
+                                                        setTimeout("show_time_coupon_<?=$coupon_row["coupon_id"]?>()",1000);
                                                     }
                                                 </script>
                                             </div>
@@ -316,7 +315,6 @@
                                                         <span class="repair-product-span font-weight" style="color:red;"
                                                               id="minute_show_<?= $product_row["product_id"] ?>"></span>
                                                         <span class="repair-product-span font-weight" style="color:red;"
-                                                              type="text"
                                                               id="second_show_<?= $product_row["product_id"] ?>"></span>
                                                     </div>
                                                     <script type="text/javascript">
@@ -324,10 +322,10 @@
                                                             show_time_<?=$product_row["product_id"]?>();
                                                         });
 
-                                                        function show_time_ <?=$product_row["product_id"]?>() {
+                                                        function show_time_<?=$product_row["product_id"]?>() {
                                                             var time_start = new Date().getTime(); //设定当前时间
 
-                                                            var time_end = new Date('<?=$product_row["product_end"]?>').getTime(); //设定目标时间
+                                                            var time_end =  new Date("<?=date("Y/m/d H:i:s",strtotime($product_row["product_end"]))?>").getTime(); //设定目标时间
                                                             // 计算时间差
                                                             var time_distance = time_end - time_start;
                                                             /*判断活动是否结束*/

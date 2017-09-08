@@ -94,7 +94,7 @@
                                         function show_time_<?=$product_row["product_id"]?>(){
                                             var time_start = new Date().getTime(); //设定当前时间
 
-                                            var time_end =  new Date('<?=$product_row["product_end"]?>').getTime(); //设定目标时间
+                                            var time_end =  new Date("<?=date("Y/m/d H:i:s",strtotime($product_row["product_end"]))?>").getTime(); //设定目标时间
                                             // 计算时间差
                                             var time_distance = time_end - time_start;
                                             /*判断活动是否结束*/
