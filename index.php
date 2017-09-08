@@ -70,10 +70,10 @@
                             <ul class="work_con clearfix" style="background: none;display: block;padding:0px;">
                                 <?php
                                 $coupon_rows=$db->query_lists("select * from coupon where coupon_show=1 order by coupon_sort desc,coupon_id desc limit 0,8");
-                                foreach ($coupon_rows as $coupon_row)
+                                foreach ($coupon_rows as $k=>$coupon_row)
                                 {
                                     ?>
-                                    <li style="width:282px;height:140px;background: #fff;border:none;">
+                                    <li style="width:295px;height:140px;background: #fff;border:none;margin:2px;">
                                         <a href="javascript:void(0);"  id="ClickMe" onclick="showpopup()">
                                             <div class="repair-coupon-logo" style="width:84px;">
                                                 <div style="margin-top:10px;">
@@ -95,7 +95,7 @@
                                                     <?=date("H:i",strtotime($coupon_row["coupon_time"]))?>-<?=date("H:i",strtotime($coupon_row["coupon_end"]))?>
                                                 </div>
                                                 <div class="repair-coupon-time" id="coupon_time_<?=$coupon_row["coupon_id"]?>" style="line-height: 20px;">
-                                                    <div style="width:110px;margin:0 auto;">
+                                                    <div style="width:117px;margin:0 auto;">
                                                         <!--                                                    <span class="repair-product-span" style="font-size:xx-small;">倒计时：</span>-->
                                                         <span class="repair-product-span font-weight" id="day_show_<?=$coupon_row["coupon_id"]?>"></span>
                                                         <span class="repair-product-span font-weight" id="hour_show_<?=$coupon_row["coupon_id"]?>"></span>
@@ -158,7 +158,7 @@
                                                     }
                                                 </script>
                                             </div>
-                                            <div style="width:46px;height:140px;float:left;background:#f15b6c;color:#fff;line-height: 46px;letter-spacing:8px;">
+                                            <div style="width:58px;height:140px;float:left;background:#f15b6c;color:#fff;line-height: 58px;letter-spacing:8px;">
                                                 <div style="writing-mode:tb-rl;width:100%;height:100%;">
                                                     立即领取
                                                 </div>

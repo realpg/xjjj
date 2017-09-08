@@ -39,8 +39,26 @@
         <div class="content native-scroll">
             <!-- Banner -->
             <?php require_once 'include/banner.php'; ?>
-<!--            <div class="nav" style="top:2.63rem;position:fixed;right:0;left:0;z-index: 10;">-->
             <a name="<?=$tdhid?>"></a>
+            <script language="javascript">
+                function Tab(num)
+                {
+                    var i;
+                    for(i=1;i<=5;i++)
+                    {
+                        if(i==num)
+                        {
+                            $("#d_"+i).css("display","block");
+                            $("#coupon_menu_"+i).attr("class", "col-25 active");
+                        }
+                        else
+                        {
+                            $("#d_"+i).css("display","none");
+                            $("#coupon_menu_"+i).attr("class", "col-25");
+                        }
+                    }
+                }
+            </script>
             <div class="nav">
                 <div class="nav-fo" id="my-nav" style="display: block;"  >
                     <div class="content-padded grid-demo">
@@ -52,8 +70,8 @@
                                 foreach ($coupon_menu_rows as $k=>$coupon_menu_row)
                                 {
                                     ?>
-                                    <div class="col-25 <?=$tdhid==$coupon_menu_row["menu_id"]?"active":""?>" style="height:2.34rem;line-height: 2.34rem;">
-                                        <a href="coupon-<?=$coupon_menu_row["menu_id"]?>.html#<?=$coupon_menu_row["menu_id"]?>" style="color:#666;">
+                                    <div class="col-25 <?=$tdhid==$coupon_menu_row["menu_id"]?"active":""?>" id="coupon_menu_<?=$k+1?>" style="height:2.34rem;line-height: 2.34rem;">
+                                        <a href="javascript:void(0)" onclick="Tab(<?=$k+1?>)" style="color:#666;">
                                             <?=$coupon_menu_row["menu_title"]?>
                                         </a>
                                     </div>
@@ -66,94 +84,102 @@
                 </div>
             </div>
             <div class="brand-list">
-                <div class="content-padded grid-demo">
-                    <?php
-                    $coupon_rows=$db->query_lists("select * from coupon where coupon_level=$tdhid order by coupon_sort desc,coupon_id desc");
-                    foreach ($coupon_rows as $coupon_row)
-                    {
-                        ?>
-                        <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".rule">
-                            <div style="width:100%;margin:1rem auto;height:5.5rem;background: #fff;color:#666;">
-                                <div style="width:25%;float:left;">
-                                    <img src="../<?=$coupon_row["coupon_logo"]?>" style="width:100%;" alt="<?=$coupon_row["coupon_title"]?>">
-                                    <div style="width:100%;line-height: 2.5rem;text-align: center;margin-top:-0.3rem;">
-                                        <?=$coupon_row["coupon_title"]?>
-                                    </div>
-                                </div>
-                                <div style="width:45%;float:left;text-align: center;">
-                                    <div style="color:red;line-height: 2.5rem;font-size: 1.5rem;font-weight: bold;">
-                                        ￥<?=$coupon_row["coupon_price"]?>
-                                    </div>
-                                    <div style="line-height: 1.5rem;font-size: 0.6rem;">
-                                        <?=$coupon_row["coupon_content"]?>
-                                    </div>
-                                    <div style="line-height: 1rem;font-size: 0.5rem;">
-                                        <?=date("Y-m-d H:i",strtotime($coupon_row["coupon_time"]))?>-<?=date("H:i",strtotime($coupon_row["coupon_end"]))?>
-                                    </div>
-                                </div>
-                                <div style="width:30%;float:left;background: #ef4136;height:100%;color:#fff;text-align: center;font-weight: bold;">
-                                    <div style="line-height: 4rem;font-size:0.8rem;">
-                                        立即领取
-                                    </div>
-                                    <div style="line-height: 2.5rem;font-size:0.6rem;margin-top:-1.5rem;" id="coupon_time_<?=$coupon_row["coupon_id"]?>">
-                                        <span  id="day_show_<?=$coupon_row["coupon_id"]?>"></span>
-                                        <span  id="hour_show_<?=$coupon_row["coupon_id"]?>"></span>
-                                        <span  id="minute_show_<?=$coupon_row["coupon_id"]?>"></span>
-                                        <span  type="text" id="second_show_<?=$coupon_row["coupon_id"]?>"></span>
-                                    </div>
-                                    <script type="text/javascript">
-                                        $(function(){
-                                            show_time_<?=$coupon_row["coupon_id"]?>();
-                                        });
-
-                                        function show_time_<?=$coupon_row["coupon_id"]?>(){
-                                            var time_start = new Date().getTime(); //设定当前时间
-
-                                            var time_end =  new Date('<?=$coupon_row["coupon_time"]?>').getTime(); //设定目标时间
-                                            // 计算时间差
-                                            var time_distance = time_end - time_start;
-                                            /*判断活动是否结束*/
-                                            if(time_distance<0)
-                                            {
-                                                int_hour=0;
-                                                int_minute=0;
-                                                int_second=0;
-                                                $("#coupon_time_<?=$coupon_row["coupon_id"]?>").html("<b>活动已结束</b>");
-                                            }else{
-                                                // 时
-                                                var int_hour = Math.floor(time_distance/3600000)
-                                                time_distance -= int_hour * 3600000;
-                                                // 分
-                                                var int_minute = Math.floor(time_distance/60000)
-                                                time_distance -= int_minute * 60000;
-                                                // 秒
-                                                var int_second = Math.floor(time_distance/1000)
-                                                if(int_hour < 10){
-                                                    int_hour = "0" + int_hour;
-                                                }
-                                                if(int_minute < 10){
-                                                    int_minute = "0" + int_minute;
-                                                }
-                                                if(int_second < 10){
-                                                    int_second = "0" + int_second;
-                                                }
-                                            }
-                                            // 显示时间
-                                            $("#hour_show_<?=$coupon_row["coupon_id"]?>").html(int_hour+"时");
-                                            $("#minute_show_<?=$coupon_row["coupon_id"]?>").html(int_minute+"分");
-                                            $("#second_show_<?=$coupon_row["coupon_id"]?>").html(int_second+"秒");
-                                            // 设置定时器
-                                            setTimeout("show_time_<?=$coupon_row["coupon_id"]?>()",1000);
-                                        }
-                                    </script>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="clear"></div>
-                        <?php
-                    }
+                <?php
+                foreach ($coupon_menu_rows as $k=>$coupon_menu_row)
+                {
+                    $coupon_level=$coupon_menu_row["menu_id"];
                     ?>
-                </div>
+                    <div class="content-padded grid-demo" id="d_<?=$k+1?>" <?=$k==0?"style='display:block;'":"style='display:none;'"?>>
+                        <?php
+                        $coupon_rows=$db->query_lists("select * from coupon where coupon_level=$coupon_level order by coupon_sort desc,coupon_id desc");
+                        foreach ($coupon_rows as $coupon_row)
+                        {
+                            ?>
+                            <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".rule">
+                                <div style="width:100%;margin:1rem auto;height:5.5rem;background: #fff;color:#666;">
+                                    <div style="width:25%;float:left;">
+                                        <img src="../<?=$coupon_row["coupon_logo"]?>" style="width:100%;" alt="<?=$coupon_row["coupon_title"]?>">
+                                        <div style="width:100%;line-height: 2.5rem;text-align: center;margin-top:-0.3rem;">
+                                            <?=$coupon_row["coupon_title"]?>
+                                        </div>
+                                    </div>
+                                    <div style="width:45%;float:left;text-align: center;">
+                                        <div style="color:red;line-height: 2.5rem;font-size: 1.5rem;font-weight: bold;">
+                                            ￥<?=$coupon_row["coupon_price"]?>
+                                        </div>
+                                        <div style="line-height: 1.5rem;font-size: 0.6rem;">
+                                            <?=$coupon_row["coupon_content"]?>
+                                        </div>
+                                        <div style="line-height: 1rem;font-size: 0.5rem;">
+                                            <?=date("Y-m-d H:i",strtotime($coupon_row["coupon_time"]))?>-<?=date("H:i",strtotime($coupon_row["coupon_end"]))?>
+                                        </div>
+                                    </div>
+                                    <div style="width:30%;float:left;background: #ef4136;height:100%;color:#fff;text-align: center;font-weight: bold;">
+                                        <div style="line-height: 4rem;font-size:0.8rem;">
+                                            立即领取
+                                        </div>
+                                        <div style="line-height: 2.5rem;font-size:0.6rem;margin-top:-1.5rem;" id="coupon_time_<?=$coupon_row["coupon_id"]?>">
+                                            <span  id="day_show_<?=$coupon_row["coupon_id"]?>"></span>
+                                            <span  id="hour_show_<?=$coupon_row["coupon_id"]?>"></span>
+                                            <span  id="minute_show_<?=$coupon_row["coupon_id"]?>"></span>
+                                            <span  type="text" id="second_show_<?=$coupon_row["coupon_id"]?>"></span>
+                                        </div>
+                                        <script type="text/javascript">
+                                            $(function(){
+                                                show_time_<?=$coupon_row["coupon_id"]?>();
+                                            });
+
+                                            function show_time_<?=$coupon_row["coupon_id"]?>(){
+                                                var time_start = new Date().getTime(); //设定当前时间
+
+                                                var time_end =  new Date('<?=$coupon_row["coupon_time"]?>').getTime(); //设定目标时间
+                                                // 计算时间差
+                                                var time_distance = time_end - time_start;
+                                                /*判断活动是否结束*/
+                                                if(time_distance<0)
+                                                {
+                                                    int_hour=0;
+                                                    int_minute=0;
+                                                    int_second=0;
+                                                    $("#coupon_time_<?=$coupon_row["coupon_id"]?>").html("<b>活动已结束</b>");
+                                                }else{
+                                                    // 时
+                                                    var int_hour = Math.floor(time_distance/3600000)
+                                                    time_distance -= int_hour * 3600000;
+                                                    // 分
+                                                    var int_minute = Math.floor(time_distance/60000)
+                                                    time_distance -= int_minute * 60000;
+                                                    // 秒
+                                                    var int_second = Math.floor(time_distance/1000)
+                                                    if(int_hour < 10){
+                                                        int_hour = "0" + int_hour;
+                                                    }
+                                                    if(int_minute < 10){
+                                                        int_minute = "0" + int_minute;
+                                                    }
+                                                    if(int_second < 10){
+                                                        int_second = "0" + int_second;
+                                                    }
+                                                }
+                                                // 显示时间
+                                                $("#hour_show_<?=$coupon_row["coupon_id"]?>").html(int_hour+"时");
+                                                $("#minute_show_<?=$coupon_row["coupon_id"]?>").html(int_minute+"分");
+                                                $("#second_show_<?=$coupon_row["coupon_id"]?>").html(int_second+"秒");
+                                                // 设置定时器
+                                                setTimeout("show_time_<?=$coupon_row["coupon_id"]?>()",1000);
+                                            }
+                                        </script>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="clear"></div>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <?php
+                }
+                ?>
             </div>
             <!-- 服务保障 -->
             <?php require_once 'include/service.php'; ?>

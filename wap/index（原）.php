@@ -220,6 +220,27 @@
                 <!-- 优惠券 -->
 
                 <!-- 产品展示 -->
+                <script language="javascript">
+                    function Tab(num)
+                    {
+                        var i;
+                        for(i=1;i<=5;i++)
+                        {
+                            if(i==num)
+                            {
+                                $("#d_"+i).css("display","block");
+                                $("#product_menu_"+i).attr("class", "col-25 active");
+                                $("#product_menu_"+i).css("border-bottom", "#ce012e solid .08rem");
+                            }
+                            else
+                            {
+                                $("#d_"+i).css("display","none");
+                                $("#product_menu_"+i).attr("class", "col-25");
+                                $("#product_menu_"+i).css("border-bottom", "0");
+                            }
+                        }
+                    }
+                </script>
                 <?php
                 $product_menu_row=$db->query_list_id("select menu_title from menu where menu_id=3 and menu_show=1");
                 if($product_menu_row)
@@ -240,8 +261,8 @@
                                             foreach ($menu_rows as $k=>$menu_row)
                                             {
                                                 ?>
-                                            <div class="col-25 <?=$tdhid==$menu_row["menu_id"]?"active":""?>" style="height:2.34rem;line-height: 2.34rem;<?=$tdhid==$menu_row["menu_id"]?"border-bottom: #ce012e solid .08rem;":""?>">
-                                                    <a href="index-<?=$menu_row["menu_id"]?>.html#<?=$menu_row["menu_id"]?>" style="color:#666;">
+                                                <div class="col-25 <?=$tdhid==$menu_row["menu_id"]?"active":""?>" style="height:2.34rem;line-height: 2.34rem;<?=$k==0?"border-bottom: #ce012e solid .08rem;":""?>" id="product_menu_<?=$k+1?>" style="height:2.34rem;line-height: 2.34rem;">
+                                                    <a href="javascript:void(0)" onclick="Tab(<?=$k+1?>)" style="color:#666;">
                                                         <?=$menu_row["menu_title"]?>
                                                     </a>
                                                 </div>
@@ -258,7 +279,7 @@
                             foreach ($menu_rows as $k => $menu_row) {
                                 ?>
                                 <a name="<?=$menu_row["menu_id"]?>"></a>
-                                <ul class="nav-con-in clearfix" <?=$menu_row["menu_id"]==$tdhid?"style='display:block;'":""?>>
+                                <ul class="nav-con-in clearfix" <?=$k==0?"style='display:block;'":""?>  id="d_<?=$k+1?>">
                                     <?php
                                     $product_level = $menu_row["menu_id"];
                                     $product_rows = $db->query_lists("select * from product where product_level=$product_level and product_show=1 order by product_sort desc,product_id asc limit 0,6");

@@ -83,7 +83,7 @@
                                                 <div class="line-height-20">
                                                     <?=$coupon_row["coupon_content"]?>
                                                 </div>
-                                                <div class="line-height-20">
+                                                <div class="line-height-20" style="font-size:12px;">
                                                     <?=date("Y-m-d H:i",strtotime($coupon_row["coupon_time"]))?>-<?=date("H:i",strtotime($coupon_row["coupon_end"]))?>
                                                 </div>
                                                 <div class="repair-coupon-time" id="coupon_time_<?=$coupon_row["coupon_id"]?>">
@@ -148,7 +148,7 @@
                                                     }
                                                 </script>
                                             </div>
-                                            <div style="width:57px;height:140px;float:left;background:#f15b6c;color:#fff;line-height: 57px;letter-spacing:8px;">
+                                            <div style="width:56px;height:140px;float:left;background:#f15b6c;color:#fff;line-height: 57px;letter-spacing:8px;">
                                                 <div style="writing-mode:tb-rl;width:100%;height:100%;">
                                                     立即领取
                                                 </div>
