@@ -112,7 +112,7 @@ class Uploadfiles
         {
             $editimg=empty($names)?"":$names;
             return $editimg;
-        }//END IF
+        }
     }
 
     /**
@@ -523,6 +523,72 @@ class Uploadfiles
             $editimg=empty($names)?"":$names;
             return $editimg;
         }//END IF
+    }
+    /**
+     *
+     * 上传指定路径、指定名称
+     * @param  $name:获取请求上传图片的文件域的名称
+     * @param  $upload:上传地址
+     * @param  $names:获取请求上传图片的文件域的内容为空时，默认的图片
+     * @param  $names:指定名称
+     * @param  $width:宽度
+     * @param  $height:高度
+     */
+    public  function upload_cover($name,$names="",$upload="upload/company/",$title="",$width,$height)
+    {
+        if (!empty($_FILES[$name]["name"]))
+        {
+            //提取文件域内容名称，并判断
+            $path = "../../$upload/"; //上传路径
+            //判断上传的图片大小
+            $filesize=$_FILES[$name]["size"];
+            if($filesize>2097152)
+            {
+                return "Out of size";
+                exit;
+            }
+            $filetype = $_FILES[$name]['type'];
+            if ($filetype == "image/jpeg")
+            {
+                $type = '.jpg';
+            }
+            else if ($filetype == "image/jpg")
+            {
+                $type = '.jpg';
+            }
+            else if ($filetype == "image/png")
+            {
+                $type = '.png';
+            }
+            else if ($filetype == "image/gif")
+            {
+                $type = '.gif';
+            }
+            else
+            {
+                return "error in type";
+                exit;
+            }
+            $today = $title;
+            $filename = $path . $today . $type; //图片的完整路径
+            $imgongsi2 = $today . $type; //图片名称
+            $editimg= "$upload".$imgongsi2;
+            $result = move_uploaded_file($_FILES[$name]["tmp_name"], $filename);
+            if($type==".png")
+            {
+                return $this->pngthumb($filename,$editimg,$width,$height);
+            }
+            else
+            {
+                return $this->scal_pic($filename,$editimg,$width,$height);
+            }
+            return $editimg;
+        }
+        else
+        {
+            $editimg=empty($names)?"":$names;
+            return $editimg;
+        }
     }
 
     /**

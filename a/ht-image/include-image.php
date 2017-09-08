@@ -35,6 +35,10 @@ $image_width_10=332;
 $image_height_10=134;
 $image_width_12=1920;
 $image_height_12=235;
+$image_width_13=252;
+$image_height_13=34;
+$image_width_14=252;
+$image_height_14=34;
 if($water_id_count==1)
 {
     $watermark=$company_row['company_water_image'];

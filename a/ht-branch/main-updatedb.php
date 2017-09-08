@@ -7,7 +7,8 @@ require_once ("include-image.php");
     {
         $image_id=$_REQUEST['image_id'];
         $image_images=$_REQUEST['image_images'];
-        $img_wap=$files->upload_image("image_image", $upload, $image_images, $image_main_width, $image_main_height);
+//        $img_wap=$files->upload_image("image_image", $upload, $image_images, $image_main_width, $image_main_height);
+        $img_wap=$files->upload_picture("image_image", $upload, $image_images);
         if($img_wap=="Out of size")
         {
             echo IMAGE_SIZE;

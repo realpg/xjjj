@@ -36,7 +36,7 @@
         <div class="t_con">
             <!-- 活动亮点开始 -->
             <div class="activity" id="J_Eact1">
-                <div class="t_hd" style="color:<?=$color_font["color_content"]?>">活动亮点</div>
+                <div class="t_hd" style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');">活动亮点</div>
             </div>
             <ul class="act_li clearfix">
                 <?php
@@ -64,7 +64,7 @@
             {
                 ?>
                 <div class="work_hx" id="J_Eact2">
-                    <div class="t_hd"  style="color:<?=$color_font["color_content"]?>"><?=$coupon_menu_row["menu_title"]?></div>
+                    <div class="t_hd"  style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');"><?=$coupon_menu_row["menu_title"]?></div>
                     <div class="t_nav_out " style="margin-top:20px;">
                         <div id="tab_down">
                             <ul class="work_con clearfix" style="background: none;display: block;padding:0px;">
@@ -190,7 +190,7 @@
                 $product_menu_id=$product_menu_row["menu_id"];
                 ?>
                 <div class="work_hx" id="J_Eact2">
-                    <div class="t_hd" style="color:<?=$color_font["color_content"]?>"><?=$product_menu_row["menu_title"]?></div>
+                    <div class="t_hd" style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');"><?=$product_menu_row["menu_title"]?></div>
                     <ul class="repair-product-pic-li clearfix">
                         <?php
                         $product_rows=$db->query_lists("select * from product where product_level=$product_menu_id and product_show=1 order by product_sort desc,product_id desc limit 0,6");
@@ -302,7 +302,7 @@
             {
                 ?>
                 <div style="margin-top:20px;">
-                    <div class="t_hd"  style="color:<?=$color_font["color_content"]?>"><?=$brand_menu_row["menu_title"]?></div>
+                    <div class="t_hd"  style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');"><?=$brand_menu_row["menu_title"]?></div>
                     <ul class="hx-branch-li clearfix">
                         <?php
                         $brand_rows=$db->query_lists("select * from brand where  brand_show=1 order by brand_sort asc,brand_id asc limit 0,9");
@@ -355,7 +355,7 @@
             <!--地图-->
 
             <div style="margin-top:10px;">
-                <div class="t_hd" style="color:<?=$color_font["color_content"]?>">交通路线</div>
+                <div class="t_hd" style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');">交通路线</div>
                 <div>
                     <div style="margin-top:20px;">
                         <iframe border="0" frameborder="0" framespacing="0" height="415" hspace="0" id="mapbarframe" marginheight="0" marginwidth="0" scrolling="no" src="http://searchbox.mapbar.com/publish/template/template1010/index.jsp?CID=shizengying_0126&amp;tid=tid1010&amp;showSearchDiv=1&amp;cityName=%E6%B2%88%E9%98%B3%E5%B8%82&amp;nid=MAPBQNQBZPCBXITAXWHWX&amp;width=1200&amp;height=415&amp;infopoi=2&amp;zoom=10&amp;control=1" vspace="0" width="1200"></iframe>
@@ -370,7 +370,7 @@
             <!--关于我们-->
                 <div >
                     <a href="about.html">
-                        <div class="t_hd" style="color:<?=$color_font["color_content"]?>;margin-top: 10px;">关于我们</div>
+                        <div class="t_hd" style="color:<?=$color_font["color_content"]?>;margin-top: 10px;background: url('<?=$tit_background['image_image']?>');">关于我们</div>
                     </a>
                 </div>
 

@@ -51,7 +51,7 @@ require_once ("include-image.php");
     </thead>
     <tbody>
     <?php 	
-    $sql="select * from image where image_id not in (11) order by image_sort asc,image_id asc";
+    $sql="select * from image where image_id not in (11,13,14) order by image_sort asc,image_id asc";
     $rows=$db->query_lists($sql);
     foreach ($rows as $k=>$row){
     ?>
@@ -70,6 +70,27 @@ require_once ("include-image.php");
             </a>
         </td>
     </tr>
+    <?php
+    }
+    $sql="select * from image where image_id in (13,14) order by image_sort asc,image_id asc";
+    $rows=$db->query_lists($sql);
+    foreach ($rows as $k=>$row){
+        ?>
+        <tr >
+            <td><?=$k+11?></td>
+            <td style="text-align:left; padding-left:2%;">
+                <?=$row['image_title']?>
+                <font color='red'><b>【显示】</b></font>
+            </td>
+            <td>
+                <img src="../../<?=$row['image_image']?>" width="200px;" />
+            </td>
+            <td>
+                <a href="tit-update.php?id=<?=$row['image_id']?>">
+                    <img src="../images/t02.png" >
+                </a>
+            </td>
+        </tr>
     <?php }?>
     </tbody>
 </table>

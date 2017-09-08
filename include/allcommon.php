@@ -12,4 +12,5 @@ $color_product=$db->query_list_id("select color_content from color where color_i
 $color_coupon=$db->query_list_id("select color_content from color where color_id=11");
 $color_font=$db->query_list_id("select color_content from color where color_id=5");
 $color_more=$db->query_list_id("select color_content from color where color_id=9");
+$tit_background=$db->query_list_id("select image_image from image where image_id=13");
 ?>

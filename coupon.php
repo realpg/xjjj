@@ -41,7 +41,7 @@
         </div>
         <div class="t_con">
             <div class="work_hx" id="J_Eact2">
-                <div class="t_hd"  style="color:<?=$color_font["color_content"]?>">优惠卷</div>
+                <div class="t_hd"  style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');">优惠卷</div>
                 <div class="t_nav_out " style="margin-top:20px;">
                     <ul class="clearfix" id="tab_up">
                         <?php
@@ -177,7 +177,7 @@
             <!--地图-->
 
             <div >
-                <div class="t_hd"  style="color:<?=$color_font["color_content"]?>">交通路线</div>
+                <div class="t_hd"  style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');margin-top: 20px;">交通路线</div>
                 <div>
                     <div style="margin-top:20px;">
                         <iframe border="0" frameborder="0" framespacing="0" height="415" hspace="0" id="mapbarframe" marginheight="0" marginwidth="0" scrolling="no" src="http://searchbox.mapbar.com/publish/template/template1010/index.jsp?CID=shizengying_0126&amp;tid=tid1010&amp;showSearchDiv=1&amp;cityName=%E6%B2%88%E9%98%B3%E5%B8%82&amp;nid=MAPBQNQBZPCBXITAXWHWX&amp;width=1200&amp;height=415&amp;infopoi=2&amp;zoom=10&amp;control=1" vspace="0" width="1200"></iframe>
@@ -191,7 +191,7 @@
             <!--关于我们-->
             <div >
                 <a href="about.html">
-                    <div class="t_hd" style="color:<?=$color_font["color_content"]?>;margin-top: 10px;">关于我们</div>
+                    <div class="t_hd" style="color:<?=$color_font["color_content"]?>;margin-top: 10px;background: url('<?=$tit_background['image_image']?>');">关于我们</div>
                 </a>
             </div>
             <!--关于我们-->

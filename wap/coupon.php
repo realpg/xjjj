@@ -187,7 +187,7 @@
 
             <!-- 分会场 -->
             <div class="hot-pic repair-hot-pic">
-                <div class="tit" style="color:<?=$color_font["color_content"]?>;">
+                <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">
                     分会场
                 </div>
                 <div class="hot-pic-in">
@@ -226,7 +226,7 @@
 
             <!-- 现场热图 -->
             <div class="hot-pic repair-hot-pic">
-                <div class="tit" style="color:<?=$color_font["color_content"]?>;">
+                <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">
                     现场热图
                 </div>
                 <div class="hot-pic-in">
@@ -250,7 +250,7 @@
             <!-- 现场热图 -->
             <!-- 交通路线 -->
             <div class="route repair-route" >
-                <div class="tit" style="color:<?=$color_font["color_content"]?>;">
+                <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">
                     交通路线
                 </div>
                 <div class="content-padded">
@@ -285,7 +285,7 @@
             </div>
             <div class="hot-pic repair-hot-pic">
                 <a href="about.html">
-                    <div class="tit" style="color:<?=$color_font["color_content"]?>;">
+                    <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">
                         关于我们
                     </div>
                 </a>

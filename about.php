@@ -33,7 +33,7 @@
         <div class="t_con">
             <!-- 产品展示 -->
             <div class="work_hx" id="J_Eact2">
-                <div class="t_hd"  style="color:<?=$color_font["color_content"]?>">关于我们</div>
+                <div class="t_hd"  style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');">关于我们</div>
                 <div class="repair-about">
                     <?=$company_row["company_about"]?>
                 </div>

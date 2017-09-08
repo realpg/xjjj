@@ -88,7 +88,7 @@
             <div class="main-wap" style='margin-top:0px;'>
                 <!-- 活动亮点开始 -->
                 <div class="activity" style="margin:0 0.5rem;">
-                    <div class="tit" style="color:<?=$color_font["color_content"]?>;">活动亮点</div>
+                    <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">活动亮点</div>
                     <ul class="activity-list clearfix">
                         <?php
                         $light_rows=$db->query_lists("select light_title,light_image,light_content from light order by light_sort asc,light_id asc");
@@ -114,7 +114,7 @@
                 {
                     ?>
                     <div class="coupon">
-                        <div class="tit"  style="color:<?=$color_font["color_content"]?>;">
+                        <div class="tit"  style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">
                             <?=$coupon_menu_row["menu_title"]?>
                         </div>
                         <div class="brand-list">
@@ -246,7 +246,7 @@
                 {
                     ?>
                     <div class="cooperate" style="margin-top:1.17rem;">
-                        <div class="tit" style="color:<?= $color_font["color_content"] ?>;">
+                        <div class="tit" style="color:<?= $color_font["color_content"] ?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">
                             <?=$product_menu_row["menu_title"]?>
                         </div>
                         <div class="nav" style="top:2.63rem;">
@@ -400,7 +400,7 @@
 
                 <!-- 分会场 -->
                 <div class="hot-pic repair-hot-pic">
-                    <div class="tit" style="color:<?=$color_font["color_content"]?>;">
+                    <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">
                         分会场
                     </div>
                     <div class="hot-pic-in">
@@ -439,7 +439,7 @@
 
                 <!-- 现场热图 -->
                 <div class="hot-pic repair-hot-pic">
-                    <div class="tit" style="color:<?=$color_font["color_content"]?>;">
+                    <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">
                         现场热图
                     </div>
                     <div class="hot-pic-in">
@@ -463,7 +463,7 @@
                 <!-- 现场热图 -->
                 <!-- 交通路线 -->
                 <div class="route repair-route" >
-                    <div class="tit" style="color:<?=$color_font["color_content"]?>;">
+                    <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">
                         交通路线
                     </div>
                     <div class="content-padded">
@@ -499,7 +499,7 @@
 
                 <div class="hot-pic repair-hot-pic">
                     <a href="about.html">
-                        <div class="tit" style="color:<?=$color_font["color_content"]?>;">
+                        <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">
                             关于我们
                         </div>
                     </a>

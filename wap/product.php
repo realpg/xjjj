@@ -48,7 +48,7 @@
             <!-- Banner -->
             <?php require_once 'include/banner.php'; ?>
             <div class="main-wap" style='margin-top:10px;'>
-                <div class="tit" style="color:<?=$color_font["color_content"]?>;">
+                <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">
                     产品展示
                 </div>
                 <!-- 产品展示 -->
@@ -153,7 +153,7 @@
             <?php require_once 'include/service.php'; ?>
             <!-- 分会场 -->
             <div class="hot-pic repair-hot-pic">
-                <div class="tit" style="color:<?=$color_font["color_content"]?>;">
+                <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">
                     分会场
                 </div>
                 <div class="more-act" style="margin-top：1.17rem">

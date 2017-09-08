@@ -47,7 +47,7 @@
             <!-- Banner -->
             <?php require_once 'include/banner.php'; ?>
             <div class="main-wap" style='margin-top:10px;'>
-                <div class="tit" style="color:<?=$color_font["color_content"]?>;">
+                <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">
                     关于我们
                 </div>
                 <div class="repair-about">

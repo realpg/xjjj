@@ -37,7 +37,7 @@
                 $product_menu_id=$tdhid;
                 ?>
                 <div class="work_hx" id="J_Eact2">
-                    <div class="t_hd"  style="color:<?=$color_font["color_content"]?>">产品展示</div>
+                    <div class="t_hd"  style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');">产品展示</div>
                     <ul class="repair-product-pic-li clearfix">
                         <?php
                         $product_rows=$db->query_lists("select * from product where product_level=$product_menu_id order by product_sort desc,product_id desc");

@@ -5,7 +5,7 @@ if($process_row)
 {
     ?>
     <div class="directory" id="J_Eact3">
-        <div class="t_hd" style="color:<?=$color_font["color_content"]?>"><?=$process_row["image_title"]?></div>
+        <div class="t_hd" style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');"><?=$process_row["image_title"]?></div>
         <div class="dir_img clearfix">
             <img src="<?=$process_row["image_image"]?>" />
         </div>
@@ -21,7 +21,7 @@ if($service_row)
 {
     ?>
     <div class="tic_se" id="J_Eact4">
-        <div class="t_hd" style="color:<?=$color_font["color_content"]?>"><?=$service_row["image_title"]?></div>
+        <div class="t_hd" style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');"><?=$service_row["image_title"]?></div>
         <div class="hx-service-li clearfix">
             <img src="<?=$service_row["image_image"]?>" />
         </div>
@@ -37,7 +37,7 @@ if($branch_menu_row)
 {
     ?>
     <div style="margin-top:20px;">
-        <div class="t_hd"  style="color:<?=$color_font["color_content"]?>"><?=$branch_menu_row["menu_title"]?></div>
+        <div class="t_hd"  style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');"><?=$branch_menu_row["menu_title"]?></div>
         <ul class="hx-branch-li clearfix">
             <?php
             $branch_rows=$db->query_lists("select menu_id,menu_title,menu_image from menu where menu_level=3 and menu_show=1 order by menu_sort asc,menu_id asc");
