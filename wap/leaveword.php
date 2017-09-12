@@ -3,7 +3,55 @@ header("Content-Type: text/html;charset=utf-8");
 require ("./config/conn.php");//引入链接数据库
 $leaveword_name=$_REQUEST["leaveword_name"];
 $leaveword_tel=$_REQUEST["leaveword_tel"];
-$row=$db->edit_list("insert into leaveword (leaveword_name,leaveword_tel)value('$leaveword_name','$leaveword_tel')");
+
+//判断来源
+$SERVER_NAME=$_SERVER['SERVER_NAME'];
+if($SERVER_NAME=="360.syxjhome.com")
+{
+    $leaveword_source="360-手机端";
+}
+else if($SERVER_NAME=="360m.syxjhome.com")
+{
+    $leaveword_source="360-手机端";
+}
+else if($SERVER_NAME=="video.syxjhome.com")
+{
+    $leaveword_source="腾讯视网-手机端";
+}
+else if($SERVER_NAME=="videom.syxjhome.com")
+{
+    $leaveword_source="腾讯视网-手机端";
+}
+else if($SERVER_NAME=="todaym.syxjhome.com")
+{
+    $leaveword_source="今日头条";
+}
+else if($SERVER_NAME=="datam.syxjhome.com")
+{
+    $leaveword_source="移动大数据";
+}
+else if($SERVER_NAME=="lbsm.syxjhome.com")
+{
+    $leaveword_source="LBS";
+}
+else if($SERVER_NAME=="appm.syxjhome.com")
+{
+    $leaveword_source="腾讯视频APP开屏";
+}
+else if($SERVER_NAME=="wechat.syxjhome.com")
+{
+    $leaveword_source="微信朋友圈";
+}
+else if($SERVER_NAME=="neteasem.syxjhome.com")
+{
+    $leaveword_source="网易新闻";
+}
+else
+{
+    $leaveword_source="百度-手机端";
+}
+
+$row=$db->edit_list("insert into leaveword (leaveword_name,leaveword_tel,leaveword_source)value('$leaveword_name','$leaveword_tel','$leaveword_source')");
 if($row>0)
 {
     $leaveword_deteil_row=$db->query_list_id("select leaveword_details_num from leaveword_details where leaveword_details_id=1");

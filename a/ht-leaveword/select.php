@@ -74,6 +74,7 @@ function Item(e, allName)
             <th width="10%">姓名</th>
             <th width="10%">电话</th>
             <th width="10%">留言时间</th>
+            <th width="10%">来源</th>
             <th width="10%">是否查看</th>
             <th width="10%">删除</th>
         </tr>
@@ -87,6 +88,7 @@ function Item(e, allName)
             <td><?=$row['leaveword_name']?></td>
             <td><?=$row['leaveword_tel']?></td>
             <td><?=$row['leaveword_time']?></td>
+            <td><?=$row['leaveword_source']?></td>
             <td>
             <?php if($row['leaveword_read']==1)
             {echo "已查看";}

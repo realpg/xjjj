@@ -6,9 +6,25 @@ require ("./config/conn.php");//引入链接数据库
 $leaveword_name=empty($_REQUEST["leaveword_name"])?"匿名":$_REQUEST["leaveword_name"];
 $leaveword_tel=$_REQUEST["leaveword_tel"];
 $leaveword_code=$_REQUEST['leaveword_code'];
+
+//判断来源
+$SERVER_NAME=$_SERVER['SERVER_NAME'];
+if($SERVER_NAME=="360.syxjhome.com")
+{
+    $leaveword_source="360-PC端";
+}
+else if($SERVER_NAME=="video.syxjhome.com")
+{
+    $leaveword_source="腾讯视网-PC端";
+}
+else
+{
+    $leaveword_source="百度-PC端";
+}
+
 if(md5($leaveword_code)==$_SESSION["verification"])
 {
-    $row=$db->edit_list("insert into leaveword (leaveword_name,leaveword_tel)value('$leaveword_name','$leaveword_tel')");
+    $row=$db->edit_list("insert into leaveword (leaveword_name,leaveword_tel,leaveword_source)value('$leaveword_name','$leaveword_tel','$leaveword_source')");
     if($row>0)
     {
         $leaveword_deteil_row=$db->query_list_id("select leaveword_details_num from leaveword_details where leaveword_details_id=1");
