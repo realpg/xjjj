@@ -17,6 +17,14 @@ else if($SERVER_NAME=="video.syxjhome.com")
 {
     $leaveword_source="腾讯视网-PC端";
 }
+else if($SERVER_NAME=="qqmini.syxjhome.com")
+{
+    $leaveword_source="腾讯迷你页-PC端";
+}
+else if($SERVER_NAME=="qqnews.syxjhome.com")
+{
+    $leaveword_source="腾讯新闻app信息流";
+}
 else
 {
     $leaveword_source="百度-PC端";
