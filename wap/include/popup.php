@@ -19,7 +19,7 @@
                 <div style="display:none;" id="label_tel" class="color-red">*请输入正确的手机号码</div>
 <!--            </div>-->
             <p style="width:12.12rem;margin:0px auto;">
-                <button class="close-popup button button-big rule-close float-left" onclick="leaveword_f()" style="margin-right:1rem;">免费报名</button>
+                <button class="close-popup button button-big rule-close float-left" onclick="leaveword_f()" id="biaoming4" style="margin-right:1rem;">免费报名</button>
                 <button class="close-popup button button-big rule-close float-left">取消</button>
             </p>
         </div>

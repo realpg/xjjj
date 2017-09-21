@@ -35,7 +35,7 @@
             </div>
             <div class="mid_line"></div>
             <div class="ipt_btn">
-                <button onclick="leaveword()">快速索票</button>
+                <button onclick="leaveword()" id="biaoming3">快速索票</button>
             </div>
             <div class="msg-box quick-msg-box">
                 <div class="msg msg-error hide" id="J_MsgReserveSubmit">

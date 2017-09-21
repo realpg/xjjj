@@ -1,4 +1,15 @@
 <?php
+//因为360基础流量代码要放在body之间靠顶部，所以script模块中的代码遍历没有特殊要求的情况下暂时先放在了这个位置
+$script_body_rows=$db->query_lists("select * from script where script_level=2 ");
+foreach($script_body_rows as $script_body_row)
+{
+    ?>
+    <?=$script_body_row['script_content']?>
+    <?php
+}
+?>
+
+<?php
 $banner_row=$db->query_list_id("select image_image from image where image_id=1 and image_show=1");
 if($banner_row)
 {
@@ -35,7 +46,7 @@ if($banner_row)
                                 </div>
                             </div>
                             <div class="tic_btn" style="margin:10px auto;">
-                                <button class="btn" onclick="leaveword_f()" style="margin:10px auto;">
+                                <button class="btn" id="baoming2" onclick="leaveword_f()" style="margin:10px auto;">
                                     <img src="./images/btn-bg.png">
                                 </button>
                             </div>
@@ -54,7 +65,7 @@ if($round_row)
     <div class="t_banner" style="margin-top:10px;">
         <a href="javascript:void(0);"  id="ClickMe" onclick="showpopup()">
             <div class="t_banner_bg">
-                <img src="<?=$round_row["image_image"]?>" style="height:235px;" />
+                <img src="<?=$round_row["image_image"]?>" style="width:100%;" />
             </div>
         </a>
     </div>

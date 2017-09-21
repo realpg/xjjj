@@ -54,6 +54,14 @@ else if($SERVER_NAME=="qqnews.syxjhome.com")
 {
     $leaveword_source="腾讯新闻app信息流";
 }
+else if($SERVER_NAME=="youkum.syxjhome.com")
+{
+    $leaveword_source="优酷";
+}
+else if($SERVER_NAME=="qiym.syxjhome.com")
+{
+    $leaveword_source="爱奇艺";
+}
 else
 {
     $leaveword_source="百度-手机端";

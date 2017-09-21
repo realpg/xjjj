@@ -33,7 +33,7 @@
                     <div class="msg-cnt"></div>
                 </div>
             </div>
-            <div class="tic_btn"><button onclick="leaveword_f()">免费索票</button></div>
+            <div class="tic_btn"><button  id="baoming1" onclick="leaveword_f()">免费索票</button></div>
 
         </div>
     </div>
