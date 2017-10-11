@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="./css/sm-extend.min.css">
     <link rel="stylesheet" type="text/css" href="./css/iSlider.min.css">
     <link rel="stylesheet" type="text/css" href="./css/base.css">
+    <!--        <link rel="shortcut icon" href="--><!--" />-->
 
     <link href="./css/ticket2017-06.css" rel="stylesheet" type="text/css" media="screen">
     <script type="text/javascript">var _vds = _vds || [];window._vds = _vds;(function(){_vds.push(['setAccountId', '97f5cbef69849241']);(function() {var vds = document.createElement('script');vds.type='text/javascript';vds.async = true;vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(vds, s);})();})();</script>
@@ -74,8 +75,9 @@
 </head>
 <body>
 <div class="page-group" style="background:#d70c18;">
+    <?php $color_index=$db->query_list_id("select color_content from color where color_id=3"); ?>
     <div class="page page-current" style="background:<?=$color_index["color_content"]?>;">
-        <header class="bar bar-nav" style="text-align: center;">
+        <header class="bar bar-nav">
             <img class="ticket-logo" src="../<?=$company_row["company_logo"]?>">
 <!--            <h1 class="title">--><?//=$company_row["company_name"]?><!--</h1>-->
 
@@ -215,6 +217,7 @@
                 }
                 ?>
                 <!-- 优惠券 -->
+
                 <!-- 产品展示 -->
                 <script language="javascript">
                     function Tab(num)
@@ -243,7 +246,7 @@
                 {
                     ?>
                     <div class="cooperate" style="margin-top:1.17rem;">
-                        <div class="tit"  style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">
+                        <div class="tit" style="color:<?= $color_font["color_content"] ?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">
                             <?=$product_menu_row["menu_title"]?>
                         </div>
                         <div class="nav" style="top:2.63rem;">
@@ -258,7 +261,6 @@
                                             {
                                                 ?>
                                                 <div class="col-25 <?=$tdhid==$menu_row["menu_id"]?"active":""?>" style="height:2.34rem;line-height: 2.34rem;<?=$k==0?"border-bottom: #ce012e solid .08rem;":""?>" id="product_menu_<?=$k+1?>" style="height:2.34rem;line-height: 2.34rem;">
-<!--                                                    <a href="index---><?//=$menu_row["menu_id"]?><!--.html#--><?//=$menu_row["menu_id"]?><!--" style="color:#666;">-->
                                                     <a href="javascript:void(0)" onclick="Tab(<?=$k+1?>)" style="color:#666;">
                                                         <?=$menu_row["menu_title"]?>
                                                     </a>
@@ -273,91 +275,100 @@
                         </div>
                         <div class="nav-con" style="margin-top:.64rem;">
                             <?php
-                            foreach ($menu_rows as $k=>$menu_row)
-                            {
+                            foreach ($menu_rows as $k => $menu_row) {
                                 ?>
                                 <a name="<?=$menu_row["menu_id"]?>"></a>
                                 <ul class="nav-con-in clearfix" <?=$k==0?"style='display:block;'":""?>  id="d_<?=$k+1?>">
                                     <?php
-                                    $product_level=$menu_row["menu_id"];
-                                    $product_rows=$db->query_lists("select * from product where product_level=$product_level and product_show=1 order by product_sort desc,product_id desc limit 0,6");
-                                    foreach ($product_rows as $k=>$product_row)
-                                    {
+                                    $product_level = $menu_row["menu_id"];
+                                    $product_rows = $db->query_lists("select * from product where product_level=$product_level and product_show=1 order by product_sort desc,product_id asc limit 0,6");
+                                    foreach ($product_rows as $k => $product_row) {
                                         ?>
-                                        <li <?=$k%2==0?"":"style='float:right;'"?>>
+                                        <li <?= $k % 2 == 0 ? "" : "style='float:right;'" ?>>
                                             <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".rule">
                                                 <div style="background:#fff;height:4rem;">
                                                     <div class="repair-product-logo">
-                                                        <img src="../<?=$product_row["product_logo"]?>" class="repair-product-logo-d">
+                                                        <img src="../<?= $product_row["product_logo"] ?>"
+                                                             class="repair-product-logo-d">
                                                     </div>
                                                     <div class="repair-product-image">
-                                                        <img src="../<?=$product_row["product_image"]?>" class="repair-product-image-d">
+                                                        <img src="../<?= $product_row["product_image"] ?>"
+                                                             class="repair-product-image-d">
                                                     </div>
                                                 </div>
                                                 <div class="clear"></div>
                                                 <div class="repair-product-box">
                                                     <div class="repair-product-seat"></div>
-                                                    <div class="repair-hidden color-black"><?=$product_row["product_title"]?></div>
-                                                    <div class="repair-hidden color-black">工厂批发价：<?=$product_row["product_price"]?></div>
-                                                    <div class="repair-hidden color-red">限时价：<b><?=$product_row["product_sell"]?></b>&nbsp;</div>
-                                                    <div class="repair-hidden color-red" id="product_time_<?=$product_row["product_id"]?>">
-                                                        <span class="repair-product-span font-weight" style="color:red;" id="day_show_<?=$product_row["product_id"]?>"></span>
-                                                        <span class="repair-product-span font-weight" style="color:red;" id="hour_show_<?=$product_row["product_id"]?>"></span>
-                                                        <span class="repair-product-span font-weight" style="color:red;" id="minute_show_<?=$product_row["product_id"]?>"></span>
-                                                        <span class="repair-product-span font-weight" style="color:red;" id="second_show_<?=$product_row["product_id"]?>"></span>
+                                                    <div class="repair-hidden color-black"><?= $product_row["product_title"] ?></div>
+                                                    <div class="repair-hidden color-black">
+                                                        工厂批发价：<?= $product_row["product_price"] ?></div>
+                                                    <div class="repair-hidden color-red">
+                                                        限时价：<b><?= $product_row["product_sell"] ?></b>&nbsp;
+                                                    </div>
+                                                    <div class="repair-hidden color-red"
+                                                         id="product_time_<?= $product_row["product_id"] ?>">
+                                                        <!--                                                    <span class="repair-product-span" style="color:red;">倒计时：</span>-->
+                                                        <span class="repair-product-span font-weight" style="color:red;"
+                                                              id="day_show_<?= $product_row["product_id"] ?>"></span>
+                                                        <span class="repair-product-span font-weight" style="color:red;"
+                                                              id="hour_show_<?= $product_row["product_id"] ?>"></span>
+                                                        <span class="repair-product-span font-weight" style="color:red;"
+                                                              id="minute_show_<?= $product_row["product_id"] ?>"></span>
+                                                        <span class="repair-product-span font-weight" style="color:red;"
+                                                              id="second_show_<?= $product_row["product_id"] ?>"></span>
                                                     </div>
                                                     <script type="text/javascript">
-                                                        $(function(){
+                                                        $(function () {
                                                             show_time_<?=$product_row["product_id"]?>();
                                                         });
 
-                                                        function show_time_<?=$product_row["product_id"]?>(){
+                                                        function show_time_<?=$product_row["product_id"]?>() {
                                                             var time_start = new Date().getTime(); //设定当前时间
 
                                                             var time_end =  new Date("<?=date("Y/m/d H:i:s",strtotime($product_row["product_end"]))?>").getTime(); //设定目标时间
                                                             // 计算时间差
                                                             var time_distance = time_end - time_start;
                                                             /*判断活动是否结束*/
-                                                            if(time_distance<0){
+                                                            if (time_distance < 0) {
 
-                                                                int_day=0;
-                                                                int_hour=0;
-                                                                int_minute=0;
-                                                                int_second=0;
+                                                                int_day = 0;
+                                                                int_hour = 0;
+                                                                int_minute = 0;
+                                                                int_second = 0;
                                                                 $("#product_time_<?=$product_row["product_id"]?>").html("<b>活动已结束</b>");
-                                                            }else{
+                                                            } else {
                                                                 // 天
-                                                                var int_day = Math.floor(time_distance/86400000)
+                                                                var int_day = Math.floor(time_distance / 86400000)
                                                                 time_distance -= int_day * 86400000;
                                                                 // 时
-                                                                var int_hour = Math.floor(time_distance/3600000)
+                                                                var int_hour = Math.floor(time_distance / 3600000)
                                                                 time_distance -= int_hour * 3600000;
                                                                 // 分
-                                                                var int_minute = Math.floor(time_distance/60000)
+                                                                var int_minute = Math.floor(time_distance / 60000)
                                                                 time_distance -= int_minute * 60000;
                                                                 // 秒
-                                                                var int_second = Math.floor(time_distance/1000)
+                                                                var int_second = Math.floor(time_distance / 1000)
                                                                 // 时分秒为单数时、前面加零
-                                                                if(int_day < 10){
+                                                                if (int_day < 10) {
                                                                     int_day = "0" + int_day;
                                                                 }
-                                                                if(int_hour < 10){
+                                                                if (int_hour < 10) {
                                                                     int_hour = "0" + int_hour;
                                                                 }
-                                                                if(int_minute < 10){
+                                                                if (int_minute < 10) {
                                                                     int_minute = "0" + int_minute;
                                                                 }
-                                                                if(int_second < 10){
+                                                                if (int_second < 10) {
                                                                     int_second = "0" + int_second;
                                                                 }
                                                             }
                                                             // 显示时间
-                                                            $("#day_show_<?=$product_row["product_id"]?>").html(int_day.toString()+"天");
-                                                            $("#hour_show_<?=$product_row["product_id"]?>").html(int_hour.toString()+"时");
-                                                            $("#minute_show_<?=$product_row["product_id"]?>").html(int_minute.toString()+"分");
-                                                            $("#second_show_<?=$product_row["product_id"]?>").html(int_second.toString()+"秒");
+                                                            $("#day_show_<?=$product_row["product_id"]?>").html(int_day + "天");
+                                                            $("#hour_show_<?=$product_row["product_id"]?>").html(int_hour + "时");
+                                                            $("#minute_show_<?=$product_row["product_id"]?>").html(int_minute + "分");
+                                                            $("#second_show_<?=$product_row["product_id"]?>").html(int_second + "秒");
                                                             // 设置定时器
-                                                            setTimeout("show_time_<?=$product_row["product_id"]?>()",1000);
+                                                            setTimeout("show_time_<?=$product_row["product_id"]?>()", 1000);
                                                         }
                                                     </script>
                                                 </div>
@@ -366,7 +377,12 @@
                                         <?php
                                     }
                                     ?>
-
+                                    <a href="product-<?= $product_level ?>.html" style="background: none;color:#fff;">
+                                        <li class="more more-2"
+                                            style="width:100%;height:30px;background: none;line-height: 30px;background: <?= $color_more["color_content"] ?>;">
+                                            查看更多&gt;&gt;
+                                        </li>
+                                    </a>
                                 </ul>
                                 <?php
                             }
@@ -397,7 +413,7 @@
                                     $branch_id=$branch_row["menu_id"]
                                     ?>
                                     <li <?=$k%2==0?"style='margin-left:0;'":""?>>
-                                        <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".rule">
+                                        <a href="product-<?=$branch_id?>.html">
                                             <img src="../<?=$branch_row["menu_wap_image"]?>">
                                         </a>
                                     </li>
@@ -480,6 +496,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="hot-pic repair-hot-pic">
                     <a href="about.html">
                         <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">

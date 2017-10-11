@@ -1,6 +1,8 @@
 <?php require_once 'config/conn.php'; ?>
 <!DOCTYPE html>
-<html lang="en" class=" en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en" class=" en"><!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <?php require_once 'include/seo.php'; ?>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,7 +36,7 @@
         <div class="t_con">
             <!-- 活动亮点开始 -->
             <div class="activity" id="J_Eact1">
-                <div class="t_hd"  style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');">活动亮点</div>
+                <div class="t_hd" style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');">活动亮点</div>
             </div>
             <ul class="act_li clearfix">
                 <?php
@@ -54,6 +56,8 @@
                 ?>
             </ul>
             <!-- 活动亮点结束 -->
+
+            <!-- 优惠券开始 -->
             <?php
             $coupon_menu_row=$db->query_list_id("select menu_title,menu_id from menu where menu_id=2 and menu_show=1");
             if ($coupon_menu_row)
@@ -66,7 +70,7 @@
                             <ul class="work_con clearfix" style="background: none;display: block;padding:0px;">
                                 <?php
                                 $coupon_rows=$db->query_lists("select * from coupon where coupon_show=1 order by coupon_sort desc,coupon_id desc limit 0,8");
-                                foreach ($coupon_rows as $coupon_row)
+                                foreach ($coupon_rows as $k=>$coupon_row)
                                 {
                                     ?>
                                     <li style="width:295px;height:140px;background: #fff;border:none;margin:2px;">
@@ -177,7 +181,6 @@
                 <?php
             }
             ?>
-            <!-- 优惠券开始 -->
             <!-- 优惠券结束 -->
             <!-- 产品展示 -->
             <?php
@@ -187,17 +190,18 @@
                 $product_menu_id=$product_menu_row["menu_id"];
                 ?>
                 <div class="work_hx" id="J_Eact2">
-                    <div class="t_hd"  style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');"><?=$product_menu_row["menu_title"]?></div>
+                    <div class="t_hd" style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');"><?=$product_menu_row["menu_title"]?></div>
                     <ul class="repair-product-pic-li clearfix">
                         <?php
                         $product_rows=$db->query_lists("select * from product where product_level=$product_menu_id and product_show=1 order by product_sort desc,product_id desc limit 0,6");
-                        foreach ($product_rows as $product_row)
+                        foreach ($product_rows as $k=>$product_row)
                         {
                             ?>
                             <li>
                                 <a href="javascript:void(0);"  id="ClickMe" onclick="showpopup()">
-                                    <div class="repair-product-div">
+                                    <div class="repair-product-div" >
                                         <div class="repair-product-logo">
+<!--                                            <div style="width:100%;font-size: 18px;font-weight: bold;text-align: center;hegiht:20px;line-height: 20px;vertical-align; margin-top:30%;">--><?//=$product_row["product_logo_title"]?><!--</div>-->
                                             <img src="<?=$product_row["product_logo"]?>" class="repair-product-logo-d">
                                         </div>
                                         <div class="repair-product-image">
@@ -281,11 +285,11 @@
                         }
                         ?>
                     </ul>
-                    <a href="product-<?=$product_menu_row["menu_id"]?>.html">
-                        <div style="width:100%;height:40px; line-height: 40px; text-align: center;color:#fff;margin-top: 20px;background:<?=$color_more["color_content"]?>;">
-                            查看更多
-                        </div>
-                    </a>
+<!--                    <a href="product---><?//=$product_menu_row["menu_id"]?><!--.html">-->
+<!--                        <div style="width:100%;height:40px; line-height: 40px; text-align: center;color: #fff;margin-top: 20px;background:	#B22222;">-->
+<!--                            查看更多-->
+<!--                        </div>-->
+<!--                    </a>-->
                 </div>
                 <?php
             }
@@ -312,7 +316,7 @@
                                             <div style="float:left;width:50%;">
                                                 <img src="<?=$brand_row["brand_logo"]?>"  style="width:100%;height:100%;" />
                                             </div>
-                                            <div style="float:left;margin-left:10px;color:#000;line-height: 20px;">
+                                            <div style="float:left;margin-left:10px;color:#000;line-height: 20px;color:#fff;">
                                                 <span style="font-size:18px;">位置</span><br />
                                                 <?=$brand_row["brand_position"]?>
                                             </div>
@@ -350,8 +354,8 @@
             <!--底部辐条-->
             <!--地图-->
 
-            <div  style="margin-top:10px;">
-                <div class="t_hd"  style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');">交通路线</div>
+            <div style="margin-top:10px;">
+                <div class="t_hd" style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');">交通路线</div>
                 <div>
                     <div style="margin-top:20px;">
                         <iframe border="0" frameborder="0" framespacing="0" height="415" hspace="0" id="mapbarframe" marginheight="0" marginwidth="0" scrolling="no" src="http://searchbox.mapbar.com/publish/template/template1010/index.jsp?CID=shizengying_0126&amp;tid=tid1010&amp;showSearchDiv=1&amp;cityName=%E6%B2%88%E9%98%B3%E5%B8%82&amp;nid=MAPBQNQBZPCBXITAXWHWX&amp;width=1200&amp;height=415&amp;infopoi=2&amp;zoom=10&amp;control=1" vspace="0" width="1200"></iframe>
@@ -361,13 +365,15 @@
                     <?=$company_row["company_traffic"]?>
                 </div>
             </div>
+
             <!--地图-->
             <!--关于我们-->
-            <div >
-                <a href="about.html">
-                    <div class="t_hd" style="color:<?=$color_font["color_content"]?>;margin-top: 10px;background: url('<?=$tit_background['image_image']?>');">关于我们</div>
-                </a>
-            </div>
+                <div >
+                    <a href="about.html">
+                        <div class="t_hd" style="color:<?=$color_font["color_content"]?>;margin-top: 10px;background: url('<?=$tit_background['image_image']?>');">关于我们</div>
+                    </a>
+                </div>
+
             <!--关于我们-->
             <!--底部辐条-->
             <?php require_once 'include/ad.php'; ?>
@@ -383,8 +389,7 @@
 
     <!-- 底部开始 -->
     <?php require_once 'include/copyright.php'; ?>
-    <!-- 底部结束-->
-</div>
+    <!-- 底部结束--></div>
 
 <script type="text/javascript">
     $(document).ready(function() {

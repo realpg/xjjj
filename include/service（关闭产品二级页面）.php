@@ -5,7 +5,7 @@ if($process_row)
 {
     ?>
     <div class="directory" id="J_Eact3">
-        <div class="t_hd"  style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');"><?=$process_row["image_title"]?></div>
+        <div class="t_hd" style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');"><?=$process_row["image_title"]?></div>
         <div class="dir_img clearfix">
             <img src="<?=$process_row["image_image"]?>" />
         </div>
@@ -37,26 +37,25 @@ if($branch_menu_row)
 {
     ?>
     <div style="margin-top:20px;">
-        <div class="t_hd" style="color:<?= $color_font["color_content"] ?>;background: url('<?=$tit_background['image_image']?>');"><?=$branch_menu_row["menu_title"]?></div>
+        <div class="t_hd"  style="color:<?=$color_font["color_content"]?>;background: url('<?=$tit_background['image_image']?>');"><?=$branch_menu_row["menu_title"]?></div>
         <ul class="hx-branch-li clearfix">
             <?php
-            $branch_rows = $db->query_lists("select menu_id,menu_title,menu_image from menu where menu_level=3 and menu_show=1 order by menu_sort asc,menu_id asc");
-            foreach ($branch_rows as $branch_row) {
+            $branch_rows=$db->query_lists("select menu_id,menu_title,menu_image from menu where menu_level=3 and menu_show=1 order by menu_sort asc,menu_id asc");
+            foreach ($branch_rows as $branch_row)
+            {
                 ?>
                 <li>
-                    <a href="product-<?= $branch_row["menu_id"] ?>.html">
-                        <img data-original="<?= $branch_row["menu_image"] ?>" src="<?= $branch_row["menu_image"] ?>"
-                             title="<?= $branch_row["menu_title"] ?>">
+                    <a href="javascript:void(0);"  id="ClickMe" onclick="showpopup()">
+                        <img data-original="<?=$branch_row["menu_image"]?>" src="<?=$branch_row["menu_image"]?>" title="<?=$branch_row["menu_title"]?>">
                     </a>
                 </li>
                 <?php
             }
-            $free_ticket_row = $db->query_list_id("select menu_image from menu where menu_id=3");
+            $free_ticket_row=$db->query_list_id("select menu_image from menu where menu_id=3");
             ?>
             <li>
-                <a href="javascript:void(0);" id="ClickMe" onclick="showpopup()">
-                    <img data-original="<?= $free_ticket_row["menu_image"] ?>"
-                         src="<?= $free_ticket_row["menu_image"] ?>" title="免费索票">
+                <a href="javascript:void(0);"  id="ClickMe" onclick="showpopup()">
+                    <img data-original="<?=$free_ticket_row["menu_image"]?>" src="<?=$free_ticket_row["menu_image"]?>" title="免费索票">
                 </a>
             </li>
         </ul>

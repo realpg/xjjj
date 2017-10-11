@@ -42,11 +42,11 @@ if(md5($leaveword_code)==$_SESSION["verification"])
         //echo "SmsDemo::sendSms\n";
         $response = $demo->sendSms(
             "香江家居", // 短信签名
-            "SMS_91970044", // 短信模板编号
+            "SMS_102310032", // 短信模板编号
             $leaveword_tel, // 短信接收者
             Array(  // 短信模板中字段的值
-                "title"=>"国庆家居展会",
-                "tel"=>"25614838"
+//                "title"=>"国庆家居展会",
+//                "tel"=>"25614838"
             ),
             "123"
         );

@@ -58,7 +58,7 @@
                                             <!--                                            <div class="repair-product-seat"></div>-->
                                             <div class="repair-hidden color-black" style="font-size: 16px;"><?=$product_row["product_title"]?></div>
                                             <div class="repair-hidden repair-product-price color-black">工厂批发价：<?=$product_row["product_price"]?></div>
-                                            <div style="font-size: 16px;">
+                                            <div style="font-size: 15px;">
                                                 <div class="repair-hidden color-red" style="float:left;">限时价：<b><?=$product_row["product_sell"]?></b>&nbsp;</div>
                                                 <div class="repair-hidden color-red" style="float:right;" id="product_time_<?=$product_row["product_id"]?>">
                                                     <span class="repair-product-span" style="color:red;">倒计时：</span>
