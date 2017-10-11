@@ -96,9 +96,10 @@
                         {
                             ?>
                             <li <?=$k%2==0?"style='margin-left:0;'":""?>>
-                                <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".activity-rule" data-title="<?=$light_row["light_title"]?>" data-content="<?=$light_row["light_content"]?>">
-                                    <img src="../<?=$light_row["light_image"]?>" width="100%" style="border-radius: .5rem;">
-                                </a>
+<!--                                <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".activity-rule" data-title="--><?//=$light_row["light_title"]?><!--" data-content="--><?//=$light_row["light_content"]?><!--">-->
+<!--                                <a href="javascript:void(0);" onclick="onClickEdge()" class="open-popup1 activity_click1" data-id="0" data-popup=".activity-rule" data-title="--><?//=$light_row["light_title"]?><!--" data-content="--><?//=$light_row["light_content"]?><!--">-->
+                                    <img src="../<?=$light_row["light_image"]?>" width="100%" style="border-radius: .5rem;" onclick="onClickEdge('<?=$light_row["light_title"]?>','<?=$light_row["light_content"]?>')">
+<!--                                </a>-->
                             </li>
                             <?php
                         }

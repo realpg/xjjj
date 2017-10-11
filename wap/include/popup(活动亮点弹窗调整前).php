@@ -25,12 +25,12 @@
         </div>
     </div>
 </div>
-<div class="activity-rule popup-rule popup" id="activity-light">
+<div class="activity-rule popup-rule popup">
     <div class="content-block">
         <p class="rule-title"></p>
         <div class="rule-list">
             <div></div>
-            <a href="javascript:" onclick="activity_light_close()" class="close-popup button button-big rule-close">知道了</a>
+            <a href="javascript:;" class="close-popup button button-big rule-close">知道了</a>
         </div>
     </div>
 </div>
