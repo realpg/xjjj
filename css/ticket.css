@@ -1663,7 +1663,7 @@
     border-right:none;
 }
 .hx-branch-li li img{
-    width: 395px;
+    /*width: 395px;*/
     height:235px;
     display: block;
     margin:0 auto;

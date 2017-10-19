@@ -62,6 +62,22 @@ else if($SERVER_NAME=="qiym.syxjhome.com")
 {
     $leaveword_source="爱奇艺";
 }
+else if($SERVER_NAME=="sina.syxjhome.com")
+{
+    $leaveword_source="新浪微博开屏";
+}
+else if($SERVER_NAME=="rabbit.syxjhome.com")
+{
+    $leaveword_source="土巴兔";
+}
+else if($SERVER_NAME=="himalayan.syxjhome.com")
+{
+    $leaveword_source="喜马拉雅";
+}
+else if($SERVER_NAME=="delivery.syxjhome.com")
+{
+    $leaveword_source="精准投放";
+}
 else
 {
     $leaveword_source="百度-手机端";
