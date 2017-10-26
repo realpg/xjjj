@@ -34,8 +34,8 @@ if($image_banner_row)
                 </button>
             </div>
         </div>
+        <!-- 索票input框结束 -->
     </div>
-    <!-- 索票input框结束 -->
     <?php
 }
 ?>
