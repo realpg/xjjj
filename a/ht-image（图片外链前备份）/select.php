@@ -61,34 +61,14 @@ require_once ("include-image.php");
         	<?=$row['image_title']?>
         	<?=$row['image_show']==1?"<font color='red'><b>【显示】</b></font>":""?>
         </td>
-        <?php
-        if($row['image_id']==12)
-        {
-            ?>
-            <td>
-                <img src="<?=$row['image_image']?>" width="200px;" />
-            </td>
-            <td>
-                <a href="external-update.php?id=<?=$row['image_id']?>">
-                    <img src="../images/t02.png" >
-                </a>
-            </td>
-            <?php
-        }
-        else
-        {
-            ?>
-            <td>
-                <img src="../../<?=$row['image_image']?>" width="200px;" />
-            </td>
-            <td>
-                <a href="update.php?id=<?=$row['image_id']?>">
-                    <img src="../images/t02.png" >
-                </a>
-            </td>
-            <?php
-        }
-        ?>
+        <td>
+            <img src="../../<?=$row['image_image']?>" width="200px;" />
+        </td>
+        <td>
+            <a href="update.php?id=<?=$row['image_id']?>">
+                <img src="../images/t02.png" >
+            </a>
+        </td>
     </tr>
     <?php
     }

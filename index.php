@@ -461,13 +461,13 @@
             });
         });
 
-        /**
-         * 导航栏
-         */
-        var topBarOffsetTop = $("#J_TopBar").offset().top;
-        var navCount = parseInt(5);
-
-        $(".J_EactNav").on("click", function(){var idx = $(this).attr("data-id");$("html,body").animate({scrollTop:Math.round($("#J_Eact" + idx).offset().top - 70)}, 100);});
+//        /**
+//         * 导航栏
+//         */
+//        var topBarOffsetTop = $("#J_TopBar").offset().top;
+//        var navCount = parseInt(5);
+//
+//        $(".J_EactNav").on("click", function(){var idx = $(this).attr("data-id");$("html,body").animate({scrollTop:Math.round($("#J_Eact" + idx).offset().top - 70)}, 100);});
 
 
     });

@@ -36,10 +36,10 @@ require_once ("include-image.php");
         <td>1</td>
         <td style="text-align:left; padding-left:2%;">免费索票</td>
         <td>
-            <img src="<?=$ticket_row['menu_image']?>" height="100px" />
+            <img src="../../<?=$ticket_row['menu_image']?>" height="100px" />
         </td>
         <td>
-            <img src="<?=$ticket_row['menu_wap_image']?>" height="100px" />
+            <img src="../../<?=$ticket_row['menu_wap_image']?>" height="100px" />
         </td>
         <td>
             <a href="update.php?id=3">
@@ -72,10 +72,10 @@ require_once ("include-image.php");
         	<?=$row['menu_title']?>
         </td>
         <td>
-            <img src="<?=$row['menu_image']?>" height="100px" />
+            <img src="../../<?=$row['menu_image']?>" height="100px" />
         </td>
         <td>
-            <img src="<?=$row['menu_wap_image']?>" height="100px" />
+            <img src="../../<?=$row['menu_wap_image']?>" height="100px" />
         </td>
         <td>
             <a href="update.php?id=<?=$row['menu_id']?>">

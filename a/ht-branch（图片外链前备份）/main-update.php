@@ -17,11 +17,11 @@ require_once ("include-image.php");
 <body>
 <?php
 $id=$_REQUEST['id'];
-$sql = "select * from menu where menu_id='$id'";
+$sql = "select * from image where image_id='$id'";
 $row =$db->query_list_id($sql);
 ?>
-<form action="updatedb.php" method="post" enctype="multipart/form-data">
-<input type="hidden" name="menu_id" value="<?=$_REQUEST['id']?>"
+<form action="main-updatedb.php" method="post" enctype="multipart/form-data">
+<input type="hidden" name="image_id" value="<?=$_REQUEST['id']?>"
        id="image_id" class="dfinput" />
     <div class="place">
         <span>位置：</span>
@@ -36,18 +36,16 @@ $row =$db->query_list_id($sql);
         </div>
         <ul class="forminfo">
         	<li>
-                <label>分会场：</label>
-               	<input type="text" name="menu_title" id="menu_title" class="dfinput" value="<?=$row['menu_title']?>" readonly />
-            </li>
-            <li>
-                <label>PC端图片：</label>
-                <input type="text" name="menu_image" id="menu_image" class="dfinput" value="<?=$row['menu_image']?>" style="width:50%;" />
-            	<i>*<?=$menu_width ?>*<?=$menu_height?></i><br />
+                <label>主会场：</label>
+               	<input type="text" name="image_title" id="image_title" class="dfinput" value="主会场" readonly />
             </li>
             <li>
                 <label>手机端图片：</label>
-                <input type="text" name="menu_wap_image" id="menu_wap_image" class="dfinput" value="<?=$row['menu_wap_image']?>" style="width:50%;" />
-                <i>*<?=$menu_wap_width ?>*<?=$menu_wap_height?></i><br />
+                <input type="file" name="image_image" id="image_image" onchange="preview(this,'preview_main_menu')" />
+                <i>*<?=$menu_main_width ?>*<?=$menu_main_height?></i><br />
+                <img src="../../<?=$row['image_image']?>" width="<?=$menu_main_width ?>" height="<?=$menu_main_height ?>"  />
+                <input type="hidden" name="image_images" id="image_image" value="<?=$row['image_image']?>" />
+                <div id="preview_main_menu">预览区</div>
             </li>
             <li>
                 <label>&nbsp;</label>

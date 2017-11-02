@@ -8,7 +8,7 @@ require_once ("include-image.php");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>分会场管理</title>
+<title>图片管理</title>
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 <link href="../css/preview-pictures.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../js/preview-pictures.js"></script>
@@ -17,37 +17,46 @@ require_once ("include-image.php");
 <body>
 <?php
 $id=$_REQUEST['id'];
-$sql = "select * from menu where menu_id='$id'";
+if($id==13)
+{
+    $image_width=$image_width_13;
+    $image_height=$image_height_13;
+}
+else if($id==14)
+{
+    $image_width=$image_width_14;
+    $image_height=$image_height_14;
+}
+$sql = "select * from image where image_id='$id'";
 $row =$db->query_list_id($sql);
 ?>
-<form action="updatedb.php" method="post" enctype="multipart/form-data">
-<input type="hidden" name="menu_id" value="<?=$_REQUEST['id']?>"
+<form action="tit-updatedb.php" method="post" enctype="multipart/form-data">
+<input type="hidden" name="image_id" value="<?=$_REQUEST['id']?>" 
        id="image_id" class="dfinput" />
     <div class="place">
         <span>位置：</span>
         <ul class="placeul">
             <li><a href="javascript:void(0);">首页</a></li>
-            <li><a href="#">分会场管理</a></li>
+            <li><a href="#">图片管理</a></li>
         </ul>
     </div>
     <div class="formbody">
         <div class="formtitle">
-            <span>分会场信息</span>
+            <span>图片信息</span>
         </div>
         <ul class="forminfo">
         	<li>
-                <label>分会场：</label>
-               	<input type="text" name="menu_title" id="menu_title" class="dfinput" value="<?=$row['menu_title']?>" readonly />
+                <label>图片位：</label>
+               	<input type="text" name="image_title" id="image_title" class="dfinput" value="<?=$row['image_title']?>" />
+               	<i>*必须填写</i>
             </li>
             <li>
-                <label>PC端图片：</label>
-                <input type="text" name="menu_image" id="menu_image" class="dfinput" value="<?=$row['menu_image']?>" style="width:50%;" />
-            	<i>*<?=$menu_width ?>*<?=$menu_height?></i><br />
-            </li>
-            <li>
-                <label>手机端图片：</label>
-                <input type="text" name="menu_wap_image" id="menu_wap_image" class="dfinput" value="<?=$row['menu_wap_image']?>" style="width:50%;" />
-                <i>*<?=$menu_wap_width ?>*<?=$menu_wap_height?></i><br />
+                <label>图片：</label>
+               	<input type="file" name="image_image" id="image_image" onchange="preview(this,'preview_image_<?=$id?>')" />
+            	<i>*<?=$image_width ?>*<?=$image_height?></i><br />
+                <img src="../../<?=$row['image_image']?>" width="<?=$image_width ?>" height="<?=$image_height ?>"  />
+                <input type="hidden" name="image_images" id="image_image" value="<?=$row['image_image']?>" />
+                <div id="preview_image_<?=$id?>">预览区</div>
             </li>
             <li>
                 <label>&nbsp;</label>

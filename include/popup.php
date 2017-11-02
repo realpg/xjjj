@@ -37,7 +37,7 @@
 
         </div>
     </div>
-    <div class="code-img"> <img id="ewmsrc"  src="images/code.jpg"></div>
+<!--    <div class="code-img"> <img id="ewmsrc"  src="images/code.jpg"></div>-->
 </div>
 
 <script>

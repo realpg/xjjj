@@ -6,7 +6,23 @@ require_once ("include-image.php");
     if(!empty($_POST['btnEdit']))
     {
         $menu_id=$_REQUEST['menu_id'];
-        $menu_image=$_REQUEST['menu_image'];
+        $menu_images=$_REQUEST['menu_images'];
+//        $img=$files->upload_image("menu_image", $upload, $menu_images, $menu_width, $menu_height);
+        $img=$files->upload_picture("menu_image", $upload, $menu_images);
+        if($img=="Out of size")
+        {
+            echo IMAGE_SIZE;
+            return;
+        }
+        else if($img=="error in type")
+        {
+            echo IMAGE_FORMAT;
+            return;
+        }
+        else
+        {
+            $menu_image=$img;
+        }
         if(empty($menu_image))
         {
             $Log_name=$_COOKIE['login'];
@@ -16,7 +32,23 @@ require_once ("include-image.php");
         }
         else
         {
-            $menu_wap_image=$_REQUEST['menu_wap_image'];
+            $menu_wap_images=$_REQUEST['menu_wap_images'];
+//            $img_wap=$files->upload_image("menu_wap_image", $upload, $menu_wap_images, $menu_wap_width, $menu_wap_height);
+            $img_wap=$files->upload_picture("menu_wap_image", $upload, $menu_wap_images);
+            if($img_wap=="Out of size")
+            {
+                echo IMAGE_SIZE;
+                return;
+            }
+            else if($img_wap=="error in type")
+            {
+                echo IMAGE_FORMAT;
+                return;
+            }
+            else
+            {
+                $menu_wap_image=$img_wap;
+            }
             if(empty($menu_wap_image))
             {
                 $Log_name=$_COOKIE['login'];

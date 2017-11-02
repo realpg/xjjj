@@ -174,7 +174,7 @@
                                         ?>
                                         <div class="li-top" <?=$k==0?"style='margin-top:0;'":""?>">
                                             <a href="product-<?=$branch_row['menu_id']?>.html">
-                                                <img src="<?=$branch_row['menu_wap_image']?>">
+                                                <img src="../<?=$branch_row['menu_wap_image']?>">
                                             </a>
                                         </div>
                                         <?php
@@ -205,7 +205,7 @@
                                         ?>
                                         <li <?=$k%2==0?"style='margin-left:0'":""?>>
                                             <a href="product-<?=$branch_other_row['menu_id']?>.html">
-                                                <img src="<?=$branch_other_row['menu_wap_image']?>">
+                                                <img src="../<?=$branch_other_row['menu_wap_image']?>">
                                             </a>
                                         </li>
                                         <?php

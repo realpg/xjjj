@@ -445,7 +445,7 @@
                                     ?>
                                     <li <?=$k%2==0?"style='margin-left:0;'":""?>>
                                         <a href="product-<?=$branch_id?>.html">
-                                            <img src="<?=$branch_row["menu_wap_image"]?>">
+                                            <img src="../<?=$branch_row["menu_wap_image"]?>">
                                         </a>
                                     </li>
                                     <?php
@@ -456,7 +456,7 @@
                                     ?>
                                     <li tyle='margin-left:0;'>
                                         <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".rule">
-                                            <img src="<?=$main_row["menu_wap_image"]?>">
+                                            <img src="../<?=$main_row["menu_wap_image"]?>">
                                         </a>
                                     </li>
                                     <?php

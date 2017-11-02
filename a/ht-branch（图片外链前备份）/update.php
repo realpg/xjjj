@@ -41,13 +41,19 @@ $row =$db->query_list_id($sql);
             </li>
             <li>
                 <label>PC端图片：</label>
-                <input type="text" name="menu_image" id="menu_image" class="dfinput" value="<?=$row['menu_image']?>" style="width:50%;" />
+               	<input type="file" name="menu_image" id="menu_image" onchange="preview(this,'preview_menu')" />
             	<i>*<?=$menu_width ?>*<?=$menu_height?></i><br />
+                <img src="../../<?=$row['menu_image']?>" width="<?=$menu_width ?>" height="<?=$menu_height ?>"  />
+                <input type="hidden" name="menu_images" id="menu_image" value="<?=$row['menu_image']?>" />
+                <div id="preview_menu">预览区</div>
             </li>
             <li>
                 <label>手机端图片：</label>
-                <input type="text" name="menu_wap_image" id="menu_wap_image" class="dfinput" value="<?=$row['menu_wap_image']?>" style="width:50%;" />
+                <input type="file" name="menu_wap_image" id="menu_wap_image" onchange="preview(this,'preview_wap_menu')" />
                 <i>*<?=$menu_wap_width ?>*<?=$menu_wap_height?></i><br />
+                <img src="../../<?=$row['menu_wap_image']?>" width="<?=$menu_wap_width ?>" height="<?=$menu_wap_height ?>"  />
+                <input type="hidden" name="menu_wap_images" id="menu_wap_image" value="<?=$row['menu_wap_image']?>" />
+                <div id="preview_wap_menu">预览区</div>
             </li>
             <li>
                 <label>&nbsp;</label>
