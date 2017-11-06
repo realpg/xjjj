@@ -59,15 +59,13 @@ if($banner_row)
     <?php
 }
 $round_row=$db->query_list_id("select image_image from image where image_id=12 and image_show=1");
-$round_width=1920;
-$round_height=235;
 if($round_row)
 {
     ?>
     <div class="t_banner" style="margin-top:10px;">
         <a href="javascript:void(0);"  id="ClickMe" onclick="showpopup()">
             <div class="t_banner_bg">
-                <img src="<?=$round_row["image_image"]."?imageView2/2/w/".$round_width."/h/".$round_height ?>" style="width:100%;" />
+                <img src="<?=$round_row["image_image"]?>" style="width:100%;" />
             </div>
         </a>
     </div>

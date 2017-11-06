@@ -36,7 +36,7 @@ else if($SERVER_NAME=="lbsm.syxjhome.com")
 }
 else if($SERVER_NAME=="appm.syxjhome.com")
 {
-    $leaveword_source="腾讯视频APP开屏";
+    $leaveword_source="腾讯新闻APP开屏";
 }
 else if($SERVER_NAME=="wechat.syxjhome.com")
 {

@@ -18,7 +18,7 @@
     <script src="./js/hm.js"></script>
     <script type="text/javascript">var baseUrl = "/",cityCode = "sy",local = 0;</script>
     <script type="text/javascript">var codeList = ["quanguo","sh","bj","gz","cq","tj","hz","sz","wx","ks","wh","cs","nc","zz","qd","sy"],nameList = ["\u5168\u56fd","\u4e0a\u6d77","\u5317\u4eac","\u5e7f\u5dde","\u91cd\u5e86","\u5929\u6d25","\u676d\u5dde","\u82cf\u5dde","\u65e0\u9521","\u6606\u5c71","\u6b66\u6c49","\u957f\u6c99","\u5357\u660c","\u90d1\u5dde","\u9752\u5c9b","\u6c88\u9633"];</script>
-    <link rel="shortcut icon" href="../favicon.ico">
+<!--    <link rel="shortcut icon" href="../favicon.ico">-->
     <link rel="stylesheet" href="./css/sm.min.css">
     <link rel="stylesheet" href="./css/sm-extend.min.css">
     <link rel="stylesheet" type="text/css" href="./css/iSlider.min.css">
@@ -26,7 +26,7 @@
     <!--        <link rel="shortcut icon" href="--><!--" />-->
 
     <link href="./css/ticket2017-06.css" rel="stylesheet" type="text/css" media="screen">
-    <script type="text/javascript">var _vds = _vds || [];window._vds = _vds;(function(){_vds.push(['setAccountId', '97f5cbef69849241']);(function() {var vds = document.createElement('script');vds.type='text/javascript';vds.async = true;vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(vds, s);})();})();</script>
+<!--    <script type="text/javascript">var _vds = _vds || [];window._vds = _vds;(function(){_vds.push(['setAccountId', '97f5cbef69849241']);(function() {var vds = document.createElement('script');vds.type='text/javascript';vds.async = true;vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(vds, s);})();})();</script>-->
     <script type="text/javascript">
         /*$(function(){
             alert();
@@ -332,8 +332,9 @@
                                                 <div style="line-height: 4rem;font-size:0.8rem;">
                                                     立即领取
                                                 </div>
-                                                <div style="line-height: 2.5rem;font-size:0.6rem;margin-top:-1.5rem;" id="coupon_time_<?=$coupon_row["coupon_id"]?>">
-                                                    <span  id="coupon_hour_show_<?=$coupon_row["coupon_id"]?>"></span>
+                                                <div style="font-size:0.6rem;margin-top:-1.5rem;" id="coupon_time_<?=$coupon_row["coupon_id"]?>">
+                                                    <span  id="coupon_day_show_<?=$coupon_row["coupon_id"]?>"></span>
+                                                    <span  id="coupon_hour_show_<?=$coupon_row["coupon_id"]?>"></span><br />
                                                     <span  id="coupon_minute_show_<?=$coupon_row["coupon_id"]?>"></span>
                                                     <span  id="coupon_second_show_<?=$coupon_row["coupon_id"]?>"></span>
                                                 </div>
@@ -351,11 +352,15 @@
                                                         /*判断活动是否结束*/
                                                         if(time_distance<0)
                                                         {
+                                                            int_day=0;
                                                             int_hour=0;
                                                             int_minute=0;
                                                             int_second=0;
-                                                            $("#coupon_time_<?=$coupon_row["coupon_id"]?>").html("<b>活动已结束</b>");
+                                                            $("#coupon_time_<?=$coupon_row["coupon_id"]?>").html("<b style='line-height:2.25rem;'>活动已结束</b>");
                                                         }else{
+                                                            // 天
+                                                            var int_day = Math.floor(time_distance/86400000)
+                                                            time_distance -= int_day * 86400000;
                                                             // 时
                                                             var int_hour = Math.floor(time_distance/3600000)
                                                             time_distance -= int_hour * 3600000;
@@ -364,6 +369,9 @@
                                                             time_distance -= int_minute * 60000;
                                                             // 秒
                                                             var int_second = Math.floor(time_distance/1000)
+                                                            if(int_day < 10){
+                                                                int_day = "0" + int_day;
+                                                            }
                                                             if(int_hour < 10){
                                                                 int_hour = "0" + int_hour;
                                                             }
@@ -375,6 +383,7 @@
                                                             }
                                                         }
                                                         // 显示时间
+                                                        $("#coupon_day_show_<?=$coupon_row["coupon_id"]?>").html(int_day+"天");
                                                         $("#coupon_hour_show_<?=$coupon_row["coupon_id"]?>").html(int_hour+"时");
                                                         $("#coupon_minute_show_<?=$coupon_row["coupon_id"]?>").html(int_minute+"分");
                                                         $("#coupon_second_show_<?=$coupon_row["coupon_id"]?>").html(int_second+"秒");
@@ -445,7 +454,7 @@
                                     ?>
                                     <li <?=$k%2==0?"style='margin-left:0;'":""?>>
                                         <a href="product-<?=$branch_id?>.html">
-                                            <img src="<?=$branch_row["menu_wap_image"]?>">
+                                            <img src="<?=$branch_row["menu_wap_image"]."?imageView2/2/w/".$menu_wap_width."/h/".$menu_wap_height?>">
                                         </a>
                                     </li>
                                     <?php
@@ -456,7 +465,7 @@
                                     ?>
                                     <li tyle='margin-left:0;'>
                                         <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".rule">
-                                            <img src="<?=$main_row["menu_wap_image"]?>">
+                                            <img src="<?=$main_row["menu_wap_image"]."?imageView2/2/w/".$menu_wap_width."/h/".$menu_wap_height?>">
                                         </a>
                                     </li>
                                     <?php

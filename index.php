@@ -87,7 +87,7 @@
                                                     <?=$coupon_row["coupon_content"]?>
                                                 </div>
                                                 <div class="line-height-20">
-                                                    <?=date("Y-m-d",strtotime($coupon_row["coupon_time"]))?><br/>
+                                                    <?=date("Y年m月d日",strtotime($coupon_row["coupon_time"]))?><br/>
                                                     <?=date("H:i",strtotime($coupon_row["coupon_time"]))?>-<?=date("H:i",strtotime($coupon_row["coupon_end"]))?>
                                                 </div>
                                                 <div class="repair-coupon-time" id="coupon_time_<?=$coupon_row["coupon_id"]?>" style="line-height: 20px;">
@@ -460,16 +460,6 @@
                 // location.reload(); // 领取成功后执行的方法 需要调整
             });
         });
-
-//        /**
-//         * 导航栏
-//         */
-//        var topBarOffsetTop = $("#J_TopBar").offset().top;
-//        var navCount = parseInt(5);
-//
-//        $(".J_EactNav").on("click", function(){var idx = $(this).attr("data-id");$("html,body").animate({scrollTop:Math.round($("#J_Eact" + idx).offset().top - 70)}, 100);});
-
-
     });
 </script>
 <div><object id="ClCache" click="sendMsg" host="" width="0" height="0"></object></div></body></html>

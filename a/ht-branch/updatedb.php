@@ -26,6 +26,8 @@ require_once ("include-image.php");
             }
             else
             {
+                $menu_image=$_REQUEST['menu_image'];
+                $menu_wap_image=$_REQUEST['menu_wap_image'];
                 $sql = "update menu set menu_image='$menu_image',menu_wap_image='$menu_wap_image' where menu_id='$menu_id'";
                 $rows = $db->edit_list($sql);
                 if($rows >= 1)

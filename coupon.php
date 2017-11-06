@@ -84,7 +84,7 @@
                                                     <?=$coupon_row["coupon_content"]?>
                                                 </div>
                                                 <div class="line-height-20" style="font-size:12px;">
-                                                    <?=date("Y-m-d H:i",strtotime($coupon_row["coupon_time"]))?>-<?=date("H:i",strtotime($coupon_row["coupon_end"]))?>
+                                                    <?=date("Y年m月d日 H:i",strtotime($coupon_row["coupon_time"]))?>-<?=date("H:i",strtotime($coupon_row["coupon_end"]))?>
                                                 </div>
                                                 <div class="repair-coupon-time" id="coupon_time_<?=$coupon_row["coupon_id"]?>">
                                                     <span class="repair-product-span" style="margin-left:5px;">倒计时：</span>

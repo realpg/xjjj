@@ -33,8 +33,6 @@ if($service_row)
 <!-- 分会场 -->
 <?php
 $branch_menu_row=$db->query_list_id("select menu_title,menu_id from menu where menu_id=5 and menu_show=1");
-$menu_width=380;
-$menu_height=220;
 if($branch_menu_row)
 {
     ?>
@@ -47,7 +45,7 @@ if($branch_menu_row)
                 ?>
                 <li>
                     <a href="product-<?= $branch_row["menu_id"] ?>.html">
-                        <img data-original="<?= $branch_row["menu_image"] ?>" src="<?= $branch_row["menu_image"]."?imageView2/2/w/".$menu_width."/h/".$menu_height ?>"
+                        <img data-original="<?= $branch_row["menu_image"] ?>" src="<?= $branch_row["menu_image"] ?>"
                              title="<?= $branch_row["menu_title"] ?>">
                     </a>
                 </li>
@@ -58,7 +56,7 @@ if($branch_menu_row)
             <li>
                 <a href="javascript:void(0);" id="ClickMe" onclick="showpopup()">
                     <img data-original="<?= $free_ticket_row["menu_image"] ?>"
-                         src="<?= $free_ticket_row["menu_image"]."?imageView2/2/w/".$menu_width."/h/".$menu_height ?>" title="免费索票">
+                         src="<?= $free_ticket_row["menu_image"] ?>" title="免费索票">
                 </a>
             </li>
         </ul>

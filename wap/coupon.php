@@ -118,9 +118,9 @@
                                         <div style="line-height: 4rem;font-size:0.8rem;">
                                             立即领取
                                         </div>
-                                        <div style="line-height: 2.5rem;font-size:0.6rem;margin-top:-1.5rem;" id="coupon_time_<?=$coupon_row["coupon_id"]?>">
+                                        <div style="font-size:0.6rem;margin-top:-1.5rem;" id="coupon_time_<?=$coupon_row["coupon_id"]?>">
                                             <span  id="day_show_<?=$coupon_row["coupon_id"]?>"></span>
-                                            <span  id="hour_show_<?=$coupon_row["coupon_id"]?>"></span>
+                                            <span  id="hour_show_<?=$coupon_row["coupon_id"]?>"></span><br />
                                             <span  id="minute_show_<?=$coupon_row["coupon_id"]?>"></span>
                                             <span  type="text" id="second_show_<?=$coupon_row["coupon_id"]?>"></span>
                                         </div>
@@ -138,11 +138,15 @@
                                                 /*判断活动是否结束*/
                                                 if(time_distance<0)
                                                 {
+                                                    int_day=0;
                                                     int_hour=0;
                                                     int_minute=0;
                                                     int_second=0;
-                                                    $("#coupon_time_<?=$coupon_row["coupon_id"]?>").html("<b>活动已结束</b>");
+                                                    $("#coupon_time_<?=$coupon_row["coupon_id"]?>").html("<b style='line-height:2.25rem;'>活动已结束</b>");
                                                 }else{
+                                                    // 天
+                                                    var int_day = Math.floor(time_distance/86400000)
+                                                    time_distance -= int_day * 86400000;
                                                     // 时
                                                     var int_hour = Math.floor(time_distance/3600000)
                                                     time_distance -= int_hour * 3600000;
@@ -162,6 +166,7 @@
                                                     }
                                                 }
                                                 // 显示时间
+                                                $("#day_show_<?=$coupon_row["coupon_id"]?>").html(int_day+"天");
                                                 $("#hour_show_<?=$coupon_row["coupon_id"]?>").html(int_hour+"时");
                                                 $("#minute_show_<?=$coupon_row["coupon_id"]?>").html(int_minute+"分");
                                                 $("#second_show_<?=$coupon_row["coupon_id"]?>").html(int_second+"秒");
@@ -201,7 +206,7 @@
                                 ?>
                                 <li <?=$k%2==0?"style='margin-left:0;'":""?>>
                                     <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".rule">
-                                        <img src="<?=$branch_row["menu_wap_image"]?>">
+                                        <img src="<?=$branch_row["menu_wap_image"]."?imageView2/2/w/".$menu_wap_width."/h/".$menu_wap_height?>">
                                     </a>
                                 </li>
                                 <?php
@@ -212,7 +217,7 @@
                                 ?>
                                 <li tyle='margin-left:0;'>
                                     <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".rule">
-                                        <img src="<?=$main_row["menu_wap_image"]?>">
+                                        <img src="<?=$main_row["menu_wap_image"]."?imageView2/2/w/".$menu_wap_width."/h/".$menu_wap_height?>">
                                     </a>
                                 </li>
                                 <?php
