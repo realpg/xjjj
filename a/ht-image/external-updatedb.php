@@ -4,7 +4,7 @@ require ("../config/conn.php");//引入链接数据库
 require_once ("include-power.php");//引入权限判断
 require_once ("include-image.php");
 require_once ('../config/UploadfilesQiniu.class.php');  //引入七牛
-$files_qiniu=new UploadfilesQiniu();
+$files_qiniu=new UploadfilesQiniu();  //实例化七牛方法
 
     if(!empty($_POST['btnEdit']))
     {
