@@ -69,10 +69,7 @@ require_once ("include-image.php");
     ?>
     <tr >
         <td><?=$k+1?></td>
-        <td>
-            <?=$row['light_title']?>
-            <?=$row['light_show']==1?"<font color='red'><b>【显示】</b></font>":""?>
-        </td>
+        <td><?=$row['light_title']?></td>
         <td><img src="../../<?=$row['light_image']?>" width="<?=$image_width/3 ?>px" height="<?=$image_height/3 ?>px" /></td>
         <td><?=$row['light_content']?></td>
         <td>

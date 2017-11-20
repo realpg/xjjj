@@ -152,60 +152,62 @@
             <!-- 服务保障 -->
             <?php require_once 'include/service.php'; ?>
             <!-- 分会场 -->
-            <div class="hot-pic repair-hot-pic">
-                <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">
-                    分会场
-                </div>
-                <div class="more-act" style="margin-top：1.17rem">
-                    <div class="content-padded grid-demo">
-                        <div class="row" style="margin-left: 0px;">
-                            <ul class="more-act-top clearfix">
-                                <?php $main_branch_row=$db->query_list_id("select image_image from image where image_id=11"); ?>
-                                <li style="margin-left:0">
-                                    <a href="index.html">
-                                        <img src="../<?=$main_branch_row["image_image"]?>" style="height:12rem;">
-                                    </a>
-                                </li>
-                                <li>
-                                    <?php
-                                    $branch_rows=$db->query_lists("select menu_wap_image,menu_id from menu where menu_level=3 and menu_show=1 and menu_id!=$tdhid order by menu_sort asc,menu_id asc limit 0,2");
-                                    foreach ($branch_rows as $k=>$branch_row)
-                                    {
-                                        ?>
-                                        <div class="li-top" <?=$k==0?"style='margin-top:0;'":""?>">
-                                            <a href="product-<?=$branch_row['menu_id']?>.html">
-                                                <img src="<?=$branch_row['menu_wap_image']."?imageView2/2/w/".$menu_wap_width."/h/".$menu_wap_height?>">
-                                            </a>
-                                        </div>
+            <?php
+            $branch_menu_row=$db->query_list_id("select menu_title,menu_id from menu where menu_id=5 and menu_show=1");
+            if($branch_menu_row)
+            {
+            ?>
+                <div class="hot-pic repair-hot-pic">
+                    <div class="tit"
+                         style="color:<?= $color_font["color_content"] ?>;background: url('../<?= $tit_background['image_image'] ?>');background-size: 100%;">
+                        分会场
+                    </div>
+                    <div class="more-act" style="margin-top：1.17rem">
+                        <div class="content-padded grid-demo">
+                            <div class="row" style="margin-left: 0px;">
+                                <ul class="more-act-top clearfix">
+                                    <?php $main_branch_row = $db->query_list_id("select image_image from image where image_id=11"); ?>
+                                    <li style="margin-left:0">
+                                        <a href="index.html">
+                                            <img src="../<?= $main_branch_row["image_image"] ?>" style="height:12rem;">
+                                        </a>
+                                    </li>
+                                    <li>
                                         <?php
-                                    }
-                                    ?>
-                                </li>
+                                        $branch_rows = $db->query_lists("select menu_wap_image,menu_id from menu where menu_level=3 and menu_show=1 and menu_id!=$tdhid order by menu_sort asc,menu_id asc limit 0,2");
+                                        foreach ($branch_rows
+
+                                        as $k => $branch_row)
+                                        {
+                                        ?>
+                                        <div class="li-top" <?= $k == 0 ? "style='margin-top:0;'" : "" ?>">
+                                        <a href="product-<?= $branch_row['menu_id'] ?>.html">
+                                            <img src="<?= $branch_row['menu_wap_image'] . "?imageView2/2/w/" . $menu_wap_width . "/h/" . $menu_wap_height ?>">
+                                        </a>
+                            </div>
+                            <?php
+                            }
+                            ?>
+                            </li>
 
                             </ul>
                             <ul class="more-act-bottom clearfix" style="margin-top:.41rem;">
                                 <?php
-                                if($branch_rows)
-                                {
-                                    $ids="";
-                                    foreach ($branch_rows as $k=>$branch_row)
-                                    {
-                                        if($k+1==count($branch_rows))
-                                        {
-                                            $ids.=$branch_row['menu_id'];
-                                        }
-                                        else
-                                        {
-                                            $ids.=$branch_row['menu_id'].",";
+                                if ($branch_rows) {
+                                    $ids = "";
+                                    foreach ($branch_rows as $k => $branch_row) {
+                                        if ($k + 1 == count($branch_rows)) {
+                                            $ids .= $branch_row['menu_id'];
+                                        } else {
+                                            $ids .= $branch_row['menu_id'] . ",";
                                         }
                                     }
-                                    $branch_other_rows=$db->query_lists("select menu_wap_image,menu_id from menu where menu_level=3 and menu_show=1 and menu_id!=$tdhid and menu_id not in (".$ids.") order by menu_sort asc,menu_id asc");
-                                    foreach ($branch_other_rows as $k=>$branch_other_row)
-                                    {
+                                    $branch_other_rows = $db->query_lists("select menu_wap_image,menu_id from menu where menu_level=3 and menu_show=1 and menu_id!=$tdhid and menu_id not in (" . $ids . ") order by menu_sort asc,menu_id asc");
+                                    foreach ($branch_other_rows as $k => $branch_other_row) {
                                         ?>
-                                        <li <?=$k%2==0?"style='margin-left:0'":""?>>
-                                            <a href="product-<?=$branch_other_row['menu_id']?>.html">
-                                                <img src="<?=$branch_other_row['menu_wap_image']."?imageView2/2/w/".$menu_wap_width."/h/".$menu_wap_height?>">
+                                        <li <?= $k % 2 == 0 ? "style='margin-left:0'" : "" ?>>
+                                            <a href="product-<?= $branch_other_row['menu_id'] ?>.html">
+                                                <img src="<?= $branch_other_row['menu_wap_image'] . "?imageView2/2/w/" . $menu_wap_width . "/h/" . $menu_wap_height ?>">
                                             </a>
                                         </li>
                                         <?php
@@ -216,11 +218,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                <?php
+            }
+            ?>
             <!-- 分会场 -->
+            </div>
         </div>
     </div>
-</div>
 <!-- 弹窗 -->
 <?php require_once 'include/popup.php'; ?>
 <!-- QQ -->

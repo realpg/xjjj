@@ -263,33 +263,33 @@
                 <!-- 产品展示 -->
 
 				<!-- 索票input框开始 -->
-                <div class="list-block" id="J_TicketForm" style="margin-top: 1.17rem;">
-                    <ul style="margin:0 0.5rem;">
-                        <li style="margin-top:0;">
-                            <div class="item-content">
-                                <div class="item-inner">
-                                    <div class="item-input">
-                                        <input type="text" placeholder="请输入您的姓名" class="txt" name="leaveword_name" id="leaveword_name">
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-content">
-                                <div class="item-inner">
-                                    <div class="item-input">
-                                        <input type="tel" placeholder="请输入您的手机号码" class="txt" name="leaveword_tel" id="leaveword_tel" maxlength="11">
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="ticket-btn repair-ticket-btn" style="margin:0.5rem;">
-                        <button class="btn" onclick="leaveword()" id="biaoming5">
-                            <img src="./images/btn-bg.png">
-                        </button>
-                    </div>
-                </div>
+<!--                <div class="list-block" id="J_TicketForm" style="margin-top: 1.17rem;">-->
+<!--                    <ul style="margin:0 0.5rem;">-->
+<!--                        <li style="margin-top:0;">-->
+<!--                            <div class="item-content">-->
+<!--                                <div class="item-inner">-->
+<!--                                    <div class="item-input">-->
+<!--                                        <input type="text" placeholder="请输入您的姓名" class="txt" name="leaveword_name" id="leaveword_name">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <div class="item-content">-->
+<!--                                <div class="item-inner">-->
+<!--                                    <div class="item-input">-->
+<!--                                        <input type="tel" placeholder="请输入您的手机号码" class="txt" name="leaveword_tel" id="leaveword_tel" maxlength="11">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    <div class="ticket-btn repair-ticket-btn" style="margin:0.5rem;">-->
+<!--                        <button class="btn" onclick="leaveword()" id="biaoming5">-->
+<!--                            <img src="./images/btn-bg.png">-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <!-- 索票input框结束 -->
 				
                 <!-- 优惠券 -->
@@ -412,24 +412,31 @@
                 ?>
                 <!-- 优惠券 -->
                 <!-- 活动亮点开始 -->
-                <div class="activity" style="margin:0 0.5rem;">
-                    <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">活动亮点</div>
-                    <ul class="activity-list clearfix">
-                        <?php
-                        $light_rows=$db->query_lists("select light_title,light_image,light_content from light order by light_sort asc,light_id asc");
-                        foreach ($light_rows as $k=>$light_row)
-                        {
-                            ?>
-                            <li <?=$k%2==0?"style='margin-left:0;'":""?>>
-                                <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".activity-rule" data-title="<?=$light_row["light_title"]?>" data-content="<?=$light_row["light_content"]?>">
-                                    <img src="../<?=$light_row["light_image"]?>" width="100%" style="border-radius: .5rem;">
-                                </a>
-                            </li>
+                <?php
+                $light_rows=$db->query_lists("select light_title,light_image,light_content from light where light_show=1 order by light_sort asc,light_id asc");
+                if($light_rows)
+                {
+                    ?>
+                    <div class="activity" style="margin:0 0.5rem;">
+                        <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">活动亮点</div>
+                        <ul class="activity-list clearfix">
                             <?php
-                        }
-                        ?>
-                    </ul>
-                </div>
+                            foreach ($light_rows as $k=>$light_row)
+                            {
+                                ?>
+                                <li <?=$k%2==0?"style='margin-left:0;'":""?>>
+                                    <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".activity-rule" data-title="<?=$light_row["light_title"]?>" data-content="<?=$light_row["light_content"]?>">
+                                        <img src="../<?=$light_row["light_image"]?>" width="100%" style="border-radius: .5rem;">
+                                    </a>
+                                </li>
+                                <?php
+                            }
+                            ?>
+                        </ul>
+                    </div>
+                    <?php
+                }
+                ?>
                 <!-- 活动亮点开始 -->
 
                 
@@ -439,42 +446,50 @@
                 <!-- 服务保障 -->
 
                 <!-- 分会场 -->
-                <div class="hot-pic repair-hot-pic">
-                    <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">
-                        分会场
-                    </div>
-                    <div class="hot-pic-in">
-                        <div class="content-padded grid-demo">
-                            <ul class="hot-pic-li clearfix">
-                                <?php
-                                $branch_rows=$db->query_lists("select menu_wap_image,menu_id from menu where menu_level=3 and menu_show=1 order by menu_sort asc,menu_id asc");
-                                foreach ($branch_rows as $k=>$branch_row)
-                                {
-                                    $branch_id=$branch_row["menu_id"]
-                                    ?>
-                                    <li <?=$k%2==0?"style='margin-left:0;'":""?>>
-                                        <a href="product-<?=$branch_id?>.html">
-                                            <img src="<?=$branch_row["menu_wap_image"]."?imageView2/2/w/".$menu_wap_width."/h/".$menu_wap_height?>">
-                                        </a>
-                                    </li>
+                <?php
+                $branch_menu_row=$db->query_list_id("select menu_title,menu_id from menu where menu_id=5 and menu_show=1");
+                if($branch_menu_row)
+                {
+                    ?>
+                    <div class="hot-pic repair-hot-pic">
+                        <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">
+                            分会场
+                        </div>
+                        <div class="hot-pic-in">
+                            <div class="content-padded grid-demo">
+                                <ul class="hot-pic-li clearfix">
                                     <?php
-                                }
-                                if(count($branch_rows)%2==1)
-                                {
-                                    $main_row=$db->query_list_id("select menu_wap_image from menu where menu_id=3");
+                                    $branch_rows=$db->query_lists("select menu_wap_image,menu_id from menu where menu_level=3 and menu_show=1 order by menu_sort asc,menu_id asc");
+                                    foreach ($branch_rows as $k=>$branch_row)
+                                    {
+                                        $branch_id=$branch_row["menu_id"]
+                                        ?>
+                                        <li <?=$k%2==0?"style='margin-left:0;'":""?>>
+                                            <a href="product-<?=$branch_id?>.html">
+                                                <img src="<?=$branch_row["menu_wap_image"]."?imageView2/2/w/".$menu_wap_width."/h/".$menu_wap_height?>">
+                                            </a>
+                                        </li>
+                                        <?php
+                                    }
+                                    if(count($branch_rows)%2==1)
+                                    {
+                                        $main_row=$db->query_list_id("select menu_wap_image from menu where menu_id=3");
+                                        ?>
+                                        <li tyle='margin-left:0;'>
+                                            <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".rule">
+                                                <img src="<?=$main_row["menu_wap_image"]."?imageView2/2/w/".$menu_wap_width."/h/".$menu_wap_height?>">
+                                            </a>
+                                        </li>
+                                        <?php
+                                    }
                                     ?>
-                                    <li tyle='margin-left:0;'>
-                                        <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".rule">
-                                            <img src="<?=$main_row["menu_wap_image"]."?imageView2/2/w/".$menu_wap_width."/h/".$menu_wap_height?>">
-                                        </a>
-                                    </li>
-                                    <?php
-                                }
-                                ?>
-                            </ul>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <?php
+                }
+                ?>
                 <!-- 分会场 -->
 
                 <!-- 现场热图 -->

@@ -8,7 +8,6 @@ require_once ("include-image.php");
         $light_title=$_REQUEST['light_title'];
         $light_content=$_REQUEST['light_content'];
         $light_sort=$_REQUEST['light_sort'];
-        $light_show=$_REQUEST['light_show'];
         $light_id=$_REQUEST['light_id'];
         if(empty($light_title))
         {
@@ -40,7 +39,7 @@ require_once ("include-image.php");
             }
             $sql = "update light set light_title='$light_title',"
                 . "light_content='$light_content',light_image='$light_image',"
-                . "light_sort='$light_sort',light_show='$light_show' where light_id='$light_id'";
+                . "light_sort='$light_sort' where light_id='$light_id'";
             // 获取影响的行数
             $rows = $db->edit_list($sql);
             // 返回影响行数  如果影响行数>=1,则判断添加成功,否则失败

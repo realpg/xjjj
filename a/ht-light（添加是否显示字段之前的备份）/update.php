@@ -60,14 +60,7 @@ $row =$db->query_list_id($sql);
                 <input type="text" name="light_sort" id="light_sort"
                 value="<?=$row['light_sort']?>"  class="dfinput" />
                 <i>*如果为空或非数字默认为0</i>
-            </li>
-            <li>
-                <label>是否显示：</label>
-                <select name="light_show" id="light_show" class="dfinput">
-                    <option  value="1" <?=$row['light_show']==1?"selected='selected'":""?>>是</option>
-                    <option  value="0" <?=$row['light_show']==0?"selected='selected'":""?>>否</option>
-                </select>
-            </li>
+            </li>  
             <li>
                 <label>&nbsp;</label>
                 <input type="submit" name="btnEdit" id="btnEdit" 
