@@ -1,10 +1,8 @@
 <?php
 /**
  * 专门用于操作数据库的类
- * @author LAOYANG
- *
  */
-//引入常量配置文件
+
 class Uploadfiles
 {
 	/**
@@ -693,38 +691,39 @@ class Uploadfiles
     public  function upload_file($name,$upload,$names="")
     {
         if (!empty($_FILES[$name]["name"])) 
-        { //提取文件域内容名称，并判断
-        $path = "../../$upload/"; //上传路径
-        //判断上传的文件大小
-        $filesize=$_FILES[$name]["size"];
-        if($filesize>2097152)
         {
-            return "Out of size";
-            exit;
-        }
-        //获取文件的扩展名
-        $filetypes = explode(".", $_FILES[$name]["name"]);
-        $count=count($filetypes);
-        $filetype=$filetypes[$count-1];
-        //判断扩展名
-        if (strtolower($filetype) == "doc"||strtolower($filetype) == "docx") 
-        {
-            $type = '.'.$filetype;
-        }
-        else
-        {
-            return "error in type";
-            exit;
-        }
-        $num=rand(1, 10000);
-        $today = date("YmdHis").$num; //获取时间并赋值给变量
-        $filename = $path . $today . $type; //图片的完整路径
-        $wordongsi2 = $today . $type; //图片名称
-        $editword= "$upload/".$wordongsi2;
-        $result = move_uploaded_file($_FILES[$name]["tmp_name"], $filename);
-        $arry[0]=$editword;
-        $arry[1]=$_FILES[$name]["name"];
-        return $arry;
+            //提取文件域内容名称，并判断
+            $path = "../../$upload/"; //上传路径
+            //判断上传的文件大小
+            $filesize=$_FILES[$name]["size"];
+            if($filesize>2097152)
+            {
+                return "Out of size";
+                exit;
+            }
+            //获取文件的扩展名
+            $filetypes = explode(".", $_FILES[$name]["name"]);
+            $count=count($filetypes);
+            $filetype=$filetypes[$count-1];
+            //判断扩展名
+            if (strtolower($filetype) == "doc"||strtolower($filetype) == "docx")
+            {
+                $type = '.'.$filetype;
+            }
+            else
+            {
+                return "error in type";
+                exit;
+            }
+            $num=rand(1, 10000);
+            $today = date("YmdHis").$num; //获取时间并赋值给变量
+            $filename = $path . $today . $type; //图片的完整路径
+            $wordongsi2 = $today . $type; //图片名称
+            $editword= "$upload/".$wordongsi2;
+            $result = move_uploaded_file($_FILES[$name]["tmp_name"], $filename);
+            $arry[0]=$editword;
+            $arry[1]=$_FILES[$name]["name"];
+            return $arry;
 
         }
         else
@@ -732,5 +731,6 @@ class Uploadfiles
         	return 2;
         }//END IF
     }
+
 }
 ?>

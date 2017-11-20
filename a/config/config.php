@@ -161,3 +161,8 @@ define("WORD_SCENE","现场热图");//现场热图
 
 define("BRANCH_MAIN","主会场");//主会场
 define("FREE_TICKET","免费索票");//免费索票
+
+//七牛
+define("ACCESS_KEY","JXanCoTnAoyJd4WclS-zPhA8JmWooPTqvK5RCHXb");//accessKey
+define("SECRET_KEY","ouc-dLEY42KijHeUaTzTBzFeM2Q1mKk_M_3vNpmT");//secretKey
+define("BUCKET","xjjj");//bucket

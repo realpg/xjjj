@@ -44,11 +44,8 @@ $row =$db->query_list_id($sql);
             </li>
             <li>
                 <label>图片：</label>
-                <input type="file" name="image_image" id="image_image" onchange="preview(this,'preview_image_<?=$id?>')" />
-                <i>*<?=$image_width ?>*<?=$image_height?></i><br />
-                <img src="<?=$row['image_image']?>" width="<?=$image_width/5 ?>" height="<?=$image_height/5 ?>"  />
-                <input type="hidden" name="image_images" id="image_image" value="<?=$row['image_image']?>" />
-                <div id="preview_image_<?=$id?>">预览区</div>
+                <input type="text" name="image_image" id="image_image" class="dfinput" value="<?=$row['image_image']?>" style="width:50%;" />
+            	<i>*<?=$image_width ?>*<?=$image_height?></i>
             </li>
             <li>
                 <label>是否显示：</label>

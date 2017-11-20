@@ -3,9 +3,6 @@ header("Content-Type: text/html;charset=utf-8");
 require ("../config/conn.php");//引入链接数据库
 require_once ("include-power.php");//引入权限判断
 require_once ("include-image.php");
-require_once ('../config/UploadfilesQiniu.class.php');  //引入七牛
-$files_qiniu=new UploadfilesQiniu();
-
     if(!empty($_POST['btnEdit']))
     {
     	$image_title=$_REQUEST['image_title'];
@@ -20,8 +17,7 @@ $files_qiniu=new UploadfilesQiniu();
         }
         else
         {
-            $image_images=$_REQUEST['image_images'];
-            $image_image=$files_qiniu->upload_qiniu("image_image",$image_images);
+            $image_image=$_REQUEST['image_image'];
             if(empty($image_image))
             {
                 $Log_name=$_COOKIE['login'];
@@ -31,9 +27,6 @@ $files_qiniu=new UploadfilesQiniu();
             }
             else
             {
-
-
-
                 $sql = "update image set image_title='$image_title',image_image='$image_image',image_show='$image_show' where image_id='$image_id'";
                 $rows = $db->edit_list($sql);
                 if($rows >= 1)
