@@ -61,8 +61,8 @@ if(md5($leaveword_code)==$_SESSION["verification"])
             "SMS_102310032", // 短信模板编号
             $leaveword_tel, // 短信接收者
             Array(  // 短信模板中字段的值
-//                "title"=>"国庆家居展会",
-//                "tel"=>"25614838"
+                //"title"=>"国庆家居展会",
+                //"tel"=>"25614838"
             ),
             "123"
         );

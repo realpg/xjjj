@@ -40,7 +40,7 @@ else if($SERVER_NAME=="appm.syxjhome.com")
 }
 else if($SERVER_NAME=="wechat.syxjhome.com")
 {
-    $leaveword_source="微信朋友圈";
+    $leaveword_source="微信朋友圈1";
 }
 else if($SERVER_NAME=="neteasem.syxjhome.com")
 {
@@ -56,11 +56,11 @@ else if($SERVER_NAME=="qqnews.syxjhome.com")
 }
 else if($SERVER_NAME=="youkum.syxjhome.com")
 {
-    $leaveword_source="优酷";
+    $leaveword_source="优酷-手机端";
 }
 else if($SERVER_NAME=="qiym.syxjhome.com")
 {
-    $leaveword_source="爱奇艺";
+    $leaveword_source="爱奇艺-手机端";
 }
 else if($SERVER_NAME=="sina.syxjhome.com")
 {
@@ -77,6 +77,10 @@ else if($SERVER_NAME=="himalayan.syxjhome.com")
 else if($SERVER_NAME=="delivery.syxjhome.com")
 {
     $leaveword_source="精准投放";
+}
+else if($SERVER_NAME=="wechatc.syxjhome.com")
+{
+    $leaveword_source="微信朋友圈2";
 }
 else
 {
@@ -97,8 +101,8 @@ if($row>0)
         "SMS_102310032", // 短信模板编号
         $leaveword_tel, // 短信接收者
         Array(  // 短信模板中字段的值
-//            "title"=>"国庆家居展会",
-//            "tel"=>"25614838"
+            //"title"=>"国庆家居展会",
+            //"tel"=>"25614838"
         ),
         "123"
     );
