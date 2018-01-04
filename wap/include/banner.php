@@ -4,7 +4,7 @@ if($image_banner_row)
 {
     ?>
     <div class="banner">
-        <img src="../<?=$image_banner_row["image_image"]?>" width="100%">
+        <img src="<?=$image_banner_row["image_image"]?>" width="100%">
 
         <!-- 索票input框开始 -->
         <div class="list-block" id="J_TicketForm">

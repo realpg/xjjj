@@ -62,7 +62,7 @@ require_once ("include-image.php");
         	<?=$row['image_show']==1?"<font color='red'><b>【显示】</b></font>":""?>
         </td>
         <?php
-        if($row['image_id']==12)
+        if($row['image_id']==12||$row['image_id']==1||$row['image_id']==5)
         {
             ?>
             <td>

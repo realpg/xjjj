@@ -17,8 +17,19 @@ require_once ("include-image.php");
 <body>
 <?php
 $id=$_REQUEST['id'];
-$image_width=$image_width_12;
-$image_height=$image_height_12;
+if($id==1)
+{
+    $image_width=$image_width_1;
+    $image_height=$image_height_1;
+}
+else if($id==5){
+    $image_width=$image_width_5;
+    $image_height=$image_height_5;
+}
+else{
+    $image_width=$image_width_12;
+    $image_height=$image_height_12;
+}
 $sql = "select * from image where image_id='$id'";
 $row =$db->query_list_id($sql);
 ?>
