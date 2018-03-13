@@ -14,52 +14,10 @@ $banner_row=$db->query_list_id("select image_image from image where image_id=1 a
 if($banner_row)
 {
     ?>
-    <script>
-        $(function(){
-            var win_width=$(window).width();
-            if(win_width<=1200){
-                var left=(win_width-1400)/2;
-                var b_height=(1400/1920)*585;
-                $(".t_banner_bg1").css("margin-left",left);
-                $(".t_banner_bg1").css("width","1400");
-                $(".t_banner_bg1").css("height",b_height);
-                $(".t_banner_ticket").css("width","1000");
-            }
-            else if(win_width<1500 && win_width>1200 ){
-                var left=(win_width-1500)/2
-                var b_height=(1500/1900)*585;
-                var t_width=win_width-300;
-                $(".t_banner_bg1").css("margin-left",left);
-                $(".t_banner_bg1").css("width","1500");
-                $(".t_banner_bg1").css("height",b_height);
-                $(".t_banner_ticket").css("width",t_width);
-            }
-            else if(win_width<1700 && win_width>1500){
-                var left=(win_width-1700)/2
-                var b_height=(1700/1900)*585;
-                $(".t_banner_bg1").css("margin-left",left);
-                $(".t_banner_bg1").css("width","1700");
-                $(".t_banner_ticket").css("width","1200");
-            }
-            else if(win_width<1920 && win_width>=1700){
-                var left=(win_width-1920)/2
-                $(".t_banner_bg1").css("margin-left",left);
-                $(".t_banner_ticket").css("width",win_width);
-                $(".t_banner_bg1").css("height","585");
-                $(".t_banner_ticket").css("width","1200");
-            }
-            else{
-                $(".t_banner_ticket").css("width","1920");
-                $(".t_banner_bg1").css("height","585");
-                $(".t_banner_bg1").css("margin","0 auto");
-                $(".t_banner_bg1").css("height","1200");
-            }
-        })
-    </script>
         <div class="t_banner">
             <a href="javascript:void(0);"  id="ClickMe" onclick="showpopup()">
-                <div class="t_banner_bg1" style="background:url('<?=$banner_row["image_image"]?>'); background-position:center center;background-repeat: no-repeat;background-size: 100%;" />
-                    <div class="t_banner_ticket" style="width:1200px;height:100%;margin: 0px auto; position: relative;">
+                <div class="t_banner_bg" style="width:100%; height:585px; background:url('<?=$banner_row["image_image"]?>'); background-position:top center;background-repeat: no-repeat;" />
+                    <div style="width:1200px;height:100%;margin: 0px auto; position: relative;">
                         <div style="width:410px; height:350px; position:absolute;right:0; top:15%;">
                             <div style="width:100%;color:red;font-size:32px;text-align: center;line-height: 70px; color:#fff;">
                                 免费索票

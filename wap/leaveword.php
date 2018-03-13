@@ -82,6 +82,22 @@ else if($SERVER_NAME=="wechatc.syxjhome.com")
 {
     $leaveword_source="微信朋友圈2";
 }
+else if($SERVER_NAME=="tencent.syxjhome.com")
+{
+    $leaveword_source="腾讯新闻app开屏";
+}
+else if($SERVER_NAME=="youku.syxjhome.com")
+{
+    $leaveword_source="优酷视频PC端";
+}
+else if($SERVER_NAME=="ad.syxjhome.com")
+{
+    $leaveword_source="移动互动效果广告";
+}
+else if($SERVER_NAME=="netease.syxjhome.com")
+{
+    $leaveword_source="网易";
+}
 else
 {
     $leaveword_source="百度-手机端";

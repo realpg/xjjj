@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * 放所有数据操作需要用到的一些参数
  * 使用常量来存放这些可能会发生改变的参数
@@ -14,7 +14,7 @@ define("USR", "root");
 //数据库的密码
 define("PWD","11");
 //数据库的名字
-define("DBNAME","xjjj");
+define("DBNAME","syxjhome");
 //字符集编码
 define("ENCODE","utf8");
 ?>

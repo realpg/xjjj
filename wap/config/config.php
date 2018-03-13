@@ -14,7 +14,7 @@ define("USR", "root");
 //数据库的密码
 define("PWD","11");
 //数据库的名字
-define("DBNAME","xjjj");
+define("DBNAME","syxjhome");
 //字符集编码
 define("ENCODE","utf8");
 ?>

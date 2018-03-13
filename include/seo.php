@@ -36,7 +36,18 @@ foreach($script_rows as $script_row)
 ?>
 <script type="text/JavaScript">
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        window.location.href = "/xjjj/wap/"; //可以换成http地址
+        window.location.href = "/wap/"; //可以换成http地址
     }
 </script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?437b8ead821bb897f5c680cfcffff50a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
 	

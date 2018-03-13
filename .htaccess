@@ -1,6 +1,6 @@
 <IFMODULE mod_rewrite.c>
 RewriteEngine On
-RewriteBase /xjjj/
+RewriteBase /
 RewriteRule ^index.html$ index.php
 RewriteRule ^leaveword.html$ leaveword.php
 RewriteRule ^success.html$ success.php
@@ -17,4 +17,4 @@ RewriteRule ^wap/about.html$ wap/about.php
 RewriteRule ^wap/coupon.html$ wap/coupon.php?dhid=2
 RewriteRule ^wap/coupon-(.*).html$ wap/coupon.php?dhid=2&tdhid=$1
 </IFMODULE>
-ErrorDocument 404 /xjjj/404/404.html
+ErrorDocument 404 /404/404.html

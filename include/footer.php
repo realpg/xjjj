@@ -1,4 +1,4 @@
-<div class="righ-nav" style="display: none;">
+﻿<div class="righ-nav" style="display: none;">
     <div class="right-nav-box">
         <div class="righ-nav-hd"></div>
         <div class="right-nav-menu">
@@ -45,13 +45,3 @@
         });
     });
 </script>
-
-<?php
-$script_body_rows=$db->query_lists("select * from script where script_level=2 ");
-foreach($script_body_rows as $script_body_row)
-{
-    ?>
-    <?=$script_body_row['script_content']?>
-    <?php
-}
-?>

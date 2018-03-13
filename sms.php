@@ -1,8 +1,8 @@
-<?php
+﻿<?php
 
 ini_set("display_errors", "on");
 
-require_once dirname(__DIR__) . '/sms/api_sdk/vendor/autoload.php';
+require_once './sms/api_sdk/vendor/autoload.php';
 
 use Aliyun\Core\Config;
 use Aliyun\Core\Profile\DefaultProfile;
@@ -152,5 +152,3 @@ $demo = new SmsDemo(
     "LTAIJPl7CajJZLzS",
     "Rj4yjnPsLLxVUB4rIdlmiWd1d8IKNn"
 );
-
-

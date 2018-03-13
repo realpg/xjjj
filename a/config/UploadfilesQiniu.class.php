@@ -18,8 +18,8 @@ class UploadfilesQiniu
             // 需要填写你的 Access Key 和 Secret Key
             $accessKey = 'JXanCoTnAoyJd4WclS-zPhA8JmWooPTqvK5RCHXb';
             $secretKey = 'ouc-dLEY42KijHeUaTzTBzFeM2Q1mKk_M_3vNpmT';
-            $bucket = 'xjjj';
-            $url='http://oysd3pbqr.bkt.clouddn.com/';
+            $bucket = 'dsyy';
+            $url='http://dsyy.isart.me/';
 
             // 构建鉴权对象
             $auth = new Auth($accessKey, $secretKey);

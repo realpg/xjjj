@@ -34,4 +34,15 @@ foreach($script_rows as $script_row)
 <?php
 }
 ?>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ad29f5b623672389010651f6972e4478";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
 	

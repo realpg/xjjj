@@ -8,8 +8,6 @@
     <script type="text/javascript" async="" src="./js/vds.js"></script>
     <script src="./js/hm.js"></script>
     <script src="./js/push.js"></script>
-    <!--    <script type="text/javascript">var baseUrl = "http://www.51jiabo.com/";var baseCityUrl = "http://www.51jiabo.com/sy/"</script>-->
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <link href="./css/base.css" rel="stylesheet" type="text/css">
     <link href="./css/ticket.css" rel="stylesheet" type="text/css">
     <!--[if lt IE 9]>
@@ -21,7 +19,6 @@
     <script src="./js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="./js/jquery.lazyload.min.js" type="text/javascript"></script>
     <script src="./js/jb.js" type="text/javascript"></script>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
     <link rel="stylesheet" href="./css/repair.css" />
     <script type="text/javascript" async="" src="./js/repair.js"></script>
     <link href="./css/popup/Share.css" rel="stylesheet" type="text/css">

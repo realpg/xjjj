@@ -78,8 +78,7 @@ require_once ("include-image.php");
                     $db->edit_list("insert into log (Log_name,Log_event)"
                         . "values('$Log_name','$Log_event')");
                     ////////////
-                    echo "<script>alert('".ADD_FAIL."');"
-                        . "location.href=\"select.php?level=$coupon_level\";</script>";
+                    echo "<script>alert('".ADD_FAIL."');location.href=\"select.php?level=$coupon_level\";</script>";
                 }
             }
         }

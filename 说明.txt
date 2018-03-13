@@ -1,4 +1,0 @@
-因为服务器上的代码是网站发表之后的代码，一些路径需要修改：
-1.根目录下配置文件.htaccess中的 第3行 RewriteBase /xjjj/   修改为 RewriteBase /
-2.根目录下配置文件.htaccess中的 最后一行 ErrorDocument 404 /xjjj/404/404.html   修改为 ErrorDocument 404 /404/404.html
-3.404页面中的样式路径 404文件夹下的404.html 第7行 <link rel="stylesheet" href="/xjjj/404/css/style.css" />   改为 <link rel="stylesheet" href="/404/css/style.css" />

@@ -54,7 +54,6 @@ function leaveword_f()
     else
     {
         $.post("leaveword.html",{"leaveword_name":leaveword_name,"leaveword_tel":leaveword_tel,"leaveword_code":leaveword_code},function(data){
-            // alert(data);
             if(data==1)
             {
                 location.href="success.html";

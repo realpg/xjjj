@@ -69,7 +69,7 @@
             <div class="success-info">
                 <p class="success-title">恭喜您已报名成功！</p>
                 <p class="expo-info">
-                    活动时间：2017年10月1日-10月8日<br data-filtered="filtered">活动地址：沈阳市铁西区建设大路与保工街交汇处              </p>
+                    活动时间：2018年03月31日 18:00-24:00<br data-filtered="filtered">活动地址：沈阳市铁西区建设大路与保工街交汇处              </p>
             </div>
         </div>
     </div>
