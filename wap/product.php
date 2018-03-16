@@ -55,7 +55,7 @@
                 <div class="activity" style="margin:0 0.5rem;">
                     <style>
                         .activity-list li{
-                            background: #fff;
+                            /*background: #fff;*/
                             width:48%;
                         }
                     </style>
@@ -66,7 +66,7 @@
                         {
                             ?>
                             <li <?=$k%2==0?"style='margin-left:0;'":""?> >
-                                <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".rule">
+<!--                                <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".rule">-->
 <!--                                <div class="repair-product-logo">-->
 <!--                                    <img src="../--><?//=$product_row["product_logo"]?><!--" class="repair-product-logo-d">-->
 <!--                                </div>-->
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="clear"></div>
 
-                                </a>
+<!--                                </a>-->
                             </li>
                             <?php
                         }

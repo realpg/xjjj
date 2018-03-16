@@ -47,7 +47,8 @@
 }
 .repair-product-image{
     float:left;
-    width:50%;
+    /*width:50%;*/
+    width:100%;
 }
 .repair-product-image-d{
     width:100%;
