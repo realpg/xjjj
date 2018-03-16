@@ -79,39 +79,12 @@
     <div class="page page-current" style="background:<?=$color_index["color_content"]?>;">
 <!--        <header class="bar bar-nav">-->
 <!--            <img class="ticket-logo" src="../--><?//=$company_row["company_logo"]?><!--">-->
-<!--            <h1 class="title">--><?//=$company_row["company_name"]?><!--</h1>-->
-
+<!--<!--            <h1 class="title">-->--><?////=$company_row["company_name"]?><!--<!--</h1>-->-->
+<!---->
 <!--        </header>-->
         <div class="content ticket-content native-scroll">
             <!-- Banner -->
             <?php require_once 'include/banner.php'; ?>
-
-            <!-- 活动亮点开始 -->
-            <?php
-            $light_rows=$db->query_lists("select mobile_light_image from mobile_light where mobile_light_show = '1' order by mobile_light_id asc");
-            if($light_rows)
-            {
-                ?>
-                <div class="activity" style="margin:0 2.5rem;">
-                    <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">活动亮点</div>
-                    <ul class="activity-list clearfix">
-                        <?php
-                        foreach ($light_rows as $k=>$light_row)
-                        {
-                            ?>
-                            <!--                                    <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".activity-rule" data-title="--><?//=$light_row["light_title"]?><!--" data-content="--><?//=$light_row["light_content"]?><!--">-->
-                            <img src="../<?=$light_row["mobile_light_image"]?>" width="100%" style="border-radius: .5rem;margin-top: 0.5rem;">
-                            <!--                                    </a>-->
-                            <?php
-                        }
-                        ?>
-                    </ul>
-                </div>
-                <?php
-            }
-            ?>
-            <!-- 活动亮点开始 -->
-
             <div class="main-wap" style='margin-top:0px;'>
 				<!-- 产品展示 -->
                 <script language="javascript">
@@ -176,19 +149,98 @@
                                 <ul class="nav-con-in clearfix" <?=$k==0?"style='display:block;'":""?>  id="d_<?=$k+1?>">
                                     <?php
                                     $product_level = $menu_row["menu_id"];
-                                    $product_rows = $db->query_lists("select * from mobile_product where mobile_product_level=$product_level and mobile_product_show=1 order by mobile_product_sort desc,mobile_product_id asc limit 0,6");
+                                    $product_rows = $db->query_lists("select * from product where product_level=$product_level and product_show=1 order by product_sort desc,product_id asc limit 0,6");
                                     foreach ($product_rows as $k => $product_row) {
                                         ?>
                                         <li <?= $k % 2 == 0 ? "" : "style='float:right;'" ?>>
-<!--                                            <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".rule">-->
+                                            <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".rule">
                                                 <div style="background:#fff;height:4rem;">
-                                                    <div class="repair-product-image" style="width: 100%;">
-                                                        <img src="../<?= $product_row["mobile_product_image"] ?>"
+                                                    <div class="repair-product-logo">
+                                                        <img src="../<?= $product_row["product_logo"] ?>"
+                                                             class="repair-product-logo-d">
+                                                    </div>
+                                                    <div class="repair-product-image">
+                                                        <img src="../<?= $product_row["product_image"] ?>"
                                                              class="repair-product-image-d">
                                                     </div>
                                                 </div>
                                                 <div class="clear"></div>
-<!--                                            </a>-->
+                                                <div class="repair-product-box">
+                                                    <div class="repair-product-seat"></div>
+                                                    <div class="repair-hidden color-black"><?= $product_row["product_title"] ?></div>
+                                                    <div class="repair-hidden color-black">
+                                                        工厂批发价：<?= $product_row["product_price"] ?></div>
+                                                    <div class="repair-hidden color-red">
+                                                        限时价：<b><?= $product_row["product_sell"] ?></b>&nbsp;
+                                                    </div>
+                                                    <div class="repair-hidden color-red"
+                                                         id="product_time_<?= $product_row["product_id"] ?>">
+                                                        <!--                                                    <span class="repair-product-span" style="color:red;">倒计时：</span>-->
+                                                        <span class="repair-product-span font-weight" style="color:red;"
+                                                              id="day_show_<?= $product_row["product_id"] ?>"></span>
+                                                        <span class="repair-product-span font-weight" style="color:red;"
+                                                              id="hour_show_<?= $product_row["product_id"] ?>"></span>
+                                                        <span class="repair-product-span font-weight" style="color:red;"
+                                                              id="minute_show_<?= $product_row["product_id"] ?>"></span>
+                                                        <span class="repair-product-span font-weight" style="color:red;"
+                                                              id="second_show_<?= $product_row["product_id"] ?>"></span>
+                                                    </div>
+                                                    <script type="text/javascript">
+                                                        $(function () {
+                                                            show_time_<?=$product_row["product_id"]?>();
+                                                        });
+
+                                                        function show_time_<?=$product_row["product_id"]?>() {
+                                                            var time_start = new Date().getTime(); //设定当前时间
+
+                                                            var time_end =  new Date("<?=date("Y/m/d H:i:s",strtotime($product_row["product_end"]))?>").getTime(); //设定目标时间
+                                                            // 计算时间差
+                                                            var time_distance = time_end - time_start;
+                                                            /*判断活动是否结束*/
+                                                            if (time_distance < 0) {
+
+                                                                int_day = 0;
+                                                                int_hour = 0;
+                                                                int_minute = 0;
+                                                                int_second = 0;
+                                                                $("#product_time_<?=$product_row["product_id"]?>").html("<b>活动已结束</b>");
+                                                            } else {
+                                                                // 天
+                                                                var int_day = Math.floor(time_distance / 86400000)
+                                                                time_distance -= int_day * 86400000;
+                                                                // 时
+                                                                var int_hour = Math.floor(time_distance / 3600000)
+                                                                time_distance -= int_hour * 3600000;
+                                                                // 分
+                                                                var int_minute = Math.floor(time_distance / 60000)
+                                                                time_distance -= int_minute * 60000;
+                                                                // 秒
+                                                                var int_second = Math.floor(time_distance / 1000)
+                                                                // 时分秒为单数时、前面加零
+                                                                if (int_day < 10) {
+                                                                    int_day = "0" + int_day;
+                                                                }
+                                                                if (int_hour < 10) {
+                                                                    int_hour = "0" + int_hour;
+                                                                }
+                                                                if (int_minute < 10) {
+                                                                    int_minute = "0" + int_minute;
+                                                                }
+                                                                if (int_second < 10) {
+                                                                    int_second = "0" + int_second;
+                                                                }
+                                                            }
+                                                            // 显示时间
+                                                            $("#day_show_<?=$product_row["product_id"]?>").html(int_day + "天");
+                                                            $("#hour_show_<?=$product_row["product_id"]?>").html(int_hour + "时");
+                                                            $("#minute_show_<?=$product_row["product_id"]?>").html(int_minute + "分");
+                                                            $("#second_show_<?=$product_row["product_id"]?>").html(int_second + "秒");
+                                                            // 设置定时器
+                                                            setTimeout("show_time_<?=$product_row["product_id"]?>()", 1000);
+                                                        }
+                                                    </script>
+                                                </div>
+                                            </a>
                                         </li>
                                         <?php
                                     }
@@ -360,35 +412,31 @@
                 ?>
                 <!-- 优惠券 -->
                 <!-- 活动亮点开始 -->
-<!--                --><?php
-//                $light_rows=$db->query_lists("select mobile_light_image from mobile_light where mobile_light_show = '1' order by mobile_light_id asc");
-//                if($light_rows)
-//                {
-//                    ?>
-<!--                    <div class="activity" style="margin:0 2.5rem;">-->
-<!--                        <div class="tit" -->
-<!--                             style="color:--><?//=$color_font["color_content"]?>
-<!--                ;-->
-<!--/*                                     background: url('..-->
-<!--                --><?//=$tit_background['image_image']?><!--');-->
-<!--                background-size: 100%;">-->
-<!--                            活动亮点</div>-->
-<!--                        <ul class="activity-list clearfix">-->
-<!--                            --><?php
-//                            foreach ($light_rows as $k=>$light_row)
-//                            {
-//                                ?>
-<!--                                    <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".activity-rule" data-title="--><?//=$light_row["light_title"]?><!--" data-content="--><?//=$light_row["light_content"]?><!--">-->
-<!--                                <img src="../--><?//=$light_row["mobile_light_image"]?><!--" width="100%" style="border-radius: .5rem;margin-top: 0.5rem;">-->
-<!--                                    </a>-->
-<!--                                --><?php
-//                            }
-//                            ?>
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                    --><?php
-//                }
-//                ?>
+                <?php
+                $light_rows=$db->query_lists("select light_title,light_image,light_content from light where light_show=1 order by light_sort asc,light_id asc");
+                if($light_rows)
+                {
+                    ?>
+                    <div class="activity" style="margin:0 0.5rem;">
+                        <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">活动亮点</div>
+                        <ul class="activity-list clearfix">
+                            <?php
+                            foreach ($light_rows as $k=>$light_row)
+                            {
+                                ?>
+                                <li <?=$k%2==0?"style='margin-left:0;'":""?>>
+                                    <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".activity-rule" data-title="<?=$light_row["light_title"]?>" data-content="<?=$light_row["light_content"]?>">
+                                        <img src="../<?=$light_row["light_image"]?>" width="100%" style="border-radius: .5rem;">
+                                    </a>
+                                </li>
+                                <?php
+                            }
+                            ?>
+                        </ul>
+                    </div>
+                    <?php
+                }
+                ?>
                 <!-- 活动亮点开始 -->
 
                 

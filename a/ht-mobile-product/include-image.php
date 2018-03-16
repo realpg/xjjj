@@ -7,18 +7,16 @@ $water_powers= explode(",", $waterpower);
 $water_id_count=0;
 foreach ($water_powers as $water_power)
 {
-    if($water_power==140)
+    if($water_power==100)
     {
         $water_id_count=1;
     }
 }
-$upload="upload/brand/";
+$upload="upload/product/";
 $logo_width=192;
 $logo_height=102;
-$image_width=130;
-$image_height=160;
-//$image_width=291;
-//$image_height=218;
+$image_width=384;
+$image_height=288;
 if($water_id_count==1)
 {
     $watermark=$company_row['company_water_image'];
