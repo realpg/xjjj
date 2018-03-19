@@ -72,7 +72,7 @@ require_once ("include-image.php");
             <?=$row['mobile_light_show']==1?"<font color='red'><b>【显示】</b></font>":""?>
             <?=$row['mobile_light_show']==0?"<font color='red'><b>【隐藏】</b></font>":""?>
         </td>
-        <td><img src="../../<?=$row['mobile_light_image']?>" width="<?=$image_width/3 ?>px" height="<?=$image_height/3 ?>px" /></td>
+        <td><img src="<?=$row['mobile_light_image']?>" width="<?=$image_width/3 ?>px" height="<?=$image_height/3 ?>px" /></td>
         <td>
             <a href="update.php?id=<?=$row['mobile_light_id']?>">
                 <img src="../images/t02.png" >

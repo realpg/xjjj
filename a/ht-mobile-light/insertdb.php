@@ -3,23 +3,27 @@ header("Content-Type: text/html;charset=utf-8");
 require ("../config/conn.php");//引入链接数据库
 require_once ("include-power.php");//引入权限判断
 require_once ("include-image.php");
+require_once ('../config/UploadfilesQiniu.class.php');  //引入七牛
+$files_qiniu=new UploadfilesQiniu();
     if(!empty($_REQUEST['btnAdd']))
     {
-            $mobile_light_img=$files->upload_image("mobile_light_image", $upload, "", $image_width, $image_height);
-            if($mobile_light_img=="Out of size")
-            {
-                echo IMAGE_SIZE;
-                return;
-            }
-            else if($mobile_light_img=="error in type")
-            {
-                echo IMAGE_FORMAT;
-                return;
-            }
-            else
-            {
-                $mobile_light_image=$mobile_light_img;
-            }
+//            $mobile_light_img=$files->upload_image("mobile_light_image", $upload, "", $image_width, $image_height);
+//            if($mobile_light_img=="Out of size")
+//            {
+//                echo IMAGE_SIZE;
+//                return;
+//            }
+//            else if($mobile_light_img=="error in type")
+//            {
+//                echo IMAGE_FORMAT;
+//                return;
+//            }
+//            else
+//            {
+//                $mobile_light_image=$mobile_light_img;
+//            }
+        $mobile_light_image=$_REQUEST['mobile_light_image'];
+        $mobile_light_image=$files_qiniu->upload_qiniu("mobile_light_image",$mobile_light_image);
             if(empty($mobile_light_image))
             {
                 ///////////

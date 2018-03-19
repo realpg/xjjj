@@ -3,28 +3,31 @@ header("Content-Type: text/html;charset=utf-8");
 require ("../config/conn.php");//引入链接数据库
 require_once ("include-power.php");//引入权限判断
 require_once ("include-image.php");
+require_once ('../config/UploadfilesQiniu.class.php');  //引入七牛
+$files_qiniu=new UploadfilesQiniu();
     if(!empty($_POST['btnEdit']))
     { 
 //
             $mobile_light_show=$_REQUEST['mobile_light_show'];
-        $mobile_light_id=$_REQUEST['mobile_light_id'];
+            $mobile_light_id=$_REQUEST['mobile_light_id'];
 //
             $mobile_light_images=$_REQUEST['mobile_light_images'];
-            $light_img=$files->upload_image("mobile_light_image", "upload/light/",$mobile_light_images);
-            if($light_img=="Out of size")
-            {
-                echo IMAGE_SIZE;
-                return;
-            }
-            else if($light_img=="error in type")
-            {
-                echo IMAGE_FORMAT;
-                return;
-            }
-            else
-            {
-                $mobile_light_image=$light_img;
-            }
+        $mobile_light_image=$files_qiniu->upload_qiniu("mobile_light_image",$mobile_light_images);
+//            $light_img=$files->upload_image("mobile_light_image", "upload/light/",$mobile_light_images);
+//            if($light_img=="Out of size")
+//            {
+//                echo IMAGE_SIZE;
+//                return;
+//            }
+//            else if($light_img=="error in type")
+//            {
+//                echo IMAGE_FORMAT;
+//                return;
+//            }
+//            else
+//            {
+//                $mobile_light_image=$light_img;
+//            }
             $sql = "update mobile_light set mobile_light_image='$mobile_light_image',mobile_light_show='$mobile_light_show' where mobile_light_id='$mobile_light_id'";
             // 获取影响的行数
             $rows = $db->edit_list($sql);

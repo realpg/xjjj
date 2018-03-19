@@ -92,7 +92,7 @@
             if($light_rows)
             {
                 ?>
-                <div class="activity" style="margin:0 2.5rem;">
+                <div class="activity" style="margin:0 0.5rem;">
                     <div class="tit" style="color:<?=$color_font["color_content"]?>;background: url('../<?=$tit_background['image_image']?>');background-size: 100%;">活动亮点</div>
                     <ul class="activity-list clearfix">
                         <?php
@@ -100,7 +100,7 @@
                         {
                             ?>
                             <!--                                    <a href="javascript:void(0);" class="open-popup activity_click" data-id="0" data-popup=".activity-rule" data-title="--><?//=$light_row["light_title"]?><!--" data-content="--><?//=$light_row["light_content"]?><!--">-->
-                            <img src="../<?=$light_row["mobile_light_image"]?>" width="100%" style="margin-top: 0.5rem;">
+                            <img src="<?=$light_row["mobile_light_image"]?>" width="100%" style="margin-top: 0.5rem;">
                             <!--                                    </a>-->
                             <?php
                         }

@@ -46,7 +46,7 @@ $row =$db->query_list_id($sql);
                 <label>图片：</label>
                 <input type="file" name="mobile_light_image" id="mobile_light_image" onchange="preview(this,'preview_light')" />
                 <i>*<?=$image_width ?>*<?=$image_height ?></i><br />
-                <img src="../../<?=$row['mobile_light_image']?>" width="<?=$image_width ?>px" height="<?=$image_height ?>px"/>
+                <img src="<?=$row['mobile_light_image']?>" width="<?=$image_width ?>px" height="<?=$image_height ?>px"/>
                 <input type="hidden" name="mobile_light_images" id="mobile_light_image"
                        value="<?=$row['mobile_light_image']?>" />
                 <div id="preview_light">预览区</div>
